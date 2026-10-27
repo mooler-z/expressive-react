@@ -1,0 +1,57 @@
+name: Release
+
+# Publishes the `expressive-react` npm package when a version tag is pushed:
+#   1. bump packages/expressive-react/package.json "version"   2. commit   3. git tag vX.Y.Z && git push --tags
+# Auth uses npm trusted publishing (OIDC): no npm token is stored in this repo.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write # create the GitHub release
+  id-token: write # npm trusted publishing + provenance
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    environment:
+      name: npm
+      url: https://www.npmjs.com/package/expressive-react
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+
+      # Trusted publishing needs npm 11.5+
+      - run: npm install -g npm@latest
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Tag must match the package version
+        run: |
+          version=$(node -p "require('./packages/expressive-react/package.json').version")
+          test "v$version" = "${GITHUB_REF_NAME}" || { echo "::error::tag ${GITHUB_REF_NAME} ≠ package version v$version"; exit 1; }
+
+      # Same gates as CI: registry check, typecheck, site build
+      - run: pnpm build
+
+      - name: Build and inspect the package
+        working-directory: packages/expressive-react
+        run: |
+          node scripts/build.mjs
+          npm pack --dry-run --ignore-scripts
+
+      - name: Publish to npm
+        working-directory: packages/expressive-react
+        run: npm publish --provenance --access public --ignore-scripts
+
+      - name: GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "${GITHUB_REF_NAME}" --generate-notes --title "expressive-react ${GITHUB_REF_NAME}"

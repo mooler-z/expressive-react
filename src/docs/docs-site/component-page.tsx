@@ -215,9 +215,21 @@ export function ComponentPage({ page, doc }: { page: DocsPageRef; doc: Component
   )
 }
 
-/** CLI / Manual install, derived from registry/<id>.json and the real source files. */
+/** Runtime exports of a module's source (`export { A, type B }`, `export function C`…), types excluded. */
+function exportNames(source: string) {
+  const names = new Set<string>()
+  for (const [, list] of source.matchAll(/export\s*\{([^}]+)\}/g))
+    for (const part of list.split(",")) {
+      const name = part.trim().split(/\s+as\s+/).pop()?.trim()
+      if (name && !part.trim().startsWith("type ")) names.add(name)
+    }
+  for (const [, name] of source.matchAll(/export\s+(?:async\s+)?(?:function|const|class)\s+(\w+)/g)) names.add(name)
+  return [...names]
+}
+
+/** CLI / npm / Manual install, derived from registry/<id>.json and the real source files. */
 function Installation({ id }: { id: string }) {
-  const [mode, setMode] = React.useState<"cli" | "manual">("cli")
+  const [mode, setMode] = React.useState<"cli" | "npm" | "manual">("cli")
   const item = registryItem(id)
   const files = item?.files ?? []
   const deps = item?.dependencies ?? []
@@ -225,7 +237,7 @@ function Installation({ id }: { id: string }) {
   const [sources, setSources] = React.useState<Record<string, string | null>>({})
 
   React.useEffect(() => {
-    if (mode !== "manual") return
+    if (mode === "cli") return
     let live = true
     Promise.all(files.map(async (f) => [f.path, await loadSource(f.path)] as const)).then((entries) => live && setSources(Object.fromEntries(entries)))
     return () => {
@@ -244,6 +256,7 @@ function Installation({ id }: { id: string }) {
         onChange={setMode}
         options={[
           { id: "cli", label: "CLI" },
+          { id: "npm", label: "npm" },
           { id: "manual", label: "Manual" },
         ]}
       />
@@ -252,6 +265,21 @@ function Installation({ id }: { id: string }) {
           <Terminal commands={[installCommand(id)]} />
           <p className="mt-3 text-body-md text-on-surface-variant">
             Needs the <InlineCode>@expressive</InlineCode> registry in your components.json. Not there yet? <TextLink to="/docs/install">Run init first</TextLink>.
+          </p>
+        </div>
+      ) : mode === "npm" ? (
+        <div className="mt-4">
+          <Terminal commands={["npm i expressive-react"]} />
+          {(() => {
+            const main = files[0] && sources[files[0].path]
+            if (main === undefined) return <div className="mt-3 h-14 animate-pulse rounded-lg bg-surface-container-high" />
+            const names = main ? exportNames(main) : []
+            const code = `import { ${names.length ? names.join(", ") : "…"} } from "expressive-react/${id}"`
+            return <CodePanel className="mt-3" filename="Import" code={code} preClassName="p-4" />
+          })()}
+          <p className="mt-3 text-body-md text-on-surface-variant">
+            The package ships the same code as the registry, compiled. Import the theme once with{" "}
+            <InlineCode>@import "expressive-react/styles.css"</InlineCode> after Tailwind; see <TextLink to="/docs/install">Installation</TextLink>.
           </p>
         </div>
       ) : (

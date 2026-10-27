@@ -40,6 +40,12 @@ jobs:
           test -f dist/r/button.json
           echo "registry items: $(ls dist/r | wc -l)"
 
+      - name: npm package builds and packs
+        working-directory: packages/expressive-react
+        run: |
+          node scripts/build.mjs
+          npm pack --dry-run --ignore-scripts
+
       - if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         uses: actions/upload-artifact@v7
         with:

@@ -1,0 +1,79 @@
+{
+  "name": "expressive-react",
+  "version": "1.0.0",
+  "description": "Material 3 Expressive components for React: shape-morphing buttons, springy motion and dynamic color. Built on React Aria Components and Tailwind CSS v4.",
+  "keywords": [
+    "material",
+    "material-3",
+    "m3",
+    "material-you",
+    "expressive",
+    "react",
+    "react-aria",
+    "tailwindcss",
+    "components",
+    "ui",
+    "design-system",
+    "shadcn"
+  ],
+  "homepage": "https://expressive-react.moolerz.et",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mooler-z/expressive-react.git",
+    "directory": "packages/expressive-react"
+  },
+  "bugs": {
+    "url": "https://github.com/mooler-z/expressive-react/issues"
+  },
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./styles.css": {
+      "style": "./dist/styles.css",
+      "default": "./dist/styles.css"
+    },
+    "./package.json": "./package.json",
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "style": "./dist/styles.css",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "prepack": "node scripts/build.mjs"
+  },
+  "peerDependencies": {
+    "react": ">=19",
+    "react-dom": ">=19",
+    "tailwindcss": ">=4.1"
+  },
+  "dependencies": {
+    "@internationalized/date": "^3.12.4",
+    "@material/material-color-utilities": "^0.4.0",
+    "clsx": "^2.1.1",
+    "react-aria-components": "^1.22.1",
+    "react-resizable-panels": "^4.15.0",
+    "recharts": "^3.10.1",
+    "tailwind-merge": "^3.7.0",
+    "tailwind-variants": "^3.3.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

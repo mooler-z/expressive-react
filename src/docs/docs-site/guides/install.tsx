@@ -1,7 +1,7 @@
-import { Callout, CodePanel, InlineCode, Step, Steps, Terminal, TextLink } from "@/docs/docs-site/primitives"
+import { Callout, CodePanel, InlineCode, SectionHeading, Step, Steps, Terminal, TextLink } from "@/docs/docs-site/primitives"
 import { REGISTRY_URL } from "@/docs/docs-site/registry"
 
-export const lead = "Four steps. React 19, Tailwind CSS v4 and the shadcn CLI are the only prerequisites."
+export const lead = "Copy the source with the shadcn CLI (four steps), or install the npm package. React 19 and Tailwind CSS v4 are the only prerequisites."
 
 const registryJson = `{
   "registries": {
@@ -24,6 +24,17 @@ const provider = `import { ThemeProvider } from "@/components/ui/theme-provider"
 export function Providers({ children }: { children: React.ReactNode }) {
   return <ThemeProvider defaultMode="system">{children}</ThemeProvider>
 }`
+
+const npmCss = `@import "tailwindcss";
+@import "expressive-react/styles.css";`
+
+const npmUsage = `import { Button } from "expressive-react/button"
+import { Icon } from "expressive-react/icon"
+import { ThemeProvider } from "expressive-react/theme-provider"
+
+<ThemeProvider defaultMode="system">
+  <Button icon={<Icon name="add" />}>Create</Button>
+</ThemeProvider>`
 
 export default function Installation() {
   return (
@@ -71,6 +82,34 @@ export default function Installation() {
           the CLI asks before replacing yours. The theme does override Tailwind's breakpoints and radius scale with M3 values; see{" "}
           <TextLink to="/docs/theming">Theming</TextLink>.
         </Callout>
+      </div>
+
+      <div className="mt-14">
+        <SectionHeading id="npm">Or install from npm</SectionHeading>
+        <p className="mt-3 text-body-lg text-on-surface-variant">
+          Prefer a dependency you update instead of code you own? The <InlineCode>expressive-react</InlineCode> package ships the same components, compiled, with
+          one entry point per component.
+        </p>
+        <div className="mt-6">
+          <Steps>
+            <Step title="Install">
+              <Terminal className="mt-3" commands={["npm i expressive-react"]} />
+            </Step>
+            <Step title="Import the theme">
+              <p className="mt-1 text-body-md text-on-surface-variant">
+                Once, right after Tailwind. It also registers the package as a Tailwind source, so no <InlineCode>@source</InlineCode> line is needed. Load the
+                fonts as above.
+              </p>
+              <CodePanel className="mt-3" filename="app/globals.css" icon="css" code={npmCss} />
+            </Step>
+            <Step title="Use components">
+              <p className="mt-1 text-body-md text-on-surface-variant">
+                Each component page lists its exact import. Everything is also re-exported from <InlineCode>expressive-react</InlineCode>.
+              </p>
+              <CodePanel className="mt-3" filename="app/page.tsx" code={npmUsage} />
+            </Step>
+          </Steps>
+        </div>
       </div>
     </>
   )

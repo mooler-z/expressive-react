@@ -49,6 +49,24 @@ import { ThemeProvider } from "@/components/ui/theme-provider"
 </ThemeProvider>
 ```
 
+## Or install from npm
+
+The same components are published as the [`expressive-react`](https://www.npmjs.com/package/expressive-react) package: one entry point per component, ESM with types, `"use client"` kept.
+
+```bash
+npm i expressive-react
+```
+
+```css
+@import "tailwindcss";
+@import "expressive-react/styles.css"; /* also registers the package as a Tailwind source */
+```
+
+```tsx
+import { Button } from "expressive-react/button"
+import { ThemeProvider } from "expressive-react/theme-provider"
+```
+
 ## Usage
 
 ```tsx

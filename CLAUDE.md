@@ -130,6 +130,26 @@ Pages that are really apps (Landing, Admin) render their own chrome. The others 
 - **Don't edit** `src/lib/utils.ts`, `package.json`, `catalog.ts`, `section.tsx`, `docs-header.tsx`, `app.tsx` or `registry.json`, and don't run `pnpm add`. Report what you need (new twMerge names, npm packages) instead. Already installed: react-router, recharts, embla-carousel-react, react-resizable-panels, @internationalized/date, motion.
 - `pnpm typecheck` covers the whole repo. Errors in files you don't own are other agents' work in progress, so ignore them.
 
+## npm package: `packages/expressive-react`
+
+The registry and the npm package ship **the same source**. `packages/expressive-react/scripts/build.mjs` does the following:
+
+1. Stages `src/components/ui/*`, `src/hooks/*` and `src/lib/utils.ts` flat, rewriting `@/…` imports to `./x.js`.
+2. Generates an `index.ts` barrel.
+3. Compiles each file with `tsc` to ESM plus `.d.ts`.
+4. Writes `dist/styles.css` (the theme plus `@source "./"`, so Tailwind scans the package).
+
+The package's subpath exports (`expressive-react/<name>`) match registry names and `/docs/<name>`. **Never edit `dist/`** — change the source in `src/` and both the registry and the package follow.
+
+The build fails on export-name collisions in the barrel and on any `@/` import outside ui, hooks and lib/utils. Keep every shipped module's exported names unique across the library.
+
+**Releases:**
+1. Bump `"version"` in `packages/expressive-react/package.json` and commit.
+2. Tag and push: `git tag vX.Y.Z && git push --tags`.
+3. `.github/workflows/release.yml` checks the tag against the version, builds and publishes with provenance through npm trusted publishing, then creates the GitHub release.
+
+CI (`deploy.yml`) also builds and packs the package on every push.
+
 ## Commands
 
 ```bash
@@ -137,6 +157,8 @@ pnpm dev             # docs/playground at localhost:5173
 pnpm typecheck       # tsc -b
 pnpm registry:build  # registry.json → public/r/*.json (gitignored, served at /r/{name}.json)
 pnpm build           # registry + typecheck + docs build (dist/ includes /r)
+pnpm package:build   # npm package → packages/expressive-react/dist
+pnpm package:pack    # build + npm pack (inspect the tarball)
 ```
 
 ## Gotchas
