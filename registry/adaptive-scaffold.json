@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "adaptive-scaffold",
+  "type": "registry:block",
+  "title": "Adaptive scaffold",
+  "description": "M3 navigation suite: navigation bar + FAB on compact windows, a collapsed rail (modal when opened) on medium and expanded, an expanded rail with brand and extended FAB on large and up.",
+  "registryDependencies": [
+    "@expressive/fab",
+    "@expressive/icon",
+    "@expressive/navigation-bar",
+    "@expressive/navigation-rail",
+    "@expressive/use-window-size-class",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/layouts/window-size.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/layouts/adaptive-scaffold.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "layouts"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feed-layout",
+  "type": "registry:block",
+  "title": "Feed layout",
+  "description": "M3 canonical feed: equal-weight cards on 1 / 2 / 3 / 4 columns by window size class, 24dp gutters, items can span two columns.",
+  "registryDependencies": [
+    "@expressive/use-window-size-class",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/layouts/window-size.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/layouts/feed-layout.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "layouts"
+  ]
+}

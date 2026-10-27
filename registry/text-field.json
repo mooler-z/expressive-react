@@ -1,0 +1,21 @@
+{
+  "name": "text-field",
+  "type": "registry:ui",
+  "title": "Text field",
+  "description": "M3 filled and outlined text fields: floating (notched) label, icons, prefix/suffix, supporting text, error, counter, multiline. Exports FieldContainer for other field-like controls.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/text-field.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "docs": "Needs the field-*/caret/search additions in expressive.css. Re-add @expressive/theme if your copy predates them."
+}

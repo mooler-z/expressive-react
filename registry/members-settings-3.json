@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "members-settings-3",
+  "type": "registry:block",
+  "title": "Members · seats & teams",
+  "description": "Seat usage meter and team cards with add-member.",
+  "registryDependencies": [
+    "@expressive/avatar",
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/members-settings-3.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "settings"
+  ]
+}

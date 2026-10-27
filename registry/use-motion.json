@@ -1,0 +1,16 @@
+{
+  "name": "use-motion",
+  "type": "registry:hook",
+  "title": "useMotion helpers",
+  "description": "M3 Expressive spring timings for the Web Animations API, plus prefers-reduced-motion helpers.",
+  "registryDependencies": [
+    "@expressive/use-media-query",
+    "@expressive/theme"
+  ],
+  "files": [
+    {
+      "path": "src/hooks/use-motion.ts",
+      "type": "registry:hook"
+    }
+  ]
+}

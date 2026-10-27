@@ -1,0 +1,21 @@
+{
+  "name": "snackbar",
+  "type": "registry:ui",
+  "title": "Snackbar",
+  "description": "Queued, announced M3 snackbars with an imperative snackbar() API, actions, close icon and spring enter/exit.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/utils"
+  ],
+  "docs": "Mount <SnackbarRegion /> once near your app root, then call snackbar(\"Saved\").",
+  "files": [
+    {
+      "path": "src/components/ui/snackbar.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

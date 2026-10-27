@@ -1,0 +1,18 @@
+{
+  "name": "scroll-area",
+  "type": "registry:ui",
+  "title": "Scroll area",
+  "description": "Native scrolling with thin themed scrollbars, edge fades, prev/next buttons and mouse drag-to-scroll.",
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/use-drag-scroll",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/scroll-area.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

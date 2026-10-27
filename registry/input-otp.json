@@ -1,0 +1,20 @@
+{
+  "name": "input-otp",
+  "type": "registry:ui",
+  "title": "Input OTP",
+  "description": "One-time code / PIN input: segmented cells over a single real input (paste, SMS autofill, a11y).",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/input-otp.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "docs": "Needs the field-*/caret/search additions in expressive.css. Re-add @expressive/theme if your copy predates them."
+}

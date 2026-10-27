@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pane-layout",
+  "type": "registry:block",
+  "title": "Fixed + flexible panes",
+  "description": "A 360dp fixed pane, a flexible pane and the 24dp spacer that doubles as the M3 drag handle. Stacks on compact windows.",
+  "registryDependencies": [
+    "@expressive/resizable",
+    "@expressive/use-window-size-class",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/layouts/window-size.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/layouts/pane-layout.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "layouts"
+  ]
+}

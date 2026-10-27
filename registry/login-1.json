@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "login-1",
+  "type": "registry:block",
+  "title": "Login · centered card",
+  "description": "Email + password sign-in card with show/hide, keep-me-signed-in, SSO and live email validation.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/checkbox",
+    "@expressive/divider",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/snackbar",
+    "@expressive/text-field",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/login-1.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "authentication"
+  ]
+}

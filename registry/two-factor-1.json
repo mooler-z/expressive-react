@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "two-factor-1",
+  "type": "registry:block",
+  "title": "Two-factor · code challenge",
+  "description": "Authenticator code challenge with trust-this-device and backup codes.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/checkbox",
+    "@expressive/icon",
+    "@expressive/input-otp",
+    "@expressive/shape",
+    "@expressive/snackbar",
+    "@expressive/text-field",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/two-factor-1.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "authentication"
+  ]
+}

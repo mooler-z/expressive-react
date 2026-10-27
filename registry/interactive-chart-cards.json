@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "interactive-chart-cards",
+  "type": "registry:block",
+  "title": "Interactive chart cards",
+  "description": "Traffic with chart-type switch, legend toggles and compare overlay; a pausable live stream; a spend drill-down; a metric switcher; small multiples that expand; SLO rings.",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "@expressive/button-group",
+    "@expressive/chart",
+    "@expressive/dialog",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/menu",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/dashboard-kit/kit-data.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/dashboard-kit/kit-chart-parts.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/dashboard-kit/chart-card.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/dashboard-kit/interactive-charts.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "dashboard",
+    "charts"
+  ]
+}

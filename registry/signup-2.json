@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "signup-2",
+  "type": "registry:block",
+  "title": "Signup · multi-step",
+  "description": "Three-step workspace setup with a vertical stepper, segmented team size and platform chips.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/button-group",
+    "@expressive/chip",
+    "@expressive/icon",
+    "@expressive/snackbar",
+    "@expressive/text-field",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/signup-2.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "authentication"
+  ]
+}

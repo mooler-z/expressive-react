@@ -1,0 +1,32 @@
+# Dependencies & build output
+node_modules
+dist
+*.tsbuildinfo
+.vite
+
+# Generated registry output (rebuilt by `pnpm registry:build`; CI builds it before deploying)
+public/r/
+
+# Local-only design source (M3 Expressive kit + site design). Referenced by CLAUDE.md, never committed.
+design-reference/
+
+# Env, logs, OS & editor files
+.env
+.env.*
+!.env.example
+*.log
+npm-debug.log*
+pnpm-debug.log*
+.DS_Store
+*.local
+.idea
+.vscode/*
+!.vscode/extensions.json
+
+# Test artifacts
+coverage
+playwright-report
+test-results
+
+# Local Claude Code settings (CLAUDE.md is committed)
+.claude/settings.local.json

@@ -1,0 +1,19 @@
+{
+  "name": "divider",
+  "type": "registry:ui",
+  "title": "Divider",
+  "description": "1dp outline-variant divider: full, inset, middle-inset, vertical, or with a label.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/divider.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

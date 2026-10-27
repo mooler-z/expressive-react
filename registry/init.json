@@ -1,0 +1,13 @@
+{
+  "name": "init",
+  "type": "registry:item",
+  "title": "Expressive React",
+  "description": "Theme tokens, utilities, icons and the ThemeProvider. Install this first.",
+  "registryDependencies": [
+    "@expressive/theme",
+    "@expressive/utils",
+    "@expressive/icon",
+    "@expressive/theme-provider"
+  ],
+  "docs": "Next: add `@import \"./styles/expressive.css\";` (path relative to your CSS file) right after `@import \"tailwindcss\";`, wrap your app in <ThemeProvider>, and load Roboto Flex + Material Symbols Rounded from Google Fonts. See the README."
+}

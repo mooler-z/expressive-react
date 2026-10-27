@@ -1,0 +1,34 @@
+{
+  "name": "marketing-about",
+  "type": "registry:block",
+  "title": "About page",
+  "description": "Mission with stats, values, leadership grid and a milestones timeline.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/reveal",
+    "@expressive/ripple",
+    "@expressive/shape",
+    "@expressive/snackbar",
+    "@expressive/use-magnetic",
+    "@expressive/use-tilt",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/marketing/marketing-about.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-shared.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "marketing"
+  ]
+}

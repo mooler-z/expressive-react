@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "app-shell-2",
+  "type": "registry:block",
+  "title": "App shell · drawer + tabs",
+  "description": "Standard drawer with a title card and grouped destinations; tabs filter the page. Below 840px the drawer opens as a modal.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/navigation-drawer",
+    "@expressive/snackbar",
+    "@expressive/tabs",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/app-shell-2.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "shell"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "combobox",
+  "type": "registry:ui",
+  "title": "Combobox",
+  "description": "Text field that filters an Expressive menu as you type; match highlighting, multi-select chips, loading and empty states.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/chip",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/loading-indicator",
+    "@expressive/menu",
+    "@expressive/text-field",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/combobox.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

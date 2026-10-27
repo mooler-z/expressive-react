@@ -1,0 +1,22 @@
+{
+  "name": "attachment",
+  "type": "registry:ui",
+  "title": "Attachment",
+  "description": "File drop zone, upload rows with type tiles and progress, composer chips, thumbnails, and a useFileUploads hook for upload state.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/progress",
+    "@expressive/ripple",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/attachment.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

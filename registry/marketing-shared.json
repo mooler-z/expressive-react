@@ -1,0 +1,29 @@
+{
+  "name": "marketing-shared",
+  "type": "registry:block",
+  "title": "Marketing · shared",
+  "description": "Brand logo, ButtonLink, Tilt/Magnetic wrappers, StaggerIn, DecorShape, nav links, logo cloud and footers used by the marketing blocks.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/ripple",
+    "@expressive/shape",
+    "@expressive/snackbar",
+    "@expressive/use-magnetic",
+    "@expressive/use-tilt",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/marketing/marketing-shared.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "marketing"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "user-profile-1",
+  "type": "registry:block",
+  "title": "User profile · player header + tabs",
+  "description": "Identity, status and actions in the header; overview, purchases with refunds, matches and reports in tabs. Ban asks for a duration and reason.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/button-group",
+    "@expressive/dialog",
+    "@expressive/icon",
+    "@expressive/menu",
+    "@expressive/select",
+    "@expressive/snackbar",
+    "@expressive/tabs",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/user-profile-1.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "people"
+  ]
+}

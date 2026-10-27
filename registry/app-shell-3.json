@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "app-shell-3",
+  "type": "registry:block",
+  "title": "App shell · top nav + environments",
+  "description": "Inverse top bar with destinations and a Production / Staging / Dev switch; non-production environments get a persistent banner.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/checkbox",
+    "@expressive/icon",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/app-shell-3.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "shell"
+  ]
+}

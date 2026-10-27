@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "member-list-2",
+  "type": "registry:block",
+  "title": "Member list · cards with on-call filter",
+  "description": "Presence cards with local time and quick actions; a switch narrows the grid to whoever is on call.",
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/snackbar",
+    "@expressive/switch",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/member-list-2.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "people"
+  ]
+}

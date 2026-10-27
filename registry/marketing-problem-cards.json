@@ -1,0 +1,20 @@
+{
+  "name": "marketing-problem-cards",
+  "type": "registry:block",
+  "title": "Problem cards",
+  "description": "\"Why us\" section: three cards whose icon tiles round into circles on hover.",
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/reveal",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/marketing/marketing-problem-cards.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "marketing"
+  ]
+}

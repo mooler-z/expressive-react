@@ -1,0 +1,12 @@
+{
+  "name": "use-window-size-class",
+  "type": "registry:hook",
+  "title": "useWindowSizeClass",
+  "description": "M3 window size classes (compact · medium · expanded · large · extra-large) from the viewport width.",
+  "files": [
+    {
+      "path": "src/hooks/use-window-size-class.ts",
+      "type": "registry:hook"
+    }
+  ]
+}

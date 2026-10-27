@@ -1,0 +1,34 @@
+{
+  "name": "marketing-cta-banner",
+  "type": "registry:block",
+  "title": "CTA banner",
+  "description": "Closing call to action on a primary-container panel with a spinning sunny shape.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/reveal",
+    "@expressive/ripple",
+    "@expressive/shape",
+    "@expressive/snackbar",
+    "@expressive/use-magnetic",
+    "@expressive/use-tilt",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/marketing/marketing-cta-banner.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-shared.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "marketing"
+  ]
+}

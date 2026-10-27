@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "verify-2",
+  "type": "registry:block",
+  "title": "Verify · enter a code",
+  "description": "Six-digit email verification code with a verified state.",
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/input-otp",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/verify-2.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "authentication"
+  ]
+}

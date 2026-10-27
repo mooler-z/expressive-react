@@ -1,0 +1,19 @@
+{
+  "name": "menubar",
+  "type": "registry:ui",
+  "title": "Menubar",
+  "description": "Desktop-style row of menu triggers with arrow-key and hover switching.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/menu",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/menubar.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

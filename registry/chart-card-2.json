@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-card-2",
+  "type": "registry:block",
+  "title": "Chart card · stacked or grouped bars",
+  "description": "Store revenue by category with a summary column; the segmented control toggles stacking.",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "@expressive/button-group",
+    "@expressive/chart",
+    "@expressive/icon",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/chart-card-2.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts"
+  ]
+}

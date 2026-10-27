@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-states",
+  "type": "registry:block",
+  "title": "Chart states & legends",
+  "description": "Loading, empty, error, permission, offline, partial, stale, updating, zero, filtered, low-sample and annotated chart states, tooltip anatomy, the series palette and four legend patterns.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/loading-indicator",
+    "@expressive/shape",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/dashboard-kit/kit-data.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/dashboard-kit/chart-states.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "dashboard",
+    "charts"
+  ]
+}

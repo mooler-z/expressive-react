@@ -1,0 +1,20 @@
+{
+  "name": "marketing-feature-previews",
+  "type": "registry:block",
+  "title": "Feature previews",
+  "description": "Token-built product previews: inventory list, policy code, canary rollout, trace waterfall, integrations.",
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/loading-indicator",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/marketing/marketing-feature-previews.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "marketing"
+  ]
+}

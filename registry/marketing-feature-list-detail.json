@@ -1,0 +1,27 @@
+{
+  "name": "marketing-feature-list-detail",
+  "type": "registry:block",
+  "title": "Features · list-detail",
+  "description": "Features page in the M3 list-detail canonical layout (drill-in on compact windows).",
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/loading-indicator",
+    "@expressive/utils",
+    "@expressive/theme"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/marketing/marketing-feature-list-detail.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-feature-previews.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "marketing"
+  ],
+  "docs": "Uses keyframes from expressive.css (m3-detail-in); re-add @expressive/theme if your copy predates them."
+}

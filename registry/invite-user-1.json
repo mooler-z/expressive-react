@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "invite-user-1",
+  "type": "registry:block",
+  "title": "Invite user · dialog with email chips",
+  "description": "Addresses turn into chips on Enter, comma or space; pasted lists split automatically and invalid ones block sending.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/dialog",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/select",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/invite-user-1.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "people"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "data-table-block-1",
+  "type": "registry:block",
+  "title": "Data table · players with bulk actions",
+  "description": "Search, status filter chips, sortable columns, row selection with a contextual action bar, and pagination.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/chip",
+    "@expressive/data-table",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/data-table-block-1.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "data"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "composition-charts",
+  "type": "registry:block",
+  "title": "Composition charts",
+  "description": "17 share and conversion charts: doughnuts, pies, gauges, polar area, nested doughnut, funnels, sunburst, rose, 100% columns and a single stacked bar.",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "@expressive/chart",
+    "@expressive/dialog",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/menu",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/dashboard-kit/kit-data.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/dashboard-kit/kit-chart-parts.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/dashboard-kit/chart-card.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/dashboard-kit/composition-charts.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "dashboard",
+    "charts"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "alert-dialog",
+  "type": "registry:ui",
+  "title": "Alert dialog",
+  "description": "Decision dialogs: no scrim dismiss, destructive confirm on the error role, optional third action.",
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/dialog",
+    "@expressive/icon",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/alert-dialog.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

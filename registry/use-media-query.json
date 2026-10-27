@@ -1,0 +1,12 @@
+{
+  "name": "use-media-query",
+  "type": "registry:hook",
+  "title": "useMediaQuery",
+  "description": "Live matchMedia result, SSR-safe (useSyncExternalStore).",
+  "files": [
+    {
+      "path": "src/hooks/use-media-query.ts",
+      "type": "registry:hook"
+    }
+  ]
+}

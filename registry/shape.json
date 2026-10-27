@@ -1,0 +1,15 @@
+{
+  "name": "shape",
+  "type": "registry:ui",
+  "title": "Shape",
+  "description": "The M3 Expressive shape library. Any two shapes morph smoothly via CSS clip-path.",
+  "registryDependencies": [
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/shape.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

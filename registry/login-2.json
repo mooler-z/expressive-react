@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "login-2",
+  "type": "registry:block",
+  "title": "Login · split with status",
+  "description": "Split sign-in with a morphing-shape brand panel, service status and filled fields.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/shape",
+    "@expressive/snackbar",
+    "@expressive/text-field",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/login-2.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "authentication"
+  ]
+}

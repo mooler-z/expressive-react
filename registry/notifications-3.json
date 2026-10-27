@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "notifications-3",
+  "type": "registry:block",
+  "title": "Notifications · alert rules",
+  "description": "Metric alert rules with an inline sentence builder.",
+  "registryDependencies": [
+    "@expressive/badge",
+    "@expressive/button",
+    "@expressive/button-group",
+    "@expressive/empty-state",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/select",
+    "@expressive/snackbar",
+    "@expressive/switch",
+    "@expressive/text-field",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/notifications-3.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "settings"
+  ]
+}

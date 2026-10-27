@@ -1,0 +1,25 @@
+{
+  "name": "sidebar",
+  "type": "registry:ui",
+  "title": "Sidebar",
+  "description": "Adaptive product sidebar: full drawer-style sidebar, 96dp rail, or modal drawer by window size class; groups, collapsible sections, header/footer menus.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/badge",
+    "@expressive/icon",
+    "@expressive/menu",
+    "@expressive/ripple",
+    "@expressive/use-window-size-class",
+    "@expressive/utils",
+    "@expressive/theme"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/sidebar.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "docs": "Uses keyframes added to expressive.css (m3-rail-in/out). Re-add @expressive/theme if your copy predates them."
+}

@@ -1,0 +1,19 @@
+{
+  "name": "progress",
+  "type": "registry:ui",
+  "title": "Progress indicators",
+  "description": "Linear and circular progress: determinate, indeterminate and the Expressive wavy variants, with track gap and stop indicator.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/progress.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

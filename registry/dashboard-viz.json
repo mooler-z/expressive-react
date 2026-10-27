@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dashboard-viz",
+  "type": "registry:block",
+  "title": "Heatmaps, gauges & timelines",
+  "description": "26 SVG and Tailwind-grid visualizations: deploy calendar, alert matrix, uptime bars, treemap, bullets, gauges, rings, gantt, waffle, month heatmap, pipeline, dependency graph, hex grid, meters and more.",
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/snackbar"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/dashboard-kit/kit-data.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/dashboard-kit/dashboard-viz.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "dashboard",
+    "charts"
+  ]
+}

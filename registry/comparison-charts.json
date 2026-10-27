@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "comparison-charts",
+  "type": "registry:block",
+  "title": "Comparison & ranking charts",
+  "description": "24 bar charts: grouped, stacked, horizontal, diverging, 100%, combo, waterfall, histogram, floating, lollipop, dumbbell, target, pareto, ±, range, box plot, progress, pyramid, highlight, status, radial bars and grouped-stacked.",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "@expressive/chart",
+    "@expressive/dialog",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/menu",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/dashboard-kit/kit-data.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/dashboard-kit/kit-chart-parts.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/dashboard-kit/chart-card.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/dashboard-kit/comparison-charts.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "dashboard",
+    "charts"
+  ]
+}

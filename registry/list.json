@@ -1,0 +1,19 @@
+{
+  "name": "list",
+  "type": "registry:ui",
+  "title": "List",
+  "description": "M3 lists: one/two/three-line items with leading/trailing slots; static List and keyboard-navigable InteractiveList (standard or Expressive segmented).",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/ripple",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/list.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

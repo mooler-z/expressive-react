@@ -1,0 +1,23 @@
+{
+  "name": "questionnaire",
+  "type": "registry:ui",
+  "title": "Questionnaire",
+  "description": "One-question-per-step flow with progress, animated step transitions, large choice cards (single or multiple) and a 0–10 rating scale.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/progress",
+    "@expressive/ripple",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/questionnaire.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "docs": "Uses the m3-step-in keyframes from expressive.css — re-add @expressive/theme if your copy predates them."
+}

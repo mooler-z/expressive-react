@@ -1,0 +1,17 @@
+{
+  "name": "empty-state",
+  "type": "registry:ui",
+  "title": "Empty state",
+  "description": "Expressive shape + icon, headline, description and actions for empty, error and no-results states.",
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/shape",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/empty-state.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

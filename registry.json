@@ -1,0 +1,4694 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "expressive",
+  "homepage": "https://expressive-react.moolerz.et",
+  "items": [
+    {
+      "name": "init",
+      "type": "registry:item",
+      "title": "Expressive React",
+      "description": "Theme tokens, utilities, icons and the ThemeProvider. Install this first.",
+      "registryDependencies": [
+        "@expressive/theme",
+        "@expressive/utils",
+        "@expressive/icon",
+        "@expressive/theme-provider"
+      ],
+      "docs": "Next: add `@import \"./styles/expressive.css\";` (path relative to your CSS file) right after `@import \"tailwindcss\";`, wrap your app in <ThemeProvider>, and load Roboto Flex + Material Symbols Rounded from Google Fonts. See the README."
+    },
+    {
+      "name": "theme",
+      "type": "registry:file",
+      "title": "Theme",
+      "description": "M3 Expressive tokens for Tailwind CSS v4: color roles, type scale, shape, elevation, motion, state layers.",
+      "files": [
+        {
+          "path": "src/styles/expressive.css",
+          "type": "registry:file",
+          "target": "src/styles/expressive.css"
+        }
+      ],
+      "docs": "Import it once, right after Tailwind: @import \"tailwindcss\"; @import \"./styles/expressive.css\";"
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utils",
+      "description": "cn() and tv() configured for the Expressive type, shape and motion scales.",
+      "dependencies": [
+        "clsx",
+        "react-aria-components",
+        "tailwind-merge",
+        "tailwind-variants"
+      ],
+      "files": [
+        {
+          "path": "src/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "use-drag-scroll",
+      "type": "registry:hook",
+      "title": "useDragScroll",
+      "description": "Mouse drag-to-scroll for overflow containers; suspends scroll-snap while dragging and settles on the nearest snap point with release velocity.",
+      "files": [
+        {
+          "path": "src/hooks/use-drag-scroll.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-magnetic",
+      "type": "registry:hook",
+      "title": "useMagnetic",
+      "description": "Element drifts toward the pointer and springs home on leave.",
+      "registryDependencies": [
+        "@expressive/use-motion"
+      ],
+      "files": [
+        {
+          "path": "src/hooks/use-magnetic.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-media-query",
+      "type": "registry:hook",
+      "title": "useMediaQuery",
+      "description": "Live matchMedia result, SSR-safe (useSyncExternalStore).",
+      "files": [
+        {
+          "path": "src/hooks/use-media-query.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-motion",
+      "type": "registry:hook",
+      "title": "useMotion helpers",
+      "description": "M3 Expressive spring timings for the Web Animations API, plus prefers-reduced-motion helpers.",
+      "registryDependencies": [
+        "@expressive/use-media-query",
+        "@expressive/theme"
+      ],
+      "files": [
+        {
+          "path": "src/hooks/use-motion.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-press-scale",
+      "type": "registry:hook",
+      "title": "usePressScale",
+      "description": "Elastic press: squish on pointer down, spring back on release.",
+      "registryDependencies": [
+        "@expressive/use-motion"
+      ],
+      "files": [
+        {
+          "path": "src/hooks/use-press-scale.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-tilt",
+      "type": "registry:hook",
+      "title": "useTilt",
+      "description": "Perspective tilt toward the pointer with a spring reset.",
+      "registryDependencies": [
+        "@expressive/use-motion"
+      ],
+      "files": [
+        {
+          "path": "src/hooks/use-tilt.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-window-size-class",
+      "type": "registry:hook",
+      "title": "useWindowSizeClass",
+      "description": "M3 window size classes (compact · medium · expanded · large · extra-large) from the viewport width.",
+      "files": [
+        {
+          "path": "src/hooks/use-window-size-class.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Accordion (tonal, flush, outlined, list, expressive, numbered) and Collapsible on React Aria Disclosure, with spring height animation.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "Inline alerts (info, success, warning, error; tonal, outlined, inverse) and the M3 banner.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/alert.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert dialog",
+      "description": "Decision dialogs: no scrim dismiss, destructive confirm on the error role, optional third action.",
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/dialog",
+        "@expressive/icon",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "app-bar",
+      "type": "registry:ui",
+      "title": "App bar",
+      "description": "M3 Expressive top app bars (small, center, medium & large flexible with collapse-on-scroll) and the bottom app bar.",
+      "registryDependencies": [
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/app-bar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:ui",
+      "title": "Aspect ratio",
+      "description": "Fixed-ratio media frame plus the M3 media placeholder and corner label.",
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/aspect-ratio.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "attachment",
+      "type": "registry:ui",
+      "title": "Attachment",
+      "description": "File drop zone, upload rows with type tiles and progress, composer chips, thumbnails, and a useFileUploads hook for upload state.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/progress",
+        "@expressive/ripple",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/attachment.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "Initials, image or icon avatars in five sizes; circle, square or Expressive shapes; presence status; overlapping groups with overflow.",
+      "dependencies": [
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/shape",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "M3 small (dot) and large (count) badges, BadgeAnchor to pin them to icons, and StatusBadge labels.",
+      "dependencies": [
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "Breadcrumbs with chevron or slash separators, a tonal current crumb, a collapsed-path menu and a compact back crumb.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/menu",
+        "@expressive/ripple",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Common buttons and toggle buttons: 5 styles × 5 sizes, round or square, with shape morph on press.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/loading-indicator",
+        "@expressive/ripple",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "title": "Button group",
+      "description": "Standard button groups (press widens, neighbours squish), connected button groups, split buttons with a menu, and outlined segmented buttons.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/menu",
+        "@expressive/ripple",
+        "@expressive/use-motion",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/button-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "M3 date-picker calendar and range calendar (40dp day cells, today outline, range band, year grid) plus a month-view event calendar.",
+      "dependencies": [
+        "@internationalized/date",
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/calendar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Elevated, filled and outlined cards with header, media, content and action parts; CardButton / CardLink for whole-card actions.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/ripple",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "title": "Carousel",
+      "description": "M3 Expressive carousels: multi-browse, hero and center-aligned hero with keyline masking, plus uncontained and full-screen (vertical, autoplay). Parallax media, fading labels, dots, count, prev/next, drag and keyboard.",
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/use-drag-scroll",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/carousel.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "title": "Chart",
+      "description": "Recharts themed with M3 color roles: ChartContainer with a role-based config, inverse-surface tooltips, dot legends, axis/grid defaults, Sparkline and a half-doughnut Gauge. Follows dark mode and seed colors live.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/chart.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "M3 checkbox: selected, indeterminate, error and disabled states.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chip",
+      "type": "registry:ui",
+      "title": "Chip",
+      "description": "Assist, filter (animated check), input (removable, avatar) and suggestion chips, plus ChipGroup, InputChipGroup and ChipInput.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/ripple",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/chip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "code-block",
+      "type": "registry:ui",
+      "title": "Code block",
+      "description": "Code block with filename header, line numbers, diff rows, language tabs and copy; one-line CodeCommand; CopyButton; InlineCode.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/code-block.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "Text field that filters an Expressive menu as you type; match highlighting, multi-select chips, loading and empty states.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/chip",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/loading-indicator",
+        "@expressive/menu",
+        "@expressive/text-field",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/combobox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "title": "Command palette",
+      "description": "⌘K command palette: filterable grouped actions with shortcuts in a top-aligned dialog, or inline.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/kbd",
+        "@expressive/loading-indicator",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/command.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context menu",
+      "description": "The Expressive menu opened at the pointer: right-click, long-press or Shift+F10.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/menu",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "data-table",
+      "type": "registry:ui",
+      "title": "Data table",
+      "description": "Interactive data table on React Aria's Table: sorting, checkbox row selection, column resizing, row-action menus, search toolbar, pagination footer, density, loading and empty states, plus a useDataTable hook for client-side search/sort/paging.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/checkbox",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/menu",
+        "@expressive/progress",
+        "@expressive/search",
+        "@expressive/select",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/data-table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "date-field",
+      "type": "registry:ui",
+      "title": "Date & time field",
+      "description": "DateField and TimeField: segment inputs in the M3 text-field shell.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/text-field",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/date-field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "date-picker",
+      "type": "registry:ui",
+      "title": "Date picker",
+      "description": "M3 docked date and range pickers, modal date and range picker dialogs with calendar / input modes.",
+      "dependencies": [
+        "@internationalized/date",
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/calendar",
+        "@expressive/date-field",
+        "@expressive/dialog",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/text-field",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/date-picker.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Basic and alert dialogs with focus management and enter/exit motion.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "direction",
+      "type": "registry:ui",
+      "title": "Direction",
+      "description": "DirectionProvider (dir + React Aria locale) and useDirection for RTL layouts.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/direction.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "divider",
+      "type": "registry:ui",
+      "title": "Divider",
+      "description": "1dp outline-variant divider: full, inset, middle-inset, vertical, or with a label.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/divider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:ui",
+      "title": "Empty state",
+      "description": "Expressive shape + icon, headline, description and actions for empty, error and no-results states.",
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/shape",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/empty-state.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "fab",
+      "type": "registry:ui",
+      "title": "Floating action button",
+      "description": "FAB (40/56/80/96), extended FAB with animated collapse, and the Expressive FAB menu that morphs into a close button and staggers its items in.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/ripple",
+        "@expressive/utils",
+        "@expressive/theme"
+      ],
+      "docs": "The FAB menu's item animation lives in expressive.css (fab-menu-item-enter). Re-add @expressive/theme if your copy predates it.",
+      "files": [
+        {
+          "path": "src/components/ui/fab.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "External-label form anatomy: Field, FieldLabel, FieldDescription, FieldError, Input, TextArea, Fieldset, FieldLegend.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "icon",
+      "type": "registry:ui",
+      "title": "Icon",
+      "description": "Material Symbols Rounded glyph with fill, weight and optical-size axes.",
+      "registryDependencies": [
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/icon.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "icon-button",
+      "type": "registry:ui",
+      "title": "Icon button",
+      "description": "Icon buttons and toggle icon buttons: 4 styles × 5 sizes × 3 widths.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/ripple",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/icon-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-group",
+      "type": "registry:ui",
+      "title": "Input group",
+      "description": "Addons attached to an input: prefixes/suffixes, inline actions, joined selects. Outlined or pill.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/ripple",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/input-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "title": "Input OTP",
+      "description": "One-time code / PIN input: segmented cells over a single real input (paste, SMS autofill, a11y).",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/input-otp.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Needs the field-*/caret/search additions in expressive.css. Re-add @expressive/theme if your copy predates them."
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "title": "Kbd",
+      "description": "Keyboard keys and shortcut groups (chords and sequences).",
+      "dependencies": [
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/kbd.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "list",
+      "type": "registry:ui",
+      "title": "List",
+      "description": "M3 lists: one/two/three-line items with leading/trailing slots; static List and keyboard-navigable InteractiveList (standard or Expressive segmented).",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/ripple",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/list.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "loading-indicator",
+      "type": "registry:ui",
+      "title": "Loading indicator",
+      "description": "Morphing, rotating shape for short indeterminate waits.",
+      "dependencies": [
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/shape",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/loading-indicator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "marker",
+      "type": "registry:ui",
+      "title": "Marker",
+      "description": "Map pins, location dots, density clusters, status pins, numbered tour markers, legends and coach marks.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/marker.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menu",
+      "type": "registry:ui",
+      "title": "Menu",
+      "description": "M3 Expressive menus: standard and vibrant, segmented sections, leading icons, shortcuts, submenus and checkable items.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/utils",
+        "@expressive/theme"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "title": "Menubar",
+      "description": "Desktop-style row of menu triggers with arrow-key and hover switching.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/menu",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/menubar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "message",
+      "type": "registry:ui",
+      "title": "Message",
+      "description": "Chat bubbles with grouped corner shaping, delivery status, reactions with a picker, typing indicator, quotes, voice messages and hover actions.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/ripple",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/message.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Uses the m3-message-in and m3-typing keyframes from expressive.css — re-add @expressive/theme if your copy predates them."
+    },
+    {
+      "name": "message-scroller",
+      "type": "registry:ui",
+      "title": "Message scroller",
+      "description": "Chat thread container: header, a scroll region that sticks to the newest message and keeps its place when history loads, sticky date pills, jump-to-latest FAB with unread count, and a growing composer.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/badge",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/loading-indicator",
+        "@expressive/ripple",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/message-scroller.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navigation-bar",
+      "type": "registry:ui",
+      "title": "Navigation bar",
+      "description": "M3 Expressive 64dp navigation bar: vertical or horizontal items, spring active indicator, badges, adaptive layout.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/badge",
+        "@expressive/icon",
+        "@expressive/ripple",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/navigation-bar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navigation-drawer",
+      "type": "registry:ui",
+      "title": "Navigation drawer",
+      "description": "Standard and modal M3 navigation drawers with headlines, badges, dense items and collapsible nested groups.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/badge",
+        "@expressive/icon",
+        "@expressive/ripple",
+        "@expressive/utils",
+        "@expressive/theme"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/navigation-drawer.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Uses keyframes added to expressive.css (m3-rail-in/out). Re-add @expressive/theme if your copy predates them."
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "title": "Navigation menu",
+      "description": "Site header with flyout and mega-menu panels.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/navigation-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navigation-rail",
+      "type": "registry:ui",
+      "title": "Navigation rail",
+      "description": "Collapsed ⇄ expanded M3 Expressive navigation rail with menu button, FAB, sections, badges and a modal expanded mode.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/badge",
+        "@expressive/icon",
+        "@expressive/ripple",
+        "@expressive/utils",
+        "@expressive/theme"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/navigation-rail.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Uses keyframes added to expressive.css (m3-rail-in/out). Re-add @expressive/theme if your copy predates them."
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Numbered, connected (Expressive) and compact range pagination plus carousel dots.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/menu",
+        "@expressive/ripple",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Anchored surface-container popovers and hover cards that grow from their anchor.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/utils",
+        "@expressive/theme"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress indicators",
+      "description": "Linear and circular progress: determinate, indeterminate and the Expressive wavy variants, with track gap and stop indicator.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "questionnaire",
+      "type": "registry:ui",
+      "title": "Questionnaire",
+      "description": "One-question-per-step flow with progress, animated step transitions, large choice cards (single or multiple) and a 0–10 rating scale.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/progress",
+        "@expressive/ripple",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/questionnaire.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Uses the m3-step-in keyframes from expressive.css — re-add @expressive/theme if your copy predates them."
+    },
+    {
+      "name": "radio",
+      "type": "registry:ui",
+      "title": "Radio",
+      "description": "M3 radio group with a spring-in dot, state layer, error, descriptions and trailing placement.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/radio.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "resizable",
+      "type": "registry:ui",
+      "title": "Resizable",
+      "description": "Resizable panes (react-resizable-panels) with the M3 pane drag handle that morphs to a 12×52 grip while dragging.",
+      "dependencies": [
+        "react-resizable-panels"
+      ],
+      "registryDependencies": [
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/resizable.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "reveal",
+      "type": "registry:ui",
+      "title": "Reveal",
+      "description": "Scroll-triggered fade-up (Reveal) and staggered headline words (RevealWords).",
+      "registryDependencies": [
+        "@expressive/use-motion",
+        "@expressive/utils",
+        "@expressive/theme"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/reveal.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "ripple",
+      "type": "registry:ui",
+      "title": "Ripple",
+      "description": "Press ripple for any interactive element.",
+      "registryDependencies": [
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/ripple.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll area",
+      "description": "Native scrolling with thin themed scrollbars, edge fades, prev/next buttons and mouse drag-to-scroll.",
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/use-drag-scroll",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "search",
+      "type": "registry:ui",
+      "title": "Search",
+      "description": "M3 search bar and search view (docked or full screen) with live-filtered suggestions.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/loading-indicator",
+        "@expressive/ripple",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/search.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Needs the field-*/caret/search additions in expressive.css. Re-add @expressive/theme if your copy predates them."
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Exposed dropdown menu: the TextField shell (outlined or filled, floating label) opening an Expressive menu.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/menu",
+        "@expressive/text-field",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "shape",
+      "type": "registry:ui",
+      "title": "Shape",
+      "description": "The M3 Expressive shape library. Any two shapes morph smoothly via CSS clip-path.",
+      "registryDependencies": [
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/shape.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "Modal and standard bottom sheets (drag handle, drag to dismiss, peek/expand) and modal and standard side sheets.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Needs the m3-sheet-* keyframes in expressive.css. Re-add @expressive/theme if your copy predates them."
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "Adaptive product sidebar: full drawer-style sidebar, 96dp rail, or modal drawer by window size class; groups, collapsible sections, header/footer menus.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/badge",
+        "@expressive/icon",
+        "@expressive/menu",
+        "@expressive/ripple",
+        "@expressive/use-window-size-class",
+        "@expressive/utils",
+        "@expressive/theme"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/sidebar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Uses keyframes added to expressive.css (m3-rail-in/out). Re-add @expressive/theme if your copy predates them."
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Pulse or shimmer placeholders that mirror the final layout, plus SkeletonText.",
+      "registryDependencies": [
+        "@expressive/utils",
+        "@expressive/theme"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "M3 Expressive slider: XS–XL inset tracks, gapped handle, stops, value indicator, range, centered, vertical, inset icon.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "snackbar",
+      "type": "registry:ui",
+      "title": "Snackbar",
+      "description": "Queued, announced M3 snackbars with an imperative snackbar() API, actions, close icon and spring enter/exit.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/utils"
+      ],
+      "docs": "Mount <SnackbarRegion /> once near your app root, then call snackbar(\"Saved\").",
+      "files": [
+        {
+          "path": "src/components/ui/snackbar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "M3 switch with spring handle and optional icons.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "Plain content tables: caption, label headers, outline-variant dividers, tabular numerals, totals footer. Plain, striped, grid and card-row variants, dense density, sortable headers.",
+      "dependencies": [
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "M3 primary and secondary tabs plus segmented pill tabs, with a sliding indicator, icons, badges, scrolling and vertical orientation.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/badge",
+        "@expressive/icon",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "text-field",
+      "type": "registry:ui",
+      "title": "Text field",
+      "description": "M3 filled and outlined text fields: floating (notched) label, icons, prefix/suffix, supporting text, error, counter, multiline. Exports FieldContainer for other field-like controls.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/text-field.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Needs the field-*/caret/search additions in expressive.css. Re-add @expressive/theme if your copy predates them."
+    },
+    {
+      "name": "theme-provider",
+      "type": "registry:ui",
+      "title": "Theme provider",
+      "description": "Light/dark/system mode and dynamic color from a seed (M3 2025 color spec).",
+      "dependencies": [
+        "@material/material-color-utilities"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/theme-provider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "time-picker",
+      "type": "registry:ui",
+      "title": "Time picker",
+      "description": "M3 time picker: draggable clock dial (12h / 24h two rings), hour/minute selectors, AM/PM, input mode, dialog.",
+      "dependencies": [
+        "@internationalized/date"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/dialog",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/time-picker.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Stacked toasts with a role-colored icon, title, description, actions or custom content, via toast({ ... }).",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "docs": "Mount <ToastRegion /> once near your app root, then call toast({ title, description, icon, tone }).",
+      "files": [
+        {
+          "path": "src/components/ui/toast.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toolbar",
+      "type": "registry:ui",
+      "title": "Toolbar",
+      "description": "Floating toolbars (standard/vibrant, horizontal/vertical, optional paired FAB) and docked toolbars, with arrow-key navigation.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/fab",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/ripple",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/toolbar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Plain and rich tooltips with M3 timing.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/utils",
+        "@expressive/theme"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "trace",
+      "type": "registry:ui",
+      "title": "Trace",
+      "description": "Step timelines for agent runs, pipelines and request traces: status rail, mono durations, collapsible tool I/O, error detail, span waterfall, horizontal pipeline and status rows.",
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/loading-indicator",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/trace.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "adaptive-scaffold",
+      "type": "registry:block",
+      "title": "Adaptive scaffold",
+      "description": "M3 navigation suite: navigation bar + FAB on compact windows, a collapsed rail (modal when opened) on medium and expanded, an expanded rail with brand and extended FAB on large and up.",
+      "registryDependencies": [
+        "@expressive/fab",
+        "@expressive/icon",
+        "@expressive/navigation-bar",
+        "@expressive/navigation-rail",
+        "@expressive/use-window-size-class",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/layouts/window-size.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/layouts/adaptive-scaffold.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "layouts"
+      ]
+    },
+    {
+      "name": "admin-dashboard",
+      "type": "registry:block",
+      "title": "Admin dashboard",
+      "description": "Kestrel admin portal: 21 pages (overview, analytics, users, orders, products, customers, invoices, inventory, reports, calendar, inbox, support, projects, team, integrations, developers, audit log, settings, account) with adaptive navigation — nav bar → rail → expanded rail.",
+      "dependencies": [
+        "@internationalized/date",
+        "react-aria-components",
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@expressive/accordion",
+        "@expressive/alert",
+        "@expressive/avatar",
+        "@expressive/badge",
+        "@expressive/button",
+        "@expressive/button-group",
+        "@expressive/calendar",
+        "@expressive/chart",
+        "@expressive/checkbox",
+        "@expressive/chip",
+        "@expressive/code-block",
+        "@expressive/data-table",
+        "@expressive/dialog",
+        "@expressive/empty-state",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/list",
+        "@expressive/menu",
+        "@expressive/message",
+        "@expressive/message-scroller",
+        "@expressive/progress",
+        "@expressive/search",
+        "@expressive/select",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/switch",
+        "@expressive/table",
+        "@expressive/tabs",
+        "@expressive/text-field",
+        "@expressive/theme-provider",
+        "@expressive/use-media-query",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/admin/admin-account.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-analytics.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-audit.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-calendar.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-charts.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-context.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-customer.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-customers.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-dashboard.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-data.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-developers.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-inbox.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-integrations.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-inventory.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-invoices.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-order.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-orders.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-overview.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-products.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-projects.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-reports.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-settings.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-support.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-team.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-ui.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-users.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/admin/admin-actions.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Render <AdminDashboard page=\"overview\" basePath=\"/admin\" />. Pages: overview, analytics, users, orders, products, settings, customers, customer (id), order (id), invoices, inventory, reports, calendar, inbox, support, projects, team, integrations, developers, audit, account. For client-side routing wrap it in React Aria's <RouterProvider navigate={…} useHref={…}> and pass `navigate` for clickable rows.",
+      "categories": [
+        "dashboard",
+        "admin"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "app-shell-1",
+      "type": "registry:block",
+      "title": "App shell · rail + top bar",
+      "description": "Navigation rail with FAB and badges; title switcher, search and alerts in the top bar. Below 600px the rail becomes a bottom navigation bar.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/menu",
+        "@expressive/navigation-bar",
+        "@expressive/navigation-rail",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/app-shell-1.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "shell"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "app-shell-2",
+      "type": "registry:block",
+      "title": "App shell · drawer + tabs",
+      "description": "Standard drawer with a title card and grouped destinations; tabs filter the page. Below 840px the drawer opens as a modal.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/navigation-drawer",
+        "@expressive/snackbar",
+        "@expressive/tabs",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/app-shell-2.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "shell"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "app-shell-3",
+      "type": "registry:block",
+      "title": "App shell · top nav + environments",
+      "description": "Inverse top bar with destinations and a Production / Staging / Dev switch; non-production environments get a persistent banner.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/checkbox",
+        "@expressive/icon",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/app-shell-3.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "shell"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "chart-card-1",
+      "type": "registry:block",
+      "title": "Chart card · line with legend toggles",
+      "description": "Legend chips switch series on and off; queue time brings its own axis. The range control swaps 24 hours for 7 days.",
+      "dependencies": [
+        "react-aria-components",
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@expressive/button-group",
+        "@expressive/chart",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/chart-card-1.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "charts"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "chart-card-2",
+      "type": "registry:block",
+      "title": "Chart card · stacked or grouped bars",
+      "description": "Store revenue by category with a summary column; the segmented control toggles stacking.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@expressive/button-group",
+        "@expressive/chart",
+        "@expressive/icon",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/chart-card-2.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "charts"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "chart-card-3",
+      "type": "registry:block",
+      "title": "Chart card · donut + legend table",
+      "description": "Sessions by game mode; each legend row hides or shows its slice and the center total follows.",
+      "dependencies": [
+        "react-aria-components",
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@expressive/chart",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/chart-card-3.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "charts"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "chart-states",
+      "type": "registry:block",
+      "title": "Chart states & legends",
+      "description": "Loading, empty, error, permission, offline, partial, stale, updating, zero, filtered, low-sample and annotated chart states, tooltip anatomy, the series palette and four legend patterns.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/loading-indicator",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/dashboard-kit/kit-data.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/chart-states.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "dashboard",
+        "charts"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "comparison-charts",
+      "type": "registry:block",
+      "title": "Comparison & ranking charts",
+      "description": "24 bar charts: grouped, stacked, horizontal, diverging, 100%, combo, waterfall, histogram, floating, lollipop, dumbbell, target, pareto, ±, range, box plot, progress, pyramid, highlight, status, radial bars and grouped-stacked.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@expressive/chart",
+        "@expressive/dialog",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/menu",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/dashboard-kit/kit-data.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/kit-chart-parts.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/chart-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/comparison-charts.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "dashboard",
+        "charts"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "composition-charts",
+      "type": "registry:block",
+      "title": "Composition charts",
+      "description": "17 share and conversion charts: doughnuts, pies, gauges, polar area, nested doughnut, funnels, sunburst, rose, 100% columns and a single stacked bar.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@expressive/chart",
+        "@expressive/dialog",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/menu",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/dashboard-kit/kit-data.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/kit-chart-parts.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/chart-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/composition-charts.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "dashboard",
+        "charts"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "dashboard-1",
+      "type": "registry:block",
+      "title": "Dashboard · KPIs + live chart",
+      "description": "KPI tiles with sparklines, concurrent players against the previous period, and share by region. The range control redraws the chart.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/button-group",
+        "@expressive/chart",
+        "@expressive/icon",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/dashboard-1.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "dashboard"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "dashboard-2",
+      "type": "registry:block",
+      "title": "Dashboard · command center",
+      "description": "Bento layout for incident days: live player counter, incidents, queue times, region status and the build rollout.",
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/dashboard-2.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "dashboard"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "dashboard-3",
+      "type": "registry:block",
+      "title": "Dashboard · economy report",
+      "description": "Month-to-date revenue with platform filter chips; stats and the weekly chart recalculate. Top SKUs ranked beside it.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@expressive/chart",
+        "@expressive/chip",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/dashboard-3.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "dashboard"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "dashboard-data-display",
+      "type": "registry:block",
+      "title": "Lists, tables & feeds",
+      "description": "26 data-display widgets: sortable leaderboard, ranked customers, activity, goals, incidents, period comparison, key-value details, region health, notifications, releases, agenda, SLA timers, plan tiers, log viewer, job queue, stat tabs and an audit trail.",
+      "registryDependencies": [
+        "@expressive/code-block",
+        "@expressive/icon",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/dashboard-kit/kit-data.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/data-display.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "dashboard",
+        "charts"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "dashboard-kit",
+      "type": "registry:block",
+      "title": "Dashboard kit",
+      "description": "The whole kit page: hero, sticky filter bar (date range · compare · shuffle) and every section — 75 charts, 27 visualizations, 24 KPI cards, 26 data-display widgets and chart states.",
+      "dependencies": [
+        "react-aria-components",
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/button-group",
+        "@expressive/chart",
+        "@expressive/code-block",
+        "@expressive/dialog",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/loading-indicator",
+        "@expressive/menu",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/switch",
+        "@expressive/use-tilt",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/dashboard-kit/chart-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/chart-states.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/comparison-charts.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/composition-charts.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/dashboard-kit.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/dashboard-viz.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/data-display.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/interactive-charts.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/kit-chart-parts.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/kit-data.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/kpi-cards.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/relationship-charts.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/trend-charts.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "dashboard",
+        "charts"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "dashboard-kit-core",
+      "type": "registry:block",
+      "title": "Dashboard kit · core",
+      "description": "Shared kit plumbing: filter-bar state (date range, compare, shuffle), the seeded data generators, the live stream, Recharts presets and the chart card frame with Expand / Shuffle / Download PNG.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@expressive/chart",
+        "@expressive/dialog",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/menu",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/dashboard-kit/kit-data.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/kit-chart-parts.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/chart-card.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "dashboard",
+        "charts"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "dashboard-viz",
+      "type": "registry:block",
+      "title": "Heatmaps, gauges & timelines",
+      "description": "26 SVG and Tailwind-grid visualizations: deploy calendar, alert matrix, uptime bars, treemap, bullets, gauges, rings, gantt, waffle, month heatmap, pipeline, dependency graph, hex grid, meters and more.",
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/snackbar"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/dashboard-kit/kit-data.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/dashboard-viz.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "dashboard",
+        "charts"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "data-table-block-1",
+      "type": "registry:block",
+      "title": "Data table · players with bulk actions",
+      "description": "Search, status filter chips, sortable columns, row selection with a contextual action bar, and pagination.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/chip",
+        "@expressive/data-table",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/data-table-block-1.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "data"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "data-table-block-2",
+      "type": "registry:block",
+      "title": "Data table · moderation queue",
+      "description": "Severity-tagged reports that expand to show evidence and history; acting on a report clears it, with undo.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/button-group",
+        "@expressive/icon",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/data-table-block-2.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "data"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "data-table-block-3",
+      "type": "registry:block",
+      "title": "Data table · events by status",
+      "description": "Rows grouped under sticky status headers with participation bars, an inline live switch and a row menu.",
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/menu",
+        "@expressive/snackbar",
+        "@expressive/switch",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/data-table-block-3.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "data"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "feed-layout",
+      "type": "registry:block",
+      "title": "Feed layout",
+      "description": "M3 canonical feed: equal-weight cards on 1 / 2 / 3 / 4 columns by window size class, 24dp gutters, items can span two columns.",
+      "registryDependencies": [
+        "@expressive/use-window-size-class",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/layouts/window-size.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/layouts/feed-layout.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "layouts"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "incidents-app",
+      "type": "registry:block",
+      "title": "Adaptive incidents app",
+      "description": "One app at every window size, built from the adaptive scaffold and list-detail layout: bar → rail → expanded rail, one pane → two → three.",
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/chip",
+        "@expressive/fab",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/navigation-bar",
+        "@expressive/navigation-rail",
+        "@expressive/search",
+        "@expressive/snackbar",
+        "@expressive/use-window-size-class",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/layouts/window-size.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/layouts/adaptive-scaffold.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/layouts/list-detail-layout.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/layouts/incidents-app.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "layouts"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "integrations-1",
+      "type": "registry:block",
+      "title": "Integrations · grid",
+      "description": "Filterable integration catalog with connect / disconnect.",
+      "registryDependencies": [
+        "@expressive/badge",
+        "@expressive/button",
+        "@expressive/chip",
+        "@expressive/icon",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/integrations-1.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "settings"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "integrations-2",
+      "type": "registry:block",
+      "title": "Integrations · Slack routing",
+      "description": "Per-alert channel routing, test message and delivery log.",
+      "registryDependencies": [
+        "@expressive/badge",
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/select",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/integrations-2.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "settings"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "integrations-3",
+      "type": "registry:block",
+      "title": "Integrations · API keys",
+      "description": "API key table with reveal, copy, revoke and a create dialog.",
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/chip",
+        "@expressive/dialog",
+        "@expressive/empty-state",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/select",
+        "@expressive/snackbar",
+        "@expressive/text-field",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/integrations-3.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "settings"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "interactive-chart-cards",
+      "type": "registry:block",
+      "title": "Interactive chart cards",
+      "description": "Traffic with chart-type switch, legend toggles and compare overlay; a pausable live stream; a spend drill-down; a metric switcher; small multiples that expand; SLO rings.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@expressive/button-group",
+        "@expressive/chart",
+        "@expressive/dialog",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/menu",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/dashboard-kit/kit-data.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/kit-chart-parts.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/chart-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/interactive-charts.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "dashboard",
+        "charts"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "invite-user-1",
+      "type": "registry:block",
+      "title": "Invite user · dialog with email chips",
+      "description": "Addresses turn into chips on Enter, comma or space; pasted lists split automatically and invalid ones block sending.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/dialog",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/select",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/invite-user-1.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "people"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "invite-user-2",
+      "type": "registry:block",
+      "title": "Invite user · bulk list or link",
+      "description": "Paste email, role lines and see them parsed live, or share a join link with a role, expiry and an off switch.",
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/select",
+        "@expressive/snackbar",
+        "@expressive/switch",
+        "@expressive/tabs",
+        "@expressive/text-field",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/invite-user-2.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "people"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "invite-user-3",
+      "type": "registry:block",
+      "title": "Invite user · side sheet with access",
+      "description": "A modal side sheet with role cards and per-title access; the footer summarises what the invite grants.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/questionnaire",
+        "@expressive/sheet",
+        "@expressive/snackbar",
+        "@expressive/text-field",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/invite-user-3.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "people"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "kpi-cards",
+      "type": "registry:block",
+      "title": "KPI & stat cards",
+      "description": "24 KPI cards: sparkline KPIs, goal and budget meters, a live requests/sec counter, shape-badge stats, a countdown, segmented storage and a 15-metric strip.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@expressive/chart",
+        "@expressive/dialog",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/menu",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/use-tilt",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/dashboard-kit/kit-data.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/kit-chart-parts.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/chart-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/kpi-cards.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "dashboard",
+        "charts"
+      ]
+    },
+    {
+      "name": "landing",
+      "type": "registry:block",
+      "title": "Landing site",
+      "description": "Six-page M3 Expressive marketing site (Home, Features, Pricing, About, Changelog, Contact) with adaptive chrome: navigation bar + FAB on compact windows, navigation rail beside a rounded body pane on medium+, expanded rail on large windows.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/accordion",
+        "@expressive/app-bar",
+        "@expressive/avatar",
+        "@expressive/button",
+        "@expressive/button-group",
+        "@expressive/checkbox",
+        "@expressive/chip",
+        "@expressive/fab",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/input-group",
+        "@expressive/navigation-bar",
+        "@expressive/navigation-rail",
+        "@expressive/reveal",
+        "@expressive/ripple",
+        "@expressive/select",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/table",
+        "@expressive/text-field",
+        "@expressive/theme-provider",
+        "@expressive/use-tilt",
+        "@expressive/use-window-size-class",
+        "@expressive/utils",
+        "@expressive/theme"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/landing/landing.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/landing/landing-shared.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/landing/landing-home.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/landing/landing-features.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/landing/landing-pricing.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/landing/landing-about.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/landing/landing-changelog.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/landing/landing-contact.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Render <Landing /> (hash links), or pass page + getHref from your router and wrap the app in react-aria-components' <RouterProvider navigate={…}> for client-side navigation. Needs <ThemeProvider> and a mounted <SnackbarRegion />. Re-add @expressive/theme if your copy predates the m3-landing-* keyframes.",
+      "categories": [
+        "landing",
+        "marketing"
+      ]
+    },
+    {
+      "name": "landing-bento",
+      "type": "registry:block",
+      "title": "Landing · Bento",
+      "description": "A live product bento as the hero.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/reveal",
+        "@expressive/ripple",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/use-magnetic",
+        "@expressive/use-tilt",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/landing-bento.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "landing-calculator",
+      "type": "registry:block",
+      "title": "Landing · Calculator",
+      "description": "Interactive savings calculator as the hero.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/reveal",
+        "@expressive/ripple",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/use-magnetic",
+        "@expressive/use-tilt",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/landing-calculator.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "landing-editorial",
+      "type": "registry:block",
+      "title": "Landing · Editorial",
+      "description": "Magazine typography, hairline rules and a numbered, expandable chapter list.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/reveal",
+        "@expressive/ripple",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/use-magnetic",
+        "@expressive/use-tilt",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/landing-editorial.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "landing-global",
+      "type": "registry:block",
+      "title": "Landing · Global",
+      "description": "Dotted world map with pulsing region pins and a promote toolbar.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/button-group",
+        "@expressive/icon",
+        "@expressive/reveal",
+        "@expressive/ripple",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/use-magnetic",
+        "@expressive/use-tilt",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/landing-global.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "landing-marquee",
+      "type": "registry:block",
+      "title": "Landing · Marquee",
+      "description": "Oversized tertiary hero, an XL button and counter-scrolling capability rows.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/reveal",
+        "@expressive/ripple",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/use-magnetic",
+        "@expressive/use-tilt",
+        "@expressive/utils",
+        "@expressive/theme"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/landing-marquee.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ],
+      "docs": "Uses keyframes from expressive.css (m3-marquee); re-add @expressive/theme if your copy predates them."
+    },
+    {
+      "name": "landing-orbit",
+      "type": "registry:block",
+      "title": "Landing · Orbit",
+      "description": "Centered headline in a field of slowly morphing, orbiting shapes.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/reveal",
+        "@expressive/ripple",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/use-magnetic",
+        "@expressive/use-tilt",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/landing-orbit.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "landing-playful",
+      "type": "registry:block",
+      "title": "Landing · Playful",
+      "description": "Tilted stat cards, scribbled underline, swipeable testimonials and a friendly FAQ.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/ripple",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/use-drag-scroll",
+        "@expressive/use-magnetic",
+        "@expressive/use-tilt",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/landing-playful.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "landing-split",
+      "type": "registry:block",
+      "title": "Landing · Split",
+      "description": "Full-height primary panel with email capture beside a live service card.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/reveal",
+        "@expressive/ripple",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/use-magnetic",
+        "@expressive/use-tilt",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/landing-split.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "landing-steps",
+      "type": "registry:block",
+      "title": "Landing · Steps",
+      "description": "Numbered how-it-works story with sticky, morphing step badges.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/reveal",
+        "@expressive/ripple",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/use-magnetic",
+        "@expressive/use-tilt",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/landing-steps.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "landing-terminal",
+      "type": "registry:block",
+      "title": "Landing · Terminal",
+      "description": "Inverse, developer-first hero with a typed-out CLI session and copyable snippets.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/reveal",
+        "@expressive/ripple",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/use-magnetic",
+        "@expressive/use-tilt",
+        "@expressive/utils",
+        "@expressive/theme"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/landing-terminal.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ],
+      "docs": "Uses keyframes from expressive.css (m3-caret-blink); re-add @expressive/theme if your copy predates them."
+    },
+    {
+      "name": "landing-v1",
+      "type": "registry:block",
+      "title": "Landing v1",
+      "description": "Six-page marketing site (Home, Features, Pricing, About, Contact, Changelog) with a floating pill nav and hash routing.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/accordion",
+        "@expressive/button",
+        "@expressive/button-group",
+        "@expressive/checkbox",
+        "@expressive/chip",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/loading-indicator",
+        "@expressive/reveal",
+        "@expressive/ripple",
+        "@expressive/select",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/table",
+        "@expressive/text-field",
+        "@expressive/theme-provider",
+        "@expressive/use-magnetic",
+        "@expressive/use-tilt",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/landing-v1.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-about.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-shared.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-changelog.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-contact.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-cta-banner.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-feature-rows.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-feature-previews.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-hero-showcase.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-pricing.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-problem-cards.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-proof-bento.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "landing-v3",
+      "type": "registry:block",
+      "title": "Landing v3",
+      "description": "The six-page site on M3 canonical layouts: tab app bar + modal drawer, list-detail, supporting pane and feed.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/accordion",
+        "@expressive/button",
+        "@expressive/button-group",
+        "@expressive/checkbox",
+        "@expressive/chip",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/loading-indicator",
+        "@expressive/navigation-drawer",
+        "@expressive/reveal",
+        "@expressive/ripple",
+        "@expressive/select",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/table",
+        "@expressive/text-field",
+        "@expressive/theme-provider",
+        "@expressive/use-magnetic",
+        "@expressive/use-tilt",
+        "@expressive/utils",
+        "@expressive/theme"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/landing-v3.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-about.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-shared.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-changelog.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-contact.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-cta-banner.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-feature-list-detail.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-feature-previews.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-hero-showcase.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-pricing.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-problem-cards.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-proof-bento.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ],
+      "docs": "Uses keyframes from expressive.css (m3-detail-in, m3-page-in); re-add @expressive/theme if your copy predates them."
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "list-detail-layout",
+      "type": "registry:block",
+      "title": "List-detail layout",
+      "description": "M3 canonical list-detail: one pane with a back arrow on compact and medium, a 360dp list beside a flexible detail on expanded and large, plus a supporting pane on extra-large.",
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/use-window-size-class",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/layouts/window-size.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/layouts/list-detail-layout.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "layouts"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "login-1",
+      "type": "registry:block",
+      "title": "Login · centered card",
+      "description": "Email + password sign-in card with show/hide, keep-me-signed-in, SSO and live email validation.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/checkbox",
+        "@expressive/divider",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/snackbar",
+        "@expressive/text-field",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/login-1.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "authentication"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "login-2",
+      "type": "registry:block",
+      "title": "Login · split with status",
+      "description": "Split sign-in with a morphing-shape brand panel, service status and filled fields.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/text-field",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/login-2.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "authentication"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "login-3",
+      "type": "registry:block",
+      "title": "Login · magic link",
+      "description": "Passwordless email-link sign-in with a password tab fallback.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/snackbar",
+        "@expressive/tabs",
+        "@expressive/text-field",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/login-3.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "authentication"
+      ]
+    },
+    {
+      "name": "marketing-about",
+      "type": "registry:block",
+      "title": "About page",
+      "description": "Mission with stats, values, leadership grid and a milestones timeline.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/reveal",
+        "@expressive/ripple",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/use-magnetic",
+        "@expressive/use-tilt",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/marketing-about.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "marketing-changelog",
+      "type": "registry:block",
+      "title": "Changelog",
+      "description": "Subscribe form, filter chips and releases as a timeline or an M3 feed grid.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/chip",
+        "@expressive/icon",
+        "@expressive/reveal",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/marketing-changelog.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "marketing-contact",
+      "type": "registry:block",
+      "title": "Contact",
+      "description": "Contact channels, stylised office map and a lead form, in stacked and supporting-pane layouts.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/checkbox",
+        "@expressive/icon",
+        "@expressive/ripple",
+        "@expressive/select",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/text-field",
+        "@expressive/use-magnetic",
+        "@expressive/use-tilt",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/marketing-contact.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "marketing-cta-banner",
+      "type": "registry:block",
+      "title": "CTA banner",
+      "description": "Closing call to action on a primary-container panel with a spinning sunny shape.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/reveal",
+        "@expressive/ripple",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/use-magnetic",
+        "@expressive/use-tilt",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/marketing-cta-banner.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "marketing-feature-list-detail",
+      "type": "registry:block",
+      "title": "Features · list-detail",
+      "description": "Features page in the M3 list-detail canonical layout (drill-in on compact windows).",
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/loading-indicator",
+        "@expressive/utils",
+        "@expressive/theme"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/marketing-feature-list-detail.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-feature-previews.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ],
+      "docs": "Uses keyframes from expressive.css (m3-detail-in); re-add @expressive/theme if your copy predates them."
+    },
+    {
+      "name": "marketing-feature-previews",
+      "type": "registry:block",
+      "title": "Feature previews",
+      "description": "Token-built product previews: inventory list, policy code, canary rollout, trace waterfall, integrations.",
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/loading-indicator",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/marketing-feature-previews.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "marketing-feature-rows",
+      "type": "registry:block",
+      "title": "Features · alternating rows",
+      "description": "Features page with alternating copy/preview rows and an integrations panel.",
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/loading-indicator",
+        "@expressive/reveal",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/marketing-feature-rows.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-feature-previews.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "marketing-hero-showcase",
+      "type": "registry:block",
+      "title": "Hero · showcase",
+      "description": "Split hero: staggered headline and CTAs beside a bento of live tiles and morphing M3 shapes.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/reveal",
+        "@expressive/ripple",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/use-magnetic",
+        "@expressive/use-tilt",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/marketing-hero-showcase.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "marketing-pricing",
+      "type": "registry:block",
+      "title": "Pricing",
+      "description": "Billing toggle, pricing tiers, comparison table and FAQ, plus centered and supporting-pane page layouts.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/accordion",
+        "@expressive/button",
+        "@expressive/button-group",
+        "@expressive/icon",
+        "@expressive/reveal",
+        "@expressive/ripple",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/table",
+        "@expressive/use-magnetic",
+        "@expressive/use-tilt",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/marketing-pricing.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/marketing/marketing-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "marketing-problem-cards",
+      "type": "registry:block",
+      "title": "Problem cards",
+      "description": "\"Why us\" section: three cards whose icon tiles round into circles on hover.",
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/reveal",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/marketing-problem-cards.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "marketing-proof-bento",
+      "type": "registry:block",
+      "title": "Proof bento",
+      "description": "Outcomes bento: headline stat, two KPI tiles and a customer quote.",
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/reveal"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/marketing-proof-bento.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "name": "marketing-shared",
+      "type": "registry:block",
+      "title": "Marketing · shared",
+      "description": "Brand logo, ButtonLink, Tilt/Magnetic wrappers, StaggerIn, DecorShape, nav links, logo cloud and footers used by the marketing blocks.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/ripple",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/use-magnetic",
+        "@expressive/use-tilt",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/marketing/marketing-shared.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marketing"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "member-list-1",
+      "type": "registry:block",
+      "title": "Member list · role filter",
+      "description": "Search across name, title and team, role filter chips, presence and local time on each row, and a row menu.",
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/chip",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/menu",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/member-list-1.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "people"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "member-list-2",
+      "type": "registry:block",
+      "title": "Member list · cards with on-call filter",
+      "description": "Presence cards with local time and quick actions; a switch narrows the grid to whoever is on call.",
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/snackbar",
+        "@expressive/switch",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/member-list-2.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "people"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "member-list-3",
+      "type": "registry:block",
+      "title": "Member list · directory by team",
+      "description": "A two-column directory with sticky team headers in a scroll area; chips above jump to a team.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/member-list-3.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "people"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "members-settings-1",
+      "type": "registry:block",
+      "title": "Members · members & invites",
+      "description": "Member list with search, role menus, removal with undo and pending invites.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/avatar",
+        "@expressive/button",
+        "@expressive/empty-state",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/menu",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/members-settings-1.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "settings"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "members-settings-2",
+      "type": "registry:block",
+      "title": "Members · roles matrix",
+      "description": "Permission matrix of roles against grouped permissions with a save bar.",
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/checkbox",
+        "@expressive/icon",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/members-settings-2.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "settings"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "members-settings-3",
+      "type": "registry:block",
+      "title": "Members · seats & teams",
+      "description": "Seat usage meter and team cards with add-member.",
+      "registryDependencies": [
+        "@expressive/avatar",
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/members-settings-3.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "settings"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "notifications-1",
+      "type": "registry:block",
+      "title": "Notifications · channel matrix",
+      "description": "Per-event Email / Push / Slack matrix with column toggles.",
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/checkbox",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/notifications-1.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "settings"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "notifications-2",
+      "type": "registry:block",
+      "title": "Notifications · switches + quiet hours",
+      "description": "Grouped notification switches, quiet hours and digest frequency.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button-group",
+        "@expressive/select",
+        "@expressive/switch",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/notifications-2.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "settings"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "notifications-3",
+      "type": "registry:block",
+      "title": "Notifications · alert rules",
+      "description": "Metric alert rules with an inline sentence builder.",
+      "registryDependencies": [
+        "@expressive/badge",
+        "@expressive/button",
+        "@expressive/button-group",
+        "@expressive/empty-state",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/select",
+        "@expressive/snackbar",
+        "@expressive/switch",
+        "@expressive/text-field",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/notifications-3.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "settings"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "pane-layout",
+      "type": "registry:block",
+      "title": "Fixed + flexible panes",
+      "description": "A 360dp fixed pane, a flexible pane and the 24dp spacer that doubles as the M3 drag handle. Stacks on compact windows.",
+      "registryDependencies": [
+        "@expressive/resizable",
+        "@expressive/use-window-size-class",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/layouts/window-size.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/layouts/pane-layout.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "layouts"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "profile-settings-1",
+      "type": "registry:block",
+      "title": "Profile settings · sectioned form",
+      "description": "Sectioned profile form with photo upload, selects and a sticky save bar.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/avatar",
+        "@expressive/badge",
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/select",
+        "@expressive/snackbar",
+        "@expressive/text-field",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/profile-settings-1.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "settings"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "profile-settings-2",
+      "type": "registry:block",
+      "title": "Profile settings · vertical tabs",
+      "description": "Profile, account, security and sessions in vertical tabs.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/badge",
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/snackbar",
+        "@expressive/text-field",
+        "@expressive/use-media-query",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/profile-settings-2.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "settings"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "profile-settings-3",
+      "type": "registry:block",
+      "title": "Profile settings · inline edit + danger zone",
+      "description": "Read-first profile card with inline edit and a type-to-confirm delete.",
+      "registryDependencies": [
+        "@expressive/alert-dialog",
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/snackbar",
+        "@expressive/text-field",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/profile-settings-3.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "settings"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "relationship-charts",
+      "type": "registry:block",
+      "title": "Relationship & distribution charts",
+      "description": "16 charts: scatter, bubble, radar, OHLC candles, regression, punch card, anomalies, density, quadrant, strip, bubble timeline, circular radar, connected scatter, log histogram and samples.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@expressive/chart",
+        "@expressive/dialog",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/menu",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/dashboard-kit/kit-data.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/kit-chart-parts.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/chart-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/relationship-charts.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "dashboard",
+        "charts"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "reset-1",
+      "type": "registry:block",
+      "title": "Reset · request a link",
+      "description": "Password reset request that swaps to a confirmation in place.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/snackbar",
+        "@expressive/text-field",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/reset-1.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "authentication"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "reset-2",
+      "type": "registry:block",
+      "title": "Reset · new password rules",
+      "description": "New password form with a live rules checklist.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/checkbox",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/snackbar",
+        "@expressive/text-field",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/reset-2.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "authentication"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "reset-3",
+      "type": "registry:block",
+      "title": "Reset · code + new password",
+      "description": "SMS code, new password and confirmation with a progress bar.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/input-otp",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/text-field",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/reset-3.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "authentication"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "sidebar-block-1",
+      "type": "registry:block",
+      "title": "Sidebar · grouped with meters",
+      "description": "Workspace menu, jump-to search, grouped destinations with counts, a capacity meter and an account menu in the footer.",
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/kbd",
+        "@expressive/menu",
+        "@expressive/sidebar",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/sidebar-block-1.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "shell"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "sidebar-block-2",
+      "type": "registry:block",
+      "title": "Sidebar · collapsible rail",
+      "description": "Collapses from a full sidebar to an icon rail and back; nested groups become menus while collapsed.",
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/sidebar",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/sidebar-block-2.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "shell"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "sidebar-block-3",
+      "type": "registry:block",
+      "title": "Sidebar · title switcher + tree",
+      "description": "A column of titles that morph round to square when active, next to a per-title tree of collapsible sections.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/sidebar",
+        "@expressive/snackbar",
+        "@expressive/tooltip",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/sidebar-block-3.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "shell"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "signup-1",
+      "type": "registry:block",
+      "title": "Signup · strength meter",
+      "description": "Account creation with a four-segment password strength meter and terms gate.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/checkbox",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/snackbar",
+        "@expressive/text-field",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/signup-1.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "authentication"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "signup-2",
+      "type": "registry:block",
+      "title": "Signup · multi-step",
+      "description": "Three-step workspace setup with a vertical stepper, segmented team size and platform chips.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/button-group",
+        "@expressive/chip",
+        "@expressive/icon",
+        "@expressive/snackbar",
+        "@expressive/text-field",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/signup-2.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "authentication"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "signup-3",
+      "type": "registry:block",
+      "title": "Signup · invite acceptance",
+      "description": "Join-from-invite screen with inviter, role, title access and a locked email.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/snackbar",
+        "@expressive/text-field",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/signup-3.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "authentication"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "stats-1",
+      "type": "registry:block",
+      "title": "Stats · strip with deltas",
+      "description": "Four connected stats with change chips; the comparison control changes the baseline for every delta.",
+      "registryDependencies": [
+        "@expressive/button-group",
+        "@expressive/icon",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/stats-1.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "data"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "stats-2",
+      "type": "registry:block",
+      "title": "Stats · sparklines + targets",
+      "description": "Retention and stability cards with a seven-day trend and progress toward a target.",
+      "registryDependencies": [
+        "@expressive/chart",
+        "@expressive/icon",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/stats-2.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "data"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "stats-3",
+      "type": "registry:block",
+      "title": "Stats · hero metric",
+      "description": "One number at display size with breakdowns by platform and region; tabs switch the metric.",
+      "registryDependencies": [
+        "@expressive/button-group",
+        "@expressive/icon",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/stats-3.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "data"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "supporting-pane-layout",
+      "type": "registry:block",
+      "title": "Supporting pane layout",
+      "description": "M3 canonical supporting pane: main pane flexible with a one-third supporting pane from expanded up; stacked below on compact and medium.",
+      "registryDependencies": [
+        "@expressive/use-window-size-class",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/layouts/window-size.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/layouts/supporting-pane-layout.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "layouts"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "trend-charts",
+      "type": "registry:block",
+      "title": "Trend charts",
+      "description": "16 time-axis charts: stacked and stepped areas, thresholds, percentiles, forecast bands, cumulative, moving average, YoY, dual axis, gradient, slope, 100% areas, CDF and event timelines.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@expressive/chart",
+        "@expressive/dialog",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/menu",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/dashboard-kit/kit-data.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/kit-chart-parts.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/chart-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/blocks/dashboard-kit/trend-charts.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "dashboard",
+        "charts"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "two-factor-1",
+      "type": "registry:block",
+      "title": "Two-factor · code challenge",
+      "description": "Authenticator code challenge with trust-this-device and backup codes.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/checkbox",
+        "@expressive/icon",
+        "@expressive/input-otp",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/text-field",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/two-factor-1.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "authentication"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "two-factor-2",
+      "type": "registry:block",
+      "title": "Two-factor · authenticator setup",
+      "description": "QR / setup-key enrolment, code confirmation and backup codes.",
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/input-otp",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/two-factor-2.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "authentication"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "two-factor-3",
+      "type": "registry:block",
+      "title": "Two-factor · security settings",
+      "description": "Manage 2FA methods, SMS fallback and backup codes.",
+      "registryDependencies": [
+        "@expressive/badge",
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/snackbar",
+        "@expressive/switch",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/two-factor-3.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "authentication"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "user-profile-1",
+      "type": "registry:block",
+      "title": "User profile · player header + tabs",
+      "description": "Identity, status and actions in the header; overview, purchases with refunds, matches and reports in tabs. Ban asks for a duration and reason.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/button-group",
+        "@expressive/dialog",
+        "@expressive/icon",
+        "@expressive/menu",
+        "@expressive/select",
+        "@expressive/snackbar",
+        "@expressive/tabs",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/user-profile-1.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "people"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "user-profile-2",
+      "type": "registry:block",
+      "title": "User profile · support timeline",
+      "description": "Key facts and open tickets beside a filterable activity timeline; internal notes post straight into the timeline.",
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/chip",
+        "@expressive/icon",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/user-profile-2.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "people"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "user-profile-3",
+      "type": "registry:block",
+      "title": "User profile · staff member",
+      "description": "Local time, on-call status, contact and page actions, role permissions and recent audit-log activity.",
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/user-profile-3.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "people"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "verify-1",
+      "type": "registry:block",
+      "title": "Verify · check your inbox",
+      "description": "Email verification holding screen with resend cooldown.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/shape",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/verify-1.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "authentication"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "verify-2",
+      "type": "registry:block",
+      "title": "Verify · enter a code",
+      "description": "Six-digit email verification code with a verified state.",
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/input-otp",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/verify-2.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "authentication"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "verify-3",
+      "type": "registry:block",
+      "title": "Verify · in-app banner",
+      "description": "Dismissible verification banner with a locked publish action.",
+      "registryDependencies": [
+        "@expressive/avatar",
+        "@expressive/button",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/snackbar",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/verify-3.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "authentication"
+      ]
+    }
+  ]
+}

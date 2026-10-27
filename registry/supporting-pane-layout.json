@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "supporting-pane-layout",
+  "type": "registry:block",
+  "title": "Supporting pane layout",
+  "description": "M3 canonical supporting pane: main pane flexible with a one-third supporting pane from expanded up; stacked below on compact and medium.",
+  "registryDependencies": [
+    "@expressive/use-window-size-class",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/layouts/window-size.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/layouts/supporting-pane-layout.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "layouts"
+  ]
+}

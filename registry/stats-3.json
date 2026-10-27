@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stats-3",
+  "type": "registry:block",
+  "title": "Stats · hero metric",
+  "description": "One number at display size with breakdowns by platform and region; tabs switch the metric.",
+  "registryDependencies": [
+    "@expressive/button-group",
+    "@expressive/icon",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/stats-3.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "data"
+  ]
+}

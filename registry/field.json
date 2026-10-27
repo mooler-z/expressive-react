@@ -1,0 +1,19 @@
+{
+  "name": "field",
+  "type": "registry:ui",
+  "title": "Field",
+  "description": "External-label form anatomy: Field, FieldLabel, FieldDescription, FieldError, Input, TextArea, Fieldset, FieldLegend.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/field.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

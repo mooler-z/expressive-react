@@ -1,0 +1,21 @@
+{
+  "name": "breadcrumb",
+  "type": "registry:ui",
+  "title": "Breadcrumb",
+  "description": "Breadcrumbs with chevron or slash separators, a tonal current crumb, a collapsed-path menu and a compact back crumb.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/menu",
+    "@expressive/ripple",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/breadcrumb.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

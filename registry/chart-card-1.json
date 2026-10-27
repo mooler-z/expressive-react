@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-card-1",
+  "type": "registry:block",
+  "title": "Chart card · line with legend toggles",
+  "description": "Legend chips switch series on and off; queue time brings its own axis. The range control swaps 24 hours for 7 days.",
+  "dependencies": [
+    "react-aria-components",
+    "recharts"
+  ],
+  "registryDependencies": [
+    "@expressive/button-group",
+    "@expressive/chart",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/chart-card-1.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "charts"
+  ]
+}

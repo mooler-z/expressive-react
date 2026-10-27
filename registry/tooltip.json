@@ -1,0 +1,19 @@
+{
+  "name": "tooltip",
+  "type": "registry:ui",
+  "title": "Tooltip",
+  "description": "Plain and rich tooltips with M3 timing.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/utils",
+    "@expressive/theme"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/tooltip.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

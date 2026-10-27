@@ -1,0 +1,19 @@
+{
+  "name": "context-menu",
+  "type": "registry:ui",
+  "title": "Context menu",
+  "description": "The Expressive menu opened at the pointer: right-click, long-press or Shift+F10.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/menu",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/context-menu.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

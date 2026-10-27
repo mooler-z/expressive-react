@@ -1,0 +1,19 @@
+{
+  "name": "marketing-proof-bento",
+  "type": "registry:block",
+  "title": "Proof bento",
+  "description": "Outcomes bento: headline stat, two KPI tiles and a customer quote.",
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/reveal"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/marketing/marketing-proof-bento.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "marketing"
+  ]
+}

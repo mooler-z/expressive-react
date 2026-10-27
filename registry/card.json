@@ -1,0 +1,20 @@
+{
+  "name": "card",
+  "type": "registry:ui",
+  "title": "Card",
+  "description": "Elevated, filled and outlined cards with header, media, content and action parts; CardButton / CardLink for whole-card actions.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/ripple",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/card.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

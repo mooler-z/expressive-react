@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "two-factor-2",
+  "type": "registry:block",
+  "title": "Two-factor · authenticator setup",
+  "description": "QR / setup-key enrolment, code confirmation and backup codes.",
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/input-otp",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/two-factor-2.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "authentication"
+  ]
+}

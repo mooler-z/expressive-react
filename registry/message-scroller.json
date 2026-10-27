@@ -1,0 +1,23 @@
+{
+  "name": "message-scroller",
+  "type": "registry:ui",
+  "title": "Message scroller",
+  "description": "Chat thread container: header, a scroll region that sticks to the newest message and keeps its place when history loads, sticky date pills, jump-to-latest FAB with unread count, and a growing composer.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/badge",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/loading-indicator",
+    "@expressive/ripple",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/message-scroller.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "integrations-2",
+  "type": "registry:block",
+  "title": "Integrations · Slack routing",
+  "description": "Per-alert channel routing, test message and delivery log.",
+  "registryDependencies": [
+    "@expressive/badge",
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/select",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/integrations-2.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "settings"
+  ]
+}

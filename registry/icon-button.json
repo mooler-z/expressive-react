@@ -1,0 +1,20 @@
+{
+  "name": "icon-button",
+  "type": "registry:ui",
+  "title": "Icon button",
+  "description": "Icon buttons and toggle icon buttons: 4 styles × 5 sizes × 3 widths.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/ripple",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/icon-button.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

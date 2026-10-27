@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "two-factor-3",
+  "type": "registry:block",
+  "title": "Two-factor · security settings",
+  "description": "Manage 2FA methods, SMS fallback and backup codes.",
+  "registryDependencies": [
+    "@expressive/badge",
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/snackbar",
+    "@expressive/switch",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/two-factor-3.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "authentication"
+  ]
+}

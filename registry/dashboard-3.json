@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dashboard-3",
+  "type": "registry:block",
+  "title": "Dashboard · economy report",
+  "description": "Month-to-date revenue with platform filter chips; stats and the weekly chart recalculate. Top SKUs ranked beside it.",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "@expressive/chart",
+    "@expressive/chip",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/dashboard-3.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "dashboard"
+  ]
+}

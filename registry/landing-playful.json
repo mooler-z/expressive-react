@@ -1,0 +1,35 @@
+{
+  "name": "landing-playful",
+  "type": "registry:block",
+  "title": "Landing · Playful",
+  "description": "Tilted stat cards, scribbled underline, swipeable testimonials and a friendly FAQ.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/ripple",
+    "@expressive/shape",
+    "@expressive/snackbar",
+    "@expressive/use-drag-scroll",
+    "@expressive/use-magnetic",
+    "@expressive/use-tilt",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/marketing/landing-playful.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-shared.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "marketing"
+  ]
+}

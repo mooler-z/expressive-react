@@ -1,0 +1,14 @@
+{
+  "name": "theme",
+  "type": "registry:file",
+  "title": "Theme",
+  "description": "M3 Expressive tokens for Tailwind CSS v4: color roles, type scale, shape, elevation, motion, state layers.",
+  "files": [
+    {
+      "path": "src/styles/expressive.css",
+      "type": "registry:file",
+      "target": "src/styles/expressive.css"
+    }
+  ],
+  "docs": "Import it once, right after Tailwind: @import \"tailwindcss\"; @import \"./styles/expressive.css\";"
+}

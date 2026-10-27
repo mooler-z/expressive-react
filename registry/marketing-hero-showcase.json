@@ -1,0 +1,34 @@
+{
+  "name": "marketing-hero-showcase",
+  "type": "registry:block",
+  "title": "Hero · showcase",
+  "description": "Split hero: staggered headline and CTAs beside a bento of live tiles and morphing M3 shapes.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/reveal",
+    "@expressive/ripple",
+    "@expressive/shape",
+    "@expressive/snackbar",
+    "@expressive/use-magnetic",
+    "@expressive/use-tilt",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/marketing/marketing-hero-showcase.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-shared.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "marketing"
+  ]
+}

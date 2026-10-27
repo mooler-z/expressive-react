@@ -1,0 +1,20 @@
+{
+  "name": "avatar",
+  "type": "registry:ui",
+  "title": "Avatar",
+  "description": "Initials, image or icon avatars in five sizes; circle, square or Expressive shapes; presence status; overlapping groups with overflow.",
+  "dependencies": [
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/shape",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/avatar.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

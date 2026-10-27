@@ -1,0 +1,76 @@
+{
+  "name": "landing",
+  "type": "registry:block",
+  "title": "Landing site",
+  "description": "Six-page M3 Expressive marketing site (Home, Features, Pricing, About, Changelog, Contact) with adaptive chrome: navigation bar + FAB on compact windows, navigation rail beside a rounded body pane on medium+, expanded rail on large windows.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/accordion",
+    "@expressive/app-bar",
+    "@expressive/avatar",
+    "@expressive/button",
+    "@expressive/button-group",
+    "@expressive/checkbox",
+    "@expressive/chip",
+    "@expressive/fab",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/input-group",
+    "@expressive/navigation-bar",
+    "@expressive/navigation-rail",
+    "@expressive/reveal",
+    "@expressive/ripple",
+    "@expressive/select",
+    "@expressive/shape",
+    "@expressive/snackbar",
+    "@expressive/table",
+    "@expressive/text-field",
+    "@expressive/theme-provider",
+    "@expressive/use-tilt",
+    "@expressive/use-window-size-class",
+    "@expressive/utils",
+    "@expressive/theme"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/landing/landing.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/landing/landing-shared.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/landing/landing-home.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/landing/landing-features.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/landing/landing-pricing.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/landing/landing-about.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/landing/landing-changelog.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/landing/landing-contact.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "docs": "Render <Landing /> (hash links), or pass page + getHref from your router and wrap the app in react-aria-components' <RouterProvider navigate={…}> for client-side navigation. Needs <ThemeProvider> and a mounted <SnackbarRegion />. Re-add @expressive/theme if your copy predates the m3-landing-* keyframes.",
+  "categories": [
+    "landing",
+    "marketing"
+  ]
+}

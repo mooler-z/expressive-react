@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "profile-settings-1",
+  "type": "registry:block",
+  "title": "Profile settings · sectioned form",
+  "description": "Sectioned profile form with photo upload, selects and a sticky save bar.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/avatar",
+    "@expressive/badge",
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/select",
+    "@expressive/snackbar",
+    "@expressive/text-field",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/profile-settings-1.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "settings"
+  ]
+}

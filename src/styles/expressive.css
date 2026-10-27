@@ -1,0 +1,612 @@
+/*
+ * Expressive React · Material 3 Expressive theme for Tailwind CSS v4
+ *
+ * Import once, after Tailwind:
+ *   @import "tailwindcss";
+ *   @import "./expressive.css";
+ *
+ * Color roles live in --md-* custom properties (baseline scheme from m3.material.io).
+ * <ThemeProvider seed="#..."> regenerates them at runtime; edit the values below to theme statically.
+ */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------- Color roles ---------- */
+:root {
+  color-scheme: light;
+  --md-primary: #6750a4;
+  --md-on-primary: #ffffff;
+  --md-primary-container: #eaddff;
+  --md-on-primary-container: #4f378b;
+  --md-primary-fixed: #eaddff;
+  --md-primary-fixed-dim: #d0bcff;
+  --md-on-primary-fixed: #21005d;
+  --md-on-primary-fixed-variant: #4f378b;
+  --md-secondary: #625b71;
+  --md-on-secondary: #ffffff;
+  --md-secondary-container: #e8def8;
+  --md-on-secondary-container: #4a4458;
+  --md-secondary-fixed: #e8def8;
+  --md-secondary-fixed-dim: #ccc2dc;
+  --md-on-secondary-fixed: #1d192b;
+  --md-on-secondary-fixed-variant: #4a4458;
+  --md-tertiary: #7d5260;
+  --md-on-tertiary: #ffffff;
+  --md-tertiary-container: #ffd8e4;
+  --md-on-tertiary-container: #633b48;
+  --md-tertiary-fixed: #ffd8e4;
+  --md-tertiary-fixed-dim: #efb8c8;
+  --md-on-tertiary-fixed: #31111d;
+  --md-on-tertiary-fixed-variant: #633b48;
+  --md-error: #b3261e;
+  --md-on-error: #ffffff;
+  --md-error-container: #f9dedc;
+  --md-on-error-container: #852221;
+  --md-surface: #fef7ff;
+  --md-surface-dim: #ded8e1;
+  --md-surface-bright: #fef7ff;
+  --md-surface-container-lowest: #ffffff;
+  --md-surface-container-low: #f7f2fa;
+  --md-surface-container: #f3edf7;
+  --md-surface-container-high: #ece6f0;
+  --md-surface-container-highest: #e6e0e9;
+  --md-surface-variant: #e7e0ec;
+  --md-surface-tint: #6750a4;
+  --md-on-surface: #1d1b20;
+  --md-on-surface-variant: #49454f;
+  --md-outline: #79747e;
+  --md-outline-variant: #cac4d0;
+  --md-inverse-surface: #322f35;
+  --md-inverse-on-surface: #f5eff7;
+  --md-inverse-primary: #d0bcff;
+  --md-scrim: #000000;
+  --md-shadow: #000000;
+
+  /* Motion · M3 Expressive spring approximations */
+  --md-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --md-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --md-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --md-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --md-easing-spring: linear(0, 0.006, 0.025 2.8%, 0.101 6.1%, 0.539 18.9%, 0.721 25.3%, 0.849 31.5%, 0.937 38.1%, 0.968 41.8%, 0.991 45.7%, 1.006 50.1%, 1.015 55%, 1.017 63.9%, 1.001);
+  /* M3 Expressive motion scheme · springs compiled to linear() + settle duration
+     (androidx ExpressiveMotionTokens: fast spatial ζ0.6/k800 · default ζ0.8/k380 · slow ζ0.8/k200 · effects ζ1.0) */
+  --md-spring-fast-spatial: linear(0.0, 0.032, 0.114, 0.225, 0.351, 0.485, 0.61, 0.727, 0.826, 0.909, 0.976, 1.025, 1.059, 1.081, 1.092, 1.094, 1.09, 1.082, 1.071, 1.059, 1.047, 1.035, 1.024, 1.015, 1.007, 1.002, 0.997, 0.994, 0.992, 0.991, 0.991, 0.992, 0.992, 0.993, 0.995, 0.996, 0.997, 0.998, 0.999, 0.999, 1.0);
+  --md-spring-fast-spatial-duration: 374ms;
+  --md-spring-default-spatial: linear(0.0, 0.018, 0.067, 0.133, 0.211, 0.296, 0.381, 0.465, 0.543, 0.616, 0.683, 0.741, 0.792, 0.837, 0.875, 0.907, 0.933, 0.954, 0.971, 0.984, 0.994, 1.002, 1.007, 1.011, 1.013, 1.014, 1.015, 1.015, 1.014, 1.013, 1.012, 1.01, 1.009, 1.008, 1.007, 1.006, 1.005, 1.004, 1.003, 1.002, 1.0);
+  --md-spring-default-spatial-duration: 414ms;
+  --md-spring-slow-spatial: linear(0.0, 0.019, 0.065, 0.132, 0.21, 0.292, 0.378, 0.461, 0.539, 0.612, 0.678, 0.737, 0.789, 0.834, 0.872, 0.904, 0.931, 0.952, 0.969, 0.983, 0.993, 1.001, 1.007, 1.011, 1.013, 1.014, 1.015, 1.015, 1.014, 1.013, 1.012, 1.011, 1.009, 1.008, 1.007, 1.006, 1.005, 1.004, 1.003, 1.003, 1.0);
+  --md-spring-slow-spatial-duration: 567ms;
+  --md-spring-fast-effects: linear(0.0, 0.025, 0.087, 0.163, 0.247, 0.337, 0.419, 0.495, 0.569, 0.63, 0.685, 0.735, 0.776, 0.814, 0.844, 0.869, 0.892, 0.91, 0.925, 0.938, 0.949, 0.958, 0.965, 0.971, 0.976, 0.981, 0.984, 0.987, 0.989, 0.991, 0.993, 0.994, 0.995, 0.996, 0.997, 0.997, 0.998, 0.998, 0.999, 0.999, 1.0);
+  --md-spring-fast-effects-duration: 154ms;
+  --md-spring-default-effects: linear(0.0, 0.022, 0.077, 0.148, 0.227, 0.311, 0.39, 0.465, 0.537, 0.599, 0.655, 0.706, 0.749, 0.786, 0.82, 0.848, 0.871, 0.893, 0.91, 0.924, 0.937, 0.947, 0.956, 0.963, 0.97, 0.975, 0.979, 0.983, 0.986, 0.988, 0.99, 0.992, 0.993, 0.995, 0.995, 0.996, 0.997, 0.997, 0.998, 0.998, 1.0);
+  --md-spring-default-effects-duration: 223ms;
+  --md-spring-slow-effects: linear(0.0, 0.02, 0.07, 0.136, 0.211, 0.289, 0.368, 0.442, 0.51, 0.573, 0.629, 0.68, 0.724, 0.764, 0.798, 0.828, 0.854, 0.876, 0.895, 0.912, 0.925, 0.937, 0.947, 0.956, 0.963, 0.969, 0.974, 0.978, 0.982, 0.985, 0.987, 0.989, 0.991, 0.993, 0.994, 0.995, 0.996, 0.997, 0.997, 0.998, 1.0);
+  --md-spring-slow-effects-duration: 301ms;
+
+  --md-easing-bounce: linear(0, 0.009, 0.035 2.1%, 0.141, 0.281 6.7%, 0.723 12.9%, 0.938 16.7%, 1.017, 1.077, 1.121, 1.149 24.3%, 1.159, 1.163, 1.161, 1.154 29.9%, 1.129 32.8%, 1.051 39.6%, 1.017 43.1%, 0.991, 0.977 51%, 0.974 53.8%, 0.975 57.1%, 0.997 69.8%, 1.003 76.9%, 1);
+}
+
+.dark {
+  color-scheme: dark;
+  --md-primary: #d0bcff;
+  --md-on-primary: #381e72;
+  --md-primary-container: #4f378b;
+  --md-on-primary-container: #eaddff;
+  --md-primary-fixed: #eaddff;
+  --md-primary-fixed-dim: #d0bcff;
+  --md-on-primary-fixed: #21005d;
+  --md-on-primary-fixed-variant: #4f378b;
+  --md-secondary: #ccc2dc;
+  --md-on-secondary: #332d41;
+  --md-secondary-container: #4a4458;
+  --md-on-secondary-container: #e8def8;
+  --md-secondary-fixed: #e8def8;
+  --md-secondary-fixed-dim: #ccc2dc;
+  --md-on-secondary-fixed: #1d192b;
+  --md-on-secondary-fixed-variant: #4a4458;
+  --md-tertiary: #efb8c8;
+  --md-on-tertiary: #492532;
+  --md-tertiary-container: #633b48;
+  --md-on-tertiary-container: #ffd8e4;
+  --md-tertiary-fixed: #ffd8e4;
+  --md-tertiary-fixed-dim: #efb8c8;
+  --md-on-tertiary-fixed: #31111d;
+  --md-on-tertiary-fixed-variant: #633b48;
+  --md-error: #f2b8b5;
+  --md-on-error: #601410;
+  --md-error-container: #8c1d18;
+  --md-on-error-container: #f9dedc;
+  --md-surface: #141218;
+  --md-surface-dim: #141218;
+  --md-surface-bright: #3b383e;
+  --md-surface-container-lowest: #0f0d13;
+  --md-surface-container-low: #1d1b20;
+  --md-surface-container: #211f26;
+  --md-surface-container-high: #2b2930;
+  --md-surface-container-highest: #36343b;
+  --md-surface-variant: #49454f;
+  --md-surface-tint: #d0bcff;
+  --md-on-surface: #e6e0e9;
+  --md-on-surface-variant: #cac4d0;
+  --md-outline: #938f99;
+  --md-outline-variant: #49454f;
+  --md-inverse-surface: #e6e0e9;
+  --md-inverse-on-surface: #322f35;
+  --md-inverse-primary: #6750a4;
+}
+
+/* Inline so utilities resolve --md-* where they're used: a nested .dark subtree re-themes correctly */
+@theme inline {
+  --color-primary: var(--md-primary);
+  --color-on-primary: var(--md-on-primary);
+  --color-primary-container: var(--md-primary-container);
+  --color-on-primary-container: var(--md-on-primary-container);
+  --color-primary-fixed: var(--md-primary-fixed);
+  --color-primary-fixed-dim: var(--md-primary-fixed-dim);
+  --color-on-primary-fixed: var(--md-on-primary-fixed);
+  --color-on-primary-fixed-variant: var(--md-on-primary-fixed-variant);
+  --color-secondary: var(--md-secondary);
+  --color-on-secondary: var(--md-on-secondary);
+  --color-secondary-container: var(--md-secondary-container);
+  --color-on-secondary-container: var(--md-on-secondary-container);
+  --color-secondary-fixed: var(--md-secondary-fixed);
+  --color-secondary-fixed-dim: var(--md-secondary-fixed-dim);
+  --color-on-secondary-fixed: var(--md-on-secondary-fixed);
+  --color-on-secondary-fixed-variant: var(--md-on-secondary-fixed-variant);
+  --color-tertiary: var(--md-tertiary);
+  --color-on-tertiary: var(--md-on-tertiary);
+  --color-tertiary-container: var(--md-tertiary-container);
+  --color-on-tertiary-container: var(--md-on-tertiary-container);
+  --color-tertiary-fixed: var(--md-tertiary-fixed);
+  --color-tertiary-fixed-dim: var(--md-tertiary-fixed-dim);
+  --color-on-tertiary-fixed: var(--md-on-tertiary-fixed);
+  --color-on-tertiary-fixed-variant: var(--md-on-tertiary-fixed-variant);
+  --color-error: var(--md-error);
+  --color-on-error: var(--md-on-error);
+  --color-error-container: var(--md-error-container);
+  --color-on-error-container: var(--md-on-error-container);
+  --color-surface: var(--md-surface);
+  --color-surface-dim: var(--md-surface-dim);
+  --color-surface-bright: var(--md-surface-bright);
+  --color-surface-container-lowest: var(--md-surface-container-lowest);
+  --color-surface-container-low: var(--md-surface-container-low);
+  --color-surface-container: var(--md-surface-container);
+  --color-surface-container-high: var(--md-surface-container-high);
+  --color-surface-container-highest: var(--md-surface-container-highest);
+  --color-surface-variant: var(--md-surface-variant);
+  --color-surface-tint: var(--md-surface-tint);
+  --color-on-surface: var(--md-on-surface);
+  --color-on-surface-variant: var(--md-on-surface-variant);
+  --color-outline: var(--md-outline);
+  --color-outline-variant: var(--md-outline-variant);
+  --color-inverse-surface: var(--md-inverse-surface);
+  --color-inverse-on-surface: var(--md-inverse-on-surface);
+  --color-inverse-primary: var(--md-inverse-primary);
+  --color-scrim: var(--md-scrim);
+  --color-shadow: var(--md-shadow);
+}
+
+/* ---------- Type · shape · elevation · motion · breakpoints ---------- */
+@theme {
+  --font-sans: "Roboto Flex", Roboto, system-ui, sans-serif;
+  --font-mono: "Roboto Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* M3 window size classes: compact <600 · medium 600 · expanded 840 · large 1200 · extra-large 1600 */
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 600px;
+  --breakpoint-lg: 840px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1600px;
+
+  /* Type scale · add font-medium / font-semibold for the Expressive "emphasized" styles */
+  --text-display-lg: 57px;
+  --text-display-lg--line-height: 64px;
+  --text-display-lg--letter-spacing: -0.25px;
+  --text-display-md: 45px;
+  --text-display-md--line-height: 52px;
+  --text-display-md--letter-spacing: 0;
+  --text-display-sm: 36px;
+  --text-display-sm--line-height: 44px;
+  --text-display-sm--letter-spacing: 0;
+  --text-headline-lg: 32px;
+  --text-headline-lg--line-height: 40px;
+  --text-headline-lg--letter-spacing: 0;
+  --text-headline-md: 28px;
+  --text-headline-md--line-height: 36px;
+  --text-headline-md--letter-spacing: 0;
+  --text-headline-sm: 24px;
+  --text-headline-sm--line-height: 32px;
+  --text-headline-sm--letter-spacing: 0;
+  --text-title-lg: 22px;
+  --text-title-lg--line-height: 28px;
+  --text-title-lg--letter-spacing: 0;
+  --text-title-md: 16px;
+  --text-title-md--line-height: 24px;
+  --text-title-md--letter-spacing: 0.15px;
+  --text-title-md--font-weight: 500;
+  --text-title-sm: 14px;
+  --text-title-sm--line-height: 20px;
+  --text-title-sm--letter-spacing: 0.1px;
+  --text-title-sm--font-weight: 500;
+  --text-body-lg: 16px;
+  --text-body-lg--line-height: 24px;
+  --text-body-lg--letter-spacing: 0.5px;
+  --text-body-md: 14px;
+  --text-body-md--line-height: 20px;
+  --text-body-md--letter-spacing: 0.25px;
+  --text-body-sm: 12px;
+  --text-body-sm--line-height: 16px;
+  --text-body-sm--letter-spacing: 0.4px;
+  --text-label-lg: 14px;
+  --text-label-lg--line-height: 20px;
+  --text-label-lg--letter-spacing: 0.1px;
+  --text-label-lg--font-weight: 500;
+  --text-label-md: 12px;
+  --text-label-md--line-height: 16px;
+  --text-label-md--letter-spacing: 0.5px;
+  --text-label-md--font-weight: 500;
+  --text-label-sm: 11px;
+  --text-label-sm--line-height: 16px;
+  --text-label-sm--letter-spacing: 0.5px;
+  --text-label-sm--font-weight: 500;
+
+  /* Shape scale · none, extra-small 4, small 8, medium 12, large 16, large-increased 20, extra-large 28, extra-large-increased 32, extra-extra-large 48, full */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-lg-plus: 20px;
+  --radius-xl: 28px;
+  --radius-xl-plus: 32px;
+  --radius-2xl: 48px;
+
+  /* Elevation levels 1–5 */
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.3), 0 1px 3px 1px rgb(0 0 0 / 0.15);
+  --shadow-2: 0 1px 2px rgb(0 0 0 / 0.3), 0 2px 6px 2px rgb(0 0 0 / 0.15);
+  --shadow-3: 0 1px 3px rgb(0 0 0 / 0.3), 0 4px 8px 3px rgb(0 0 0 / 0.15);
+  --shadow-4: 0 2px 3px rgb(0 0 0 / 0.3), 0 6px 10px 4px rgb(0 0 0 / 0.15);
+  --shadow-5: 0 4px 4px rgb(0 0 0 / 0.3), 0 8px 12px 6px rgb(0 0 0 / 0.15);
+
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --ease-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-spring: var(--md-easing-spring);
+  --ease-bounce: var(--md-easing-bounce);
+  --ease-fast-spatial: var(--md-spring-fast-spatial);
+  --ease-default-spatial: var(--md-spring-default-spatial);
+  --ease-slow-spatial: var(--md-spring-slow-spatial);
+  --ease-fast-effects: var(--md-spring-fast-effects);
+  --ease-default-effects: var(--md-spring-default-effects);
+  --ease-slow-effects: var(--md-spring-slow-effects);
+
+  --animate-morph: m3-morph 2.4s cubic-bezier(0.2, 0, 0, 1) infinite;
+  --animate-indeterminate: m3-indeterminate 1.8s cubic-bezier(0.2, 0, 0, 1) infinite;
+  --animate-fade-up: m3-fade-up 0.6s cubic-bezier(0.05, 0.7, 0.1, 1) backwards;
+  --animate-pop: m3-pop 0.5s var(--md-easing-bounce) backwards;
+  --animate-float: m3-float 6s ease-in-out infinite;
+  --animate-spin-slow: spin 24s linear infinite;
+
+  @keyframes m3-morph {
+    0% { border-radius: 50%; transform: rotate(0deg); }
+    33% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(120deg); }
+    66% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: rotate(240deg); }
+    100% { border-radius: 50%; transform: rotate(360deg); }
+  }
+  @keyframes m3-indeterminate {
+    0% { left: -40%; width: 40%; }
+    50% { left: 30%; width: 55%; }
+    100% { left: 100%; width: 40%; }
+  }
+  @keyframes m3-fade-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  @keyframes m3-pop { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+  @keyframes m3-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes m3-fade-in { from { opacity: 0; } }
+  @keyframes m3-fade-out { to { opacity: 0; } }
+  @keyframes m3-dialog-in { from { opacity: 0; transform: translateY(-16px) scale(0.92); } }
+  @keyframes m3-dialog-out { to { opacity: 0; transform: scale(0.96); } }
+}
+
+/* ---------- Base ---------- */
+@layer base {
+  body {
+    background-color: var(--md-surface);
+    color: var(--md-on-surface);
+    font-family: var(--font-sans);
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* Theme switch · ThemeProvider adds the class for 400ms so every surface fades together */
+html.theme-switching,
+html.theme-switching * {
+  transition:
+    background-color 300ms var(--md-easing-standard),
+    color 300ms var(--md-easing-standard),
+    border-color 300ms var(--md-easing-standard),
+    fill 300ms var(--md-easing-standard),
+    stroke 300ms var(--md-easing-standard) !important;
+}
+
+/* ---------- Icons · Material Symbols Rounded (rendered by <Icon>) ----------
+   Own class, not .material-symbols-rounded: the Google Fonts stylesheet styles that class
+   unlayered (font-size: 24px), which would beat every Tailwind utility.
+   FILL / wght are registered numbers so they interpolate inside transitions. */
+@property --icon-fill { syntax: "<number>"; inherits: true; initial-value: 0; }
+@property --icon-wght { syntax: "<number>"; inherits: true; initial-value: 400; }
+
+@layer components {
+  .md-icon {
+    font-family: "Material Symbols Rounded";
+    font-weight: normal;
+    font-style: normal;
+    font-size: var(--icon-size, 24px);
+    line-height: 1;
+    display: inline-block;
+    /* Glyphs are 1em squares; clamp the box so ligature text ("light_mode") can't widen layouts before the font loads */
+    width: 1em;
+    height: 1em;
+    overflow: hidden;
+    flex: none;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    direction: ltr;
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+    font-variation-settings: "FILL" var(--icon-fill, 0), "wght" var(--icon-wght, 400), "GRAD" 0, "opsz" var(--icon-opsz, 24);
+  }
+}
+
+@utility icon-fill { --icon-fill: 1; }
+@utility icon-bold { --icon-wght: 600; }
+/* icon-16 … icon-48 · font size + matching optical size */
+@utility icon-* {
+  font-size: calc(--value(integer) * 1px);
+  --icon-opsz: clamp(20, --value(integer), 48);
+}
+
+/* ---------- State layer ----------
+   hover 8% · focus 10% · pressed 12% of currentColor.
+   Reads React Aria's data-hovered / data-focus-visible / data-pressed, and falls back to
+   native pseudo-classes on plain elements (anything without data-rac). */
+@utility state-layer {
+  position: relative;
+  isolation: isolate;
+  /* Zero-specificity default so any transition utility (e.g. shape-morph) wins */
+  &:where(*) {
+    transition:
+      background-color var(--md-spring-default-effects-duration) var(--md-spring-default-effects),
+      color var(--md-spring-default-effects-duration) var(--md-spring-default-effects),
+      border-color var(--md-spring-default-effects-duration) var(--md-spring-default-effects),
+      border-radius var(--md-spring-fast-spatial-duration) var(--md-spring-fast-spatial),
+      box-shadow var(--md-spring-default-effects-duration) var(--md-spring-default-effects);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: currentColor;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--md-spring-fast-effects-duration) var(--md-spring-fast-effects);
+  }
+  &:is([data-hovered], :not([data-rac]):hover)::after { opacity: 0.08; }
+  &:is([data-focus-visible], :not([data-rac]):focus-visible)::after { opacity: 0.1; }
+  &:is([data-pressed], :not([data-rac]):active)::after { opacity: 0.12; }
+  &:is(:disabled, [data-disabled], [aria-disabled="true"]) { pointer-events: none; }
+  &:is(:disabled, [data-disabled], [aria-disabled="true"])::after { opacity: 0; }
+}
+
+/* M3 shape morph · corners ride the FastSpatial spring (in and out of press alike, as Compose does);
+   colors ride DefaultEffects. */
+@utility shape-morph {
+  transition:
+    border-radius var(--md-spring-fast-spatial-duration) var(--md-spring-fast-spatial),
+    background-color var(--md-spring-default-effects-duration) var(--md-spring-default-effects),
+    color var(--md-spring-default-effects-duration) var(--md-spring-default-effects),
+    border-color var(--md-spring-default-effects-duration) var(--md-spring-default-effects),
+    box-shadow var(--md-spring-default-effects-duration) var(--md-spring-default-effects),
+    --icon-fill var(--md-spring-default-effects-duration) var(--md-spring-default-effects),
+    --icon-wght var(--md-spring-default-effects-duration) var(--md-spring-default-effects);
+}
+
+/* 3px secondary outline on keyboard focus only */
+@utility focus-ring {
+  outline: none;
+  &:is([data-focus-visible], :not([data-rac]):focus-visible) {
+    outline: 3px solid var(--md-secondary);
+    outline-offset: 2px;
+  }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+/* ---------- reveal ---------- */
+@keyframes m3-reveal-word {
+  from { opacity: 0; transform: translateY(60%); }
+}
+
+/* ---------- progress ----------
+   Values animate on Compose's ProgressAnimationSpec (critically damped, stiffness 50). */
+:root {
+  --md-spring-progress: linear(0, 0.033, 0.111, 0.209, 0.312, 0.413, 0.506, 0.588, 0.66, 0.721, 0.773, 0.816, 0.852, 0.881, 0.905, 0.924, 0.94, 0.952, 0.962, 0.97, 0.977, 0.982, 0.986, 0.989, 0.991, 0.993, 0.995, 0.996, 0.997, 0.997, 1);
+  --md-spring-progress-duration: 1198ms;
+}
+/* Wavy active indicator travels one wavelength per cycle */
+@keyframes md-wave-travel { to { mask-position: calc(var(--md-wavelength, 40px) * -1) 0; } }
+/* Linear indeterminate · two bars */
+@keyframes md-linear-indeterminate-1 {
+  0% { left: -35%; right: 100%; }
+  60%, 100% { left: 100%; right: -90%; }
+}
+@keyframes md-linear-indeterminate-2 {
+  0% { left: -200%; right: 100%; }
+  60%, 100% { left: 107%; right: -8%; }
+}
+/* Circular indeterminate · arc grows and shrinks while rotating (pathLength 100) */
+@keyframes md-circular-rotate { to { transform: rotate(360deg); } }
+@keyframes md-circular-arc {
+  0% { stroke-dasharray: 1 100; stroke-dashoffset: 0; }
+  50% { stroke-dasharray: 70 100; stroke-dashoffset: -28; }
+  100% { stroke-dasharray: 70 100; stroke-dashoffset: -99; }
+}
+
+/* ---------- snackbar · toast ----------
+   Queue updates run inside a view transition (type md-toast): items rise in on the
+   DefaultSpatial spring, fade out on DefaultEffects, and the stack reflows smoothly. */
+@keyframes md-toast-in { from { opacity: 0; transform: translateY(24px) scale(0.96); } }
+@keyframes md-toast-out { to { opacity: 0; transform: scale(0.96); } }
+::view-transition-group(*.md-toast) {
+  animation-duration: var(--md-spring-default-spatial-duration);
+  animation-timing-function: var(--md-spring-default-spatial);
+}
+::view-transition-new(*.md-toast):only-child {
+  animation: md-toast-in var(--md-spring-default-spatial-duration) var(--md-spring-default-spatial);
+}
+::view-transition-old(*.md-toast):only-child {
+  animation: md-toast-out var(--md-spring-default-effects-duration) var(--md-spring-default-effects) forwards;
+}
+html:active-view-transition-type(md-toast)::view-transition-old(root),
+html:active-view-transition-type(md-toast)::view-transition-new(root) {
+  animation: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*.md-toast),
+  ::view-transition-new(*.md-toast),
+  ::view-transition-old(*.md-toast) { animation: none; }
+}
+
+/* ---------- chip ---------- */
+/* Filter-chip check grows in (padding + grid track) on the FastSpatial spring; colors on DefaultEffects. */
+@utility chip-morph {
+  transition:
+    padding var(--md-spring-fast-spatial-duration) var(--md-spring-fast-spatial),
+    margin var(--md-spring-fast-spatial-duration) var(--md-spring-fast-spatial),
+    grid-template-columns var(--md-spring-fast-spatial-duration) var(--md-spring-fast-spatial),
+    border-radius var(--md-spring-fast-spatial-duration) var(--md-spring-fast-spatial),
+    background-color var(--md-spring-default-effects-duration) var(--md-spring-default-effects),
+    color var(--md-spring-default-effects-duration) var(--md-spring-default-effects),
+    border-color var(--md-spring-default-effects-duration) var(--md-spring-default-effects),
+    box-shadow var(--md-spring-default-effects-duration) var(--md-spring-default-effects);
+}
+
+/* ---------- text-field ----------
+   Field-state variants for anything rendered inside <FieldContainer> (text-field.tsx).
+   field-float     label floated: container populated, focused, autofilled, or its input/textarea has a value
+                   (inputs keep a " " placeholder so :placeholder-shown means "empty")
+   field-invalid   the enclosing React Aria field (TextField, DatePicker, ComboBox, Select…) is invalid
+   field-disabled  … is disabled
+   field-readonly  … is read-only
+   invalid/disabled use :is() so they outrank group-focus-within (an invalid field stays red while focused). */
+@custom-variant field-float (&:where([data-slot="field-container"]:is([data-populated], :focus-within, :has(:autofill), :has(input:not([hidden], [type="hidden"]):not(:placeholder-shown)), :has(textarea:not(:placeholder-shown))) *));
+@custom-variant field-invalid (&:is([data-rac][data-invalid] *));
+@custom-variant field-disabled (&:is([data-rac][data-disabled] *));
+@custom-variant field-readonly (&:is([data-rac][data-readonly] *));
+
+/* ---------- input-otp ---------- */
+@keyframes m3-caret-blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+
+/* ---------- skeleton ---------- */
+@keyframes m3-shimmer {
+  from { background-position: 100% 0; }
+  to { background-position: 0% 0; }
+}
+
+/* ---------- overlays & menus (popover, tooltip, menu, select, context-menu, menubar, navigation-menu) ----------
+   Menus/popovers grow from their anchor on the FastSpatial spring and fade out on FastEffects.
+   Elevation level 2 as a drop-shadow so segmented menu groups each cast their own shadow. */
+@keyframes m3-menu-in { from { opacity: 0; transform: scaleY(0.7); } }
+@keyframes m3-popover-in { from { opacity: 0; transform: scale(0.88); } }
+@keyframes m3-tooltip-in { from { opacity: 0; transform: scale(0.8); } }
+@keyframes m3-panel-in { from { opacity: 0; transform: translateY(-8px); } }
+@keyframes m3-overlay-out { to { opacity: 0; } }
+
+@utility m3-menu-enter { animation: m3-menu-in var(--md-spring-fast-spatial-duration) var(--md-spring-fast-spatial); }
+@utility m3-popover-enter { animation: m3-popover-in var(--md-spring-fast-spatial-duration) var(--md-spring-fast-spatial); }
+@utility m3-tooltip-enter { animation: m3-tooltip-in var(--md-spring-fast-effects-duration) var(--md-spring-fast-effects); }
+@utility m3-panel-enter { animation: m3-panel-in var(--md-spring-default-spatial-duration) var(--md-spring-default-spatial); }
+@utility m3-overlay-exit { animation: m3-overlay-out var(--md-spring-fast-effects-duration) var(--md-spring-fast-effects) forwards; }
+@utility drop-elevation-2 {
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.3)) drop-shadow(0 2px 4px rgb(0 0 0 / 0.15));
+}
+
+/* ---------- search ----------
+   Docked search view grows down out of the 56dp bar (container transform approximation). */
+@keyframes m3-search-expand {
+  from { opacity: 0.6; clip-path: inset(0 0 calc(100% - 56px) 0 round 28px); }
+  to { opacity: 1; clip-path: inset(0 0 0 0 round 28px); }
+}
+@keyframes m3-search-collapse {
+  from { opacity: 1; clip-path: inset(0 0 0 0 round 28px); }
+  to { opacity: 0; clip-path: inset(0 0 calc(100% - 56px) 0 round 28px); }
+}
+
+/* ---------- fab ---------- */
+/* FAB menu items grow out of their trailing edge (FastSpatial) and fade in (FastEffects), bottom item first.
+   The clip is padded by 12px so the item's own shadow isn't cut while it grows. */
+@keyframes md-fab-item-grow { from { clip-path: var(--fab-clip-from, inset(-12px -12px -12px 100% round 28px)); } to { clip-path: inset(-12px round 40px); } }
+@keyframes md-fab-item-fade { from { opacity: 0; } }
+@utility fab-menu-item-enter {
+  animation:
+    md-fab-item-grow var(--md-spring-fast-spatial-duration) var(--md-spring-fast-spatial) var(--fab-item-delay, 0ms) backwards,
+    md-fab-item-fade var(--md-spring-fast-effects-duration) var(--md-spring-fast-effects) var(--fab-item-delay, 0ms) backwards;
+}
+
+/* ---------- navigation rail / drawer / sidebar ---------- */
+@keyframes m3-rail-in { from { transform: translateX(-100%); } }
+@keyframes m3-rail-out { to { transform: translateX(-100%); } }
+@keyframes m3-rail-in-end { from { transform: translateX(100%); } }
+@keyframes m3-rail-out-end { to { transform: translateX(100%); } }
+
+/* ---------- message · message-scroller · questionnaire ---------- */
+@keyframes m3-message-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.92); }
+}
+@keyframes m3-typing {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+/* Questionnaire step change · slides in from the side it came from (--step-dir: 1 forward, -1 back) */
+@keyframes m3-step-in {
+  from { opacity: 0; transform: translateX(calc(var(--step-dir, 1) * 32px)); }
+}
+
+/* ---------- sheet ----------
+   Bottom/side sheet enter + exit. Uses the `translate` property so a drag (inline `transform`) composes with it. */
+@keyframes m3-sheet-in-bottom { from { translate: 0 100%; } }
+@keyframes m3-sheet-out-bottom { to { translate: 0 100%; } }
+@keyframes m3-sheet-in-right { from { translate: 100% 0; } }
+@keyframes m3-sheet-out-right { to { translate: 100% 0; } }
+@keyframes m3-sheet-in-left { from { translate: -100% 0; } }
+@keyframes m3-sheet-out-left { to { translate: -100% 0; } }
+
+/* ---------- landing (block) ---------- */
+@keyframes m3-landing-page-in { from { opacity: 0; scale: 0.97; } }
+@keyframes m3-landing-detail-in { from { opacity: 0; translate: 24px 0; } }
+
+/* ---------- marketing blocks (landing v1 / v3 / variants) ---------- */
+@keyframes m3-page-in { from { opacity: 0; scale: 0.97; } }
+@keyframes m3-detail-in { from { opacity: 0; translate: 24px 0; } }
+/* Marquee rows: duplicate the track once, animate each copy by its own width */
+@keyframes m3-marquee { to { transform: translateX(-100%); } }
+
+/* ---------- Bare links (ported from the kit's tokens.css) ----------
+   Unclassed <a> in prose gets the M3 primary link treatment; styled links opt out by having a class. */
+@layer base {
+  a:not([class]) {
+    color: var(--md-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  a:not([class]):hover {
+    color: var(--md-on-primary-container);
+  }
+}

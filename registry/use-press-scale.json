@@ -1,0 +1,15 @@
+{
+  "name": "use-press-scale",
+  "type": "registry:hook",
+  "title": "usePressScale",
+  "description": "Elastic press: squish on pointer down, spring back on release.",
+  "registryDependencies": [
+    "@expressive/use-motion"
+  ],
+  "files": [
+    {
+      "path": "src/hooks/use-press-scale.ts",
+      "type": "registry:hook"
+    }
+  ]
+}

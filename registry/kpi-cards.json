@@ -1,0 +1,43 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kpi-cards",
+  "type": "registry:block",
+  "title": "KPI & stat cards",
+  "description": "24 KPI cards: sparkline KPIs, goal and budget meters, a live requests/sec counter, shape-badge stats, a countdown, segmented storage and a 15-metric strip.",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "@expressive/chart",
+    "@expressive/dialog",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/menu",
+    "@expressive/shape",
+    "@expressive/snackbar",
+    "@expressive/use-tilt",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/dashboard-kit/kit-data.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/dashboard-kit/kit-chart-parts.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/dashboard-kit/chart-card.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/dashboard-kit/kpi-cards.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "dashboard",
+    "charts"
+  ]
+}

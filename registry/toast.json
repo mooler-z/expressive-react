@@ -1,0 +1,22 @@
+{
+  "name": "toast",
+  "type": "registry:ui",
+  "title": "Toast",
+  "description": "Stacked toasts with a role-colored icon, title, description, actions or custom content, via toast({ ... }).",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "docs": "Mount <ToastRegion /> once near your app root, then call toast({ title, description, icon, tone }).",
+  "files": [
+    {
+      "path": "src/components/ui/toast.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

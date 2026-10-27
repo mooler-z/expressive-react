@@ -1,0 +1,26 @@
+{
+  "name": "marketing-changelog",
+  "type": "registry:block",
+  "title": "Changelog",
+  "description": "Subscribe form, filter chips and releases as a timeline or an M3 feed grid.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/chip",
+    "@expressive/icon",
+    "@expressive/reveal",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/marketing/marketing-changelog.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "marketing"
+  ]
+}

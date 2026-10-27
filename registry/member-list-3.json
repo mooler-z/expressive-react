@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "member-list-3",
+  "type": "registry:block",
+  "title": "Member list · directory by team",
+  "description": "A two-column directory with sticky team headers in a scroll area; chips above jump to a team.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/member-list-3.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "people"
+  ]
+}

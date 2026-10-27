@@ -1,0 +1,18 @@
+{
+  "name": "checkbox",
+  "type": "registry:ui",
+  "title": "Checkbox",
+  "description": "M3 checkbox: selected, indeterminate, error and disabled states.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/checkbox.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "message",
+  "type": "registry:ui",
+  "title": "Message",
+  "description": "Chat bubbles with grouped corner shaping, delivery status, reactions with a picker, typing indicator, quotes, voice messages and hover actions.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/ripple",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/message.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "docs": "Uses the m3-message-in and m3-typing keyframes from expressive.css — re-add @expressive/theme if your copy predates them."
+}

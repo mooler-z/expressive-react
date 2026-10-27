@@ -1,0 +1,23 @@
+{
+  "name": "search",
+  "type": "registry:ui",
+  "title": "Search",
+  "description": "M3 search bar and search view (docked or full screen) with live-filtered suggestions.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/loading-indicator",
+    "@expressive/ripple",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/search.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "docs": "Needs the field-*/caret/search additions in expressive.css. Re-add @expressive/theme if your copy predates them."
+}

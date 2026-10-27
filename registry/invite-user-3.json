@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "invite-user-3",
+  "type": "registry:block",
+  "title": "Invite user · side sheet with access",
+  "description": "A modal side sheet with role cards and per-title access; the footer summarises what the invite grants.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/questionnaire",
+    "@expressive/sheet",
+    "@expressive/snackbar",
+    "@expressive/text-field",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/invite-user-3.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "people"
+  ]
+}

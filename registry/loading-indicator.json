@@ -1,0 +1,19 @@
+{
+  "name": "loading-indicator",
+  "type": "registry:ui",
+  "title": "Loading indicator",
+  "description": "Morphing, rotating shape for short indeterminate waits.",
+  "dependencies": [
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/shape",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/loading-indicator.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

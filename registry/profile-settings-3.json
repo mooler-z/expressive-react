@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "profile-settings-3",
+  "type": "registry:block",
+  "title": "Profile settings · inline edit + danger zone",
+  "description": "Read-first profile card with inline edit and a type-to-confirm delete.",
+  "registryDependencies": [
+    "@expressive/alert-dialog",
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/snackbar",
+    "@expressive/text-field",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/profile-settings-3.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "settings"
+  ]
+}

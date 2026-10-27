@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dashboard-data-display",
+  "type": "registry:block",
+  "title": "Lists, tables & feeds",
+  "description": "26 data-display widgets: sortable leaderboard, ranked customers, activity, goals, incidents, period comparison, key-value details, region health, notifications, releases, agenda, SLA timers, plan tiers, log viewer, job queue, stat tabs and an audit trail.",
+  "registryDependencies": [
+    "@expressive/code-block",
+    "@expressive/icon",
+    "@expressive/shape",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/dashboard-kit/kit-data.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/dashboard-kit/data-display.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "dashboard",
+    "charts"
+  ]
+}

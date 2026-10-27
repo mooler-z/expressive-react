@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sidebar-block-2",
+  "type": "registry:block",
+  "title": "Sidebar · collapsible rail",
+  "description": "Collapses from a full sidebar to an icon rail and back; nested groups become menus while collapsed.",
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/sidebar",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/sidebar-block-2.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "shell"
+  ]
+}

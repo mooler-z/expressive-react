@@ -1,0 +1,23 @@
+{
+  "name": "button-group",
+  "type": "registry:ui",
+  "title": "Button group",
+  "description": "Standard button groups (press widens, neighbours squish), connected button groups, split buttons with a menu, and outlined segmented buttons.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/menu",
+    "@expressive/ripple",
+    "@expressive/use-motion",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/button-group.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

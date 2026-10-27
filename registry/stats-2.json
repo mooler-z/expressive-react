@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stats-2",
+  "type": "registry:block",
+  "title": "Stats · sparklines + targets",
+  "description": "Retention and stability cards with a seven-day trend and progress toward a target.",
+  "registryDependencies": [
+    "@expressive/chart",
+    "@expressive/icon",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/stats-2.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "data"
+  ]
+}

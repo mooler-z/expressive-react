@@ -1,0 +1,18 @@
+{
+  "name": "carousel",
+  "type": "registry:ui",
+  "title": "Carousel",
+  "description": "M3 Expressive carousels: multi-browse, hero and center-aligned hero with keyline masking, plus uncontained and full-screen (vertical, autoplay). Parallax media, fading labels, dots, count, prev/next, drag and keyboard.",
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/use-drag-scroll",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/carousel.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dashboard-2",
+  "type": "registry:block",
+  "title": "Dashboard · command center",
+  "description": "Bento layout for incident days: live player counter, incidents, queue times, region status and the build rollout.",
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/dashboard-2.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "dashboard"
+  ]
+}

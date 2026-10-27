@@ -1,0 +1,21 @@
+{
+  "name": "chip",
+  "type": "registry:ui",
+  "title": "Chip",
+  "description": "Assist, filter (animated check), input (removable, avatar) and suggestion chips, plus ChipGroup, InputChipGroup and ChipInput.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/ripple",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/chip.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

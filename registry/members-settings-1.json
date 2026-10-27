@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "members-settings-1",
+  "type": "registry:block",
+  "title": "Members · members & invites",
+  "description": "Member list with search, role menus, removal with undo and pending invites.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/avatar",
+    "@expressive/button",
+    "@expressive/empty-state",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/menu",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/members-settings-1.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "settings"
+  ]
+}

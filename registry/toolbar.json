@@ -1,0 +1,23 @@
+{
+  "name": "toolbar",
+  "type": "registry:ui",
+  "title": "Toolbar",
+  "description": "Floating toolbars (standard/vibrant, horizontal/vertical, optional paired FAB) and docked toolbars, with arrow-key navigation.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/fab",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/ripple",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/toolbar.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

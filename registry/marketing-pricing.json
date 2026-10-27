@@ -1,0 +1,37 @@
+{
+  "name": "marketing-pricing",
+  "type": "registry:block",
+  "title": "Pricing",
+  "description": "Billing toggle, pricing tiers, comparison table and FAQ, plus centered and supporting-pane page layouts.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/accordion",
+    "@expressive/button",
+    "@expressive/button-group",
+    "@expressive/icon",
+    "@expressive/reveal",
+    "@expressive/ripple",
+    "@expressive/shape",
+    "@expressive/snackbar",
+    "@expressive/table",
+    "@expressive/use-magnetic",
+    "@expressive/use-tilt",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/marketing/marketing-pricing.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-shared.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "marketing"
+  ]
+}

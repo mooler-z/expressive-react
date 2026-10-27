@@ -1,0 +1,21 @@
+{
+  "name": "button",
+  "type": "registry:ui",
+  "title": "Button",
+  "description": "Common buttons and toggle buttons: 5 styles × 5 sizes, round or square, with shape morph on press.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/loading-indicator",
+    "@expressive/ripple",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/button.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

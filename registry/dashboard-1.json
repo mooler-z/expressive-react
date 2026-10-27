@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dashboard-1",
+  "type": "registry:block",
+  "title": "Dashboard · KPIs + live chart",
+  "description": "KPI tiles with sparklines, concurrent players against the previous period, and share by region. The range control redraws the chart.",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/button-group",
+    "@expressive/chart",
+    "@expressive/icon",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/dashboard-1.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "dashboard"
+  ]
+}

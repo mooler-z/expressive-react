@@ -1,0 +1,15 @@
+{
+  "name": "use-tilt",
+  "type": "registry:hook",
+  "title": "useTilt",
+  "description": "Perspective tilt toward the pointer with a spring reset.",
+  "registryDependencies": [
+    "@expressive/use-motion"
+  ],
+  "files": [
+    {
+      "path": "src/hooks/use-tilt.ts",
+      "type": "registry:hook"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "input-group",
+  "type": "registry:ui",
+  "title": "Input group",
+  "description": "Addons attached to an input: prefixes/suffixes, inline actions, joined selects. Outlined or pill.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/ripple",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/input-group.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

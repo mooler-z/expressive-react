@@ -1,0 +1,18 @@
+{
+  "name": "utils",
+  "type": "registry:lib",
+  "title": "Utils",
+  "description": "cn() and tv() configured for the Expressive type, shape and motion scales.",
+  "dependencies": [
+    "clsx",
+    "react-aria-components",
+    "tailwind-merge",
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "src/lib/utils.ts",
+      "type": "registry:lib"
+    }
+  ]
+}

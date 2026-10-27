@@ -1,0 +1,21 @@
+{
+  "name": "command",
+  "type": "registry:ui",
+  "title": "Command palette",
+  "description": "⌘K command palette: filterable grouped actions with shortcuts in a top-aligned dialog, or inline.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/kbd",
+    "@expressive/loading-indicator",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/command.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

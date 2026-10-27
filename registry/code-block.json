@@ -1,0 +1,20 @@
+{
+  "name": "code-block",
+  "type": "registry:ui",
+  "title": "Code block",
+  "description": "Code block with filename header, line numbers, diff rows, language tabs and copy; one-line CodeCommand; CopyButton; InlineCode.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/code-block.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

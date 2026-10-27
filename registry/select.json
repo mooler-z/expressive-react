@@ -1,0 +1,21 @@
+{
+  "name": "select",
+  "type": "registry:ui",
+  "title": "Select",
+  "description": "Exposed dropdown menu: the TextField shell (outlined or filled, floating label) opening an Expressive menu.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/menu",
+    "@expressive/text-field",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/select.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

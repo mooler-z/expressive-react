@@ -1,0 +1,15 @@
+{
+  "name": "ripple",
+  "type": "registry:ui",
+  "title": "Ripple",
+  "description": "Press ripple for any interactive element.",
+  "registryDependencies": [
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/ripple.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

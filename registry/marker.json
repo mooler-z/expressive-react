@@ -1,0 +1,19 @@
+{
+  "name": "marker",
+  "type": "registry:ui",
+  "title": "Marker",
+  "description": "Map pins, location dots, density clusters, status pins, numbered tour markers, legends and coach marks.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/marker.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "data-table-block-3",
+  "type": "registry:block",
+  "title": "Data table · events by status",
+  "description": "Rows grouped under sticky status headers with participation bars, an inline live switch and a row menu.",
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/menu",
+    "@expressive/snackbar",
+    "@expressive/switch",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/data-table-block-3.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "data"
+  ]
+}

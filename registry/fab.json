@@ -1,0 +1,23 @@
+{
+  "name": "fab",
+  "type": "registry:ui",
+  "title": "Floating action button",
+  "description": "FAB (40/56/80/96), extended FAB with animated collapse, and the Expressive FAB menu that morphs into a close button and staggers its items in.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/ripple",
+    "@expressive/utils",
+    "@expressive/theme"
+  ],
+  "docs": "The FAB menu's item animation lives in expressive.css (fab-menu-item-enter). Re-add @expressive/theme if your copy predates it.",
+  "files": [
+    {
+      "path": "src/components/ui/fab.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

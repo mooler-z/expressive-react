@@ -1,0 +1,19 @@
+{
+  "name": "dialog",
+  "type": "registry:ui",
+  "title": "Dialog",
+  "description": "Basic and alert dialogs with focus management and enter/exit motion.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/dialog.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

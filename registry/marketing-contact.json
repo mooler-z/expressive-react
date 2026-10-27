@@ -1,0 +1,36 @@
+{
+  "name": "marketing-contact",
+  "type": "registry:block",
+  "title": "Contact",
+  "description": "Contact channels, stylised office map and a lead form, in stacked and supporting-pane layouts.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/checkbox",
+    "@expressive/icon",
+    "@expressive/ripple",
+    "@expressive/select",
+    "@expressive/shape",
+    "@expressive/snackbar",
+    "@expressive/text-field",
+    "@expressive/use-magnetic",
+    "@expressive/use-tilt",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/marketing/marketing-contact.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-shared.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "marketing"
+  ]
+}

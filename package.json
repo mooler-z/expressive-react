@@ -1,0 +1,41 @@
+{
+  "name": "expressive-react",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Material 3 Expressive components for React \u2014 copy-paste distribution like shadcn/ui.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "pnpm registry:build && tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b",
+    "registry:build": "node scripts/check-registry.mjs && node scripts/build-registry.mjs && shadcn build --output public/r"
+  },
+  "dependencies": {
+    "@internationalized/date": "^3.12.4",
+    "@material/material-color-utilities": "^0.4.0",
+    "clsx": "^2.1.1",
+    "embla-carousel-react": "^8.6.0",
+    "motion": "^14.6.0",
+    "react": "^19.3.1",
+    "react-aria-components": "^1.22.1",
+    "react-dom": "^19.3.1",
+    "react-resizable-panels": "^4.15.0",
+    "react-router": "^8.5.0",
+    "recharts": "^3.10.1",
+    "tailwind-merge": "^3.7.0",
+    "tailwind-variants": "^3.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "shadcn": "^4.22.1",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5"
+  },
+  "packageManager": "pnpm@9.15.0"
+}

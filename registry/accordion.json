@@ -1,0 +1,20 @@
+{
+  "name": "accordion",
+  "type": "registry:ui",
+  "title": "Accordion",
+  "description": "Accordion (tonal, flush, outlined, list, expressive, numbered) and Collapsible on React Aria Disclosure, with spring height animation.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/accordion.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

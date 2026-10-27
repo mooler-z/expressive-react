@@ -1,0 +1,84 @@
+{
+  "name": "landing-v1",
+  "type": "registry:block",
+  "title": "Landing v1",
+  "description": "Six-page marketing site (Home, Features, Pricing, About, Contact, Changelog) with a floating pill nav and hash routing.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/accordion",
+    "@expressive/button",
+    "@expressive/button-group",
+    "@expressive/checkbox",
+    "@expressive/chip",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/loading-indicator",
+    "@expressive/reveal",
+    "@expressive/ripple",
+    "@expressive/select",
+    "@expressive/shape",
+    "@expressive/snackbar",
+    "@expressive/table",
+    "@expressive/text-field",
+    "@expressive/theme-provider",
+    "@expressive/use-magnetic",
+    "@expressive/use-tilt",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/marketing/landing-v1.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-about.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-shared.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-changelog.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-contact.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-cta-banner.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-feature-rows.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-feature-previews.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-hero-showcase.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-pricing.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-problem-cards.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-proof-bento.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "marketing"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "profile-settings-2",
+  "type": "registry:block",
+  "title": "Profile settings · vertical tabs",
+  "description": "Profile, account, security and sessions in vertical tabs.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/badge",
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/snackbar",
+    "@expressive/text-field",
+    "@expressive/use-media-query",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/profile-settings-2.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "settings"
+  ]
+}

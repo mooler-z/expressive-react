@@ -1,0 +1,18 @@
+{
+  "name": "direction",
+  "type": "registry:ui",
+  "title": "Direction",
+  "description": "DirectionProvider (dir + React Aria locale) and useDirection for RTL layouts.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/direction.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

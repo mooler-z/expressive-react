@@ -1,0 +1,21 @@
+{
+  "name": "menu",
+  "type": "registry:ui",
+  "title": "Menu",
+  "description": "M3 Expressive menus: standard and vibrant, segmented sections, leading icons, shortcuts, submenus and checkable items.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/utils",
+    "@expressive/theme"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/menu.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

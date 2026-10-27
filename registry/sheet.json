@@ -1,0 +1,21 @@
+{
+  "name": "sheet",
+  "type": "registry:ui",
+  "title": "Sheet",
+  "description": "Modal and standard bottom sheets (drag handle, drag to dismiss, peek/expand) and modal and standard side sheets.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/sheet.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "docs": "Needs the m3-sheet-* keyframes in expressive.css. Re-add @expressive/theme if your copy predates them."
+}

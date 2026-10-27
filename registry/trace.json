@@ -1,0 +1,17 @@
+{
+  "name": "trace",
+  "type": "registry:ui",
+  "title": "Trace",
+  "description": "Step timelines for agent runs, pipelines and request traces: status rail, mono durations, collapsible tool I/O, error detail, span waterfall, horizontal pipeline and status rows.",
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/loading-indicator",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/trace.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

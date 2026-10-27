@@ -1,0 +1,15 @@
+{
+  "name": "use-magnetic",
+  "type": "registry:hook",
+  "title": "useMagnetic",
+  "description": "Element drifts toward the pointer and springs home on leave.",
+  "registryDependencies": [
+    "@expressive/use-motion"
+  ],
+  "files": [
+    {
+      "path": "src/hooks/use-magnetic.ts",
+      "type": "registry:hook"
+    }
+  ]
+}

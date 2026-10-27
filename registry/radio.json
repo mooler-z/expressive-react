@@ -1,0 +1,19 @@
+{
+  "name": "radio",
+  "type": "registry:ui",
+  "title": "Radio",
+  "description": "M3 radio group with a spring-in dot, state layer, error, descriptions and trailing placement.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/radio.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

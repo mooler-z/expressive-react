@@ -1,0 +1,36 @@
+{
+  "name": "landing-terminal",
+  "type": "registry:block",
+  "title": "Landing · Terminal",
+  "description": "Inverse, developer-first hero with a typed-out CLI session and copyable snippets.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/reveal",
+    "@expressive/ripple",
+    "@expressive/shape",
+    "@expressive/snackbar",
+    "@expressive/use-magnetic",
+    "@expressive/use-tilt",
+    "@expressive/utils",
+    "@expressive/theme"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/marketing/landing-terminal.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-shared.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "marketing"
+  ],
+  "docs": "Uses keyframes from expressive.css (m3-caret-blink); re-add @expressive/theme if your copy predates them."
+}

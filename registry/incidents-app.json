@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "incidents-app",
+  "type": "registry:block",
+  "title": "Adaptive incidents app",
+  "description": "One app at every window size, built from the adaptive scaffold and list-detail layout: bar → rail → expanded rail, one pane → two → three.",
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/chip",
+    "@expressive/fab",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/navigation-bar",
+    "@expressive/navigation-rail",
+    "@expressive/search",
+    "@expressive/snackbar",
+    "@expressive/use-window-size-class",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/layouts/window-size.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/layouts/adaptive-scaffold.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/layouts/list-detail-layout.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/layouts/incidents-app.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "layouts"
+  ]
+}

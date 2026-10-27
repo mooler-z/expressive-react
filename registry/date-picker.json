@@ -1,0 +1,26 @@
+{
+  "name": "date-picker",
+  "type": "registry:ui",
+  "title": "Date picker",
+  "description": "M3 docked date and range pickers, modal date and range picker dialogs with calendar / input modes.",
+  "dependencies": [
+    "@internationalized/date",
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/calendar",
+    "@expressive/date-field",
+    "@expressive/dialog",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/text-field",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/date-picker.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

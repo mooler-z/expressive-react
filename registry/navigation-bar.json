@@ -1,0 +1,21 @@
+{
+  "name": "navigation-bar",
+  "type": "registry:ui",
+  "title": "Navigation bar",
+  "description": "M3 Expressive 64dp navigation bar: vertical or horizontal items, spring active indicator, badges, adaptive layout.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/badge",
+    "@expressive/icon",
+    "@expressive/ripple",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/navigation-bar.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

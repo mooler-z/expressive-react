@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "member-list-1",
+  "type": "registry:block",
+  "title": "Member list · role filter",
+  "description": "Search across name, title and team, role filter chips, presence and local time on each row, and a row menu.",
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/chip",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/menu",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/member-list-1.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "people"
+  ]
+}

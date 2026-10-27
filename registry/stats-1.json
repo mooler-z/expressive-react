@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stats-1",
+  "type": "registry:block",
+  "title": "Stats · strip with deltas",
+  "description": "Four connected stats with change chips; the comparison control changes the baseline for every delta.",
+  "registryDependencies": [
+    "@expressive/button-group",
+    "@expressive/icon",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/stats-1.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "data"
+  ]
+}

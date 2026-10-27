@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "verify-3",
+  "type": "registry:block",
+  "title": "Verify · in-app banner",
+  "description": "Dismissible verification banner with a locked publish action.",
+  "registryDependencies": [
+    "@expressive/avatar",
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/verify-3.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "authentication"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "use-drag-scroll",
+  "type": "registry:hook",
+  "title": "useDragScroll",
+  "description": "Mouse drag-to-scroll for overflow containers; suspends scroll-snap while dragging and settles on the nearest snap point with release velocity.",
+  "files": [
+    {
+      "path": "src/hooks/use-drag-scroll.ts",
+      "type": "registry:hook"
+    }
+  ]
+}

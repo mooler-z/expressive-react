@@ -1,0 +1,18 @@
+{
+  "name": "kbd",
+  "type": "registry:ui",
+  "title": "Kbd",
+  "description": "Keyboard keys and shortcut groups (chords and sequences).",
+  "dependencies": [
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/kbd.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

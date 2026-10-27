@@ -1,0 +1,87 @@
+{
+  "name": "landing-v3",
+  "type": "registry:block",
+  "title": "Landing v3",
+  "description": "The six-page site on M3 canonical layouts: tab app bar + modal drawer, list-detail, supporting pane and feed.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/accordion",
+    "@expressive/button",
+    "@expressive/button-group",
+    "@expressive/checkbox",
+    "@expressive/chip",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/loading-indicator",
+    "@expressive/navigation-drawer",
+    "@expressive/reveal",
+    "@expressive/ripple",
+    "@expressive/select",
+    "@expressive/shape",
+    "@expressive/snackbar",
+    "@expressive/table",
+    "@expressive/text-field",
+    "@expressive/theme-provider",
+    "@expressive/use-magnetic",
+    "@expressive/use-tilt",
+    "@expressive/utils",
+    "@expressive/theme"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/marketing/landing-v3.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-about.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-shared.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-changelog.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-contact.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-cta-banner.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-feature-list-detail.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-feature-previews.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-hero-showcase.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-pricing.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-problem-cards.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-proof-bento.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "marketing"
+  ],
+  "docs": "Uses keyframes from expressive.css (m3-detail-in, m3-page-in); re-add @expressive/theme if your copy predates them."
+}

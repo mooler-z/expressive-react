@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "notifications-1",
+  "type": "registry:block",
+  "title": "Notifications · channel matrix",
+  "description": "Per-event Email / Push / Slack matrix with column toggles.",
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/checkbox",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/notifications-1.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "settings"
+  ]
+}

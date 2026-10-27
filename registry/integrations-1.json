@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "integrations-1",
+  "type": "registry:block",
+  "title": "Integrations · grid",
+  "description": "Filterable integration catalog with connect / disconnect.",
+  "registryDependencies": [
+    "@expressive/badge",
+    "@expressive/button",
+    "@expressive/chip",
+    "@expressive/icon",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/integrations-1.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "settings"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "aspect-ratio",
+  "type": "registry:ui",
+  "title": "Aspect ratio",
+  "description": "Fixed-ratio media frame plus the M3 media placeholder and corner label.",
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/aspect-ratio.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

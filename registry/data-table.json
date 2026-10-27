@@ -1,0 +1,25 @@
+{
+  "name": "data-table",
+  "type": "registry:ui",
+  "title": "Data table",
+  "description": "Interactive data table on React Aria's Table: sorting, checkbox row selection, column resizing, row-action menus, search toolbar, pagination footer, density, loading and empty states, plus a useDataTable hook for client-side search/sort/paging.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/checkbox",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/menu",
+    "@expressive/progress",
+    "@expressive/search",
+    "@expressive/select",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/data-table.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

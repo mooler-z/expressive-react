@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "integrations-3",
+  "type": "registry:block",
+  "title": "Integrations · API keys",
+  "description": "API key table with reveal, copy, revoke and a create dialog.",
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/chip",
+    "@expressive/dialog",
+    "@expressive/empty-state",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/select",
+    "@expressive/snackbar",
+    "@expressive/text-field",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/integrations-3.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "settings"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "navigation-drawer",
+  "type": "registry:ui",
+  "title": "Navigation drawer",
+  "description": "Standard and modal M3 navigation drawers with headlines, badges, dense items and collapsible nested groups.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/badge",
+    "@expressive/icon",
+    "@expressive/ripple",
+    "@expressive/utils",
+    "@expressive/theme"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/navigation-drawer.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "docs": "Uses keyframes added to expressive.css (m3-rail-in/out). Re-add @expressive/theme if your copy predates them."
+}

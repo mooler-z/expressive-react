@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "invite-user-2",
+  "type": "registry:block",
+  "title": "Invite user · bulk list or link",
+  "description": "Paste email, role lines and see them parsed live, or share a join link with a role, expiry and an off switch.",
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/select",
+    "@expressive/snackbar",
+    "@expressive/switch",
+    "@expressive/tabs",
+    "@expressive/text-field",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/invite-user-2.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "people"
+  ]
+}

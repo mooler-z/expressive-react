@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "app-shell-1",
+  "type": "registry:block",
+  "title": "App shell · rail + top bar",
+  "description": "Navigation rail with FAB and badges; title switcher, search and alerts in the top bar. Below 600px the rail becomes a bottom navigation bar.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/menu",
+    "@expressive/navigation-bar",
+    "@expressive/navigation-rail",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/app-shell-1.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "shell"
+  ]
+}

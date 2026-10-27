@@ -1,0 +1,160 @@
+{
+  "name": "admin-dashboard",
+  "type": "registry:block",
+  "title": "Admin dashboard",
+  "description": "Kestrel admin portal: 21 pages (overview, analytics, users, orders, products, customers, invoices, inventory, reports, calendar, inbox, support, projects, team, integrations, developers, audit log, settings, account) with adaptive navigation — nav bar → rail → expanded rail.",
+  "dependencies": [
+    "@internationalized/date",
+    "react-aria-components",
+    "recharts"
+  ],
+  "registryDependencies": [
+    "@expressive/accordion",
+    "@expressive/alert",
+    "@expressive/avatar",
+    "@expressive/badge",
+    "@expressive/button",
+    "@expressive/button-group",
+    "@expressive/calendar",
+    "@expressive/chart",
+    "@expressive/checkbox",
+    "@expressive/chip",
+    "@expressive/code-block",
+    "@expressive/data-table",
+    "@expressive/dialog",
+    "@expressive/empty-state",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/list",
+    "@expressive/menu",
+    "@expressive/message",
+    "@expressive/message-scroller",
+    "@expressive/progress",
+    "@expressive/search",
+    "@expressive/select",
+    "@expressive/shape",
+    "@expressive/snackbar",
+    "@expressive/switch",
+    "@expressive/table",
+    "@expressive/tabs",
+    "@expressive/text-field",
+    "@expressive/theme-provider",
+    "@expressive/use-media-query",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/admin/admin-account.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-analytics.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-audit.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-calendar.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-charts.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-context.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-customer.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-customers.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-dashboard.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-data.ts",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-developers.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-inbox.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-integrations.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-inventory.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-invoices.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-order.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-orders.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-overview.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-products.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-projects.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-reports.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-settings.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-support.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-team.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-ui.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-users.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/admin/admin-actions.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "docs": "Render <AdminDashboard page=\"overview\" basePath=\"/admin\" />. Pages: overview, analytics, users, orders, products, settings, customers, customer (id), order (id), invoices, inventory, reports, calendar, inbox, support, projects, team, integrations, developers, audit, account. For client-side routing wrap it in React Aria's <RouterProvider navigate={…} useHref={…}> and pass `navigate` for clickable rows.",
+  "categories": [
+    "dashboard",
+    "admin"
+  ]
+}

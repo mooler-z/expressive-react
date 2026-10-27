@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sidebar-block-1",
+  "type": "registry:block",
+  "title": "Sidebar · grouped with meters",
+  "description": "Workspace menu, jump-to search, grouped destinations with counts, a capacity meter and an account menu in the footer.",
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/kbd",
+    "@expressive/menu",
+    "@expressive/sidebar",
+    "@expressive/snackbar",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/sidebar-block-1.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "shell"
+  ]
+}

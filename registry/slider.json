@@ -1,0 +1,18 @@
+{
+  "name": "slider",
+  "type": "registry:ui",
+  "title": "Slider",
+  "description": "M3 Expressive slider: XS–XL inset tracks, gapped handle, stops, value indicator, range, centered, vertical, inset icon.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/slider.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

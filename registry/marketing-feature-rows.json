@@ -1,0 +1,25 @@
+{
+  "name": "marketing-feature-rows",
+  "type": "registry:block",
+  "title": "Features · alternating rows",
+  "description": "Features page with alternating copy/preview rows and an integrations panel.",
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/loading-indicator",
+    "@expressive/reveal",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/marketing/marketing-feature-rows.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "src/components/blocks/marketing/marketing-feature-previews.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "marketing"
+  ]
+}

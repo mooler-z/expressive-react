@@ -1,0 +1,22 @@
+{
+  "name": "calendar",
+  "type": "registry:ui",
+  "title": "Calendar",
+  "description": "M3 date-picker calendar and range calendar (40dp day cells, today outline, range band, year grid) plus a month-view event calendar.",
+  "dependencies": [
+    "@internationalized/date",
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/calendar.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

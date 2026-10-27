@@ -1,0 +1,20 @@
+{
+  "name": "tabs",
+  "type": "registry:ui",
+  "title": "Tabs",
+  "description": "M3 primary and secondary tabs plus segmented pill tabs, with a sliding indicator, icons, badges, scrolling and vertical orientation.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/badge",
+    "@expressive/icon",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/tabs.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "notifications-2",
+  "type": "registry:block",
+  "title": "Notifications · switches + quiet hours",
+  "description": "Grouped notification switches, quiet hours and digest frequency.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/button-group",
+    "@expressive/select",
+    "@expressive/switch",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/notifications-2.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "settings"
+  ]
+}

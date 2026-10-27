@@ -1,0 +1,20 @@
+{
+  "name": "alert",
+  "type": "registry:ui",
+  "title": "Alert",
+  "description": "Inline alerts (info, success, warning, error; tonal, outlined, inverse) and the M3 banner.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/alert.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}
