@@ -67,7 +67,7 @@ export function BlockSection({ entry }: { entry: GalleryEntry }) {
   const codeId = `${entry.id}-code`
 
   return (
-    <section id={entry.id} className="scroll-mt-36" aria-labelledby={`${entry.id}-title`}>
+    <section id={entry.id} className="scroll-mt-36 md:scroll-mt-20 xl:scroll-mt-6" aria-labelledby={`${entry.id}-title`}>
       <div className="flex flex-wrap items-center gap-3">
         <div className="min-w-0 flex-1 basis-72">
           <h2 id={`${entry.id}-title`} className="text-title-lg">

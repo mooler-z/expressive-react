@@ -103,11 +103,13 @@ The class strings carry over almost verbatim. Translate the state hooks:
 | `/blocks` (`?cat=`) | `Blocks.dc.html` | Gallery of the registry blocks; Templates link to `/landing`, `/admin`, … |
 | `/themes`, `/tokens` | `Themes.dc.html`, `Tokens.dc.html` | Theme builder; token reference (Docs "Foundations" link here) |
 | `/annotations`, `/review` | `Annotations.dc.html`, `Review Board.dc.html` | Motion spec sheet; review board of live frames |
-| shared chrome | `SiteHeader.dc.html` | `SiteLayout` in `src/docs/site/site-layout.tsx` (header, footer, compact bottom nav, Specs overlay) |
+| shared chrome | `SiteHeader.dc.html` (compact only) | `SiteLayout` in `src/docs/site/site-layout.tsx`. **From 600dp a navigation rail replaces the top header**, like m3.material.io (user request): `site-rail.tsx` has the search FAB, the destinations, and theme/Specs/GitHub at the bottom. Destinations with sub-pages open a flyout drawer on hover or keyboard focus; Docs at 1200dp+ docks the same drawer as its sidebar. Below 600dp: top app bar + bottom navigation bar. |
 
 The design's code samples define the public API the docs show: `<Icon name="add" />`, and `Button`'s `icon` / `trailingIcon` / `color` props. Docs code must be real: examples live as `.tsx` files and the Code tab shows their source (`?raw`).
 
 Use `ThemeScope` (theme-provider) for any subtree with its own seed or light/dark mode, such as preview frames.
+
+Site chrome offsets: pin things with `top-(--site-top)` (64px under the compact top app bar, 0 beside the rail), give fixed full-width bars `md:start-24` so they clear the 96dp rail, and use `getSiteTop()` from `site-layout.tsx` for scroll math. Never hard-code `top-16`. Rail destinations and their flyout links live in `RAIL` (`site-rail.tsx`), built from `DOCS_GROUPS` and the blocks catalog.
 
 ## Kit mirror: `/kit` and the templates
 

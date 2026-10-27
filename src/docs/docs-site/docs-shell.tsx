@@ -3,14 +3,13 @@ import { Dialog, Modal, ModalOverlay } from "react-aria-components"
 import { Link } from "react-router"
 
 import { Icon } from "@/components/ui/icon"
-import { DOCS_RAIL, type DocsPageRef } from "@/docs/docs-site/nav"
-import { DOCS_GROUPS, SITE_LINKS, type DocsSection } from "@/docs/site/site-nav"
+import type { DocsPageRef } from "@/docs/docs-site/nav"
+import { getSiteTop } from "@/docs/site/site-layout"
+import { DOCS_GROUPS, SITE_LINKS } from "@/docs/site/site-nav"
+import { RAIL, RailFlyoutContent } from "@/docs/site/site-rail"
+import { openSiteSearch } from "@/docs/site/site-search"
 import { cn } from "@/lib/utils"
 
-/** Opens the site's ⌘K command palette. The header's CommandDialog owns the shortcut, so we press it. */
-export function openSiteSearch() {
-  window.dispatchEvent(new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true }))
-}
 
 const groupAnchor = (name: string) => "docs-group-" + name.toLowerCase().replace(/[^a-z0-9]+/g, "-")
 
@@ -64,7 +63,8 @@ function SearchField() {
   )
 }
 
-const TOP = "top-16 h-[calc(100dvh-4rem)]"
+/** Under the compact top app bar (64dp) or flush with the top beside the rail (600dp+). */
+const TOP = "top-(--site-top) h-[calc(100dvh-var(--site-top))]"
 
 
 export interface DocsShellProps {
@@ -79,43 +79,19 @@ export interface DocsShellProps {
 export function DocsShell({ page, toc, editPath, children }: DocsShellProps) {
   const [drawer, setDrawer] = React.useState<{ open: boolean; group?: string }>({ open: false })
   const current = page?.id ?? ""
-  const section: DocsSection = page?.group.section ?? "start"
+  // Hooks are listed with the components (Components destination); guides under Get started.
+  const railDest = RAIL.find((d) => d.id === (page && page.group.section !== "start" ? "components" : "start"))!
   const openDrawer = (group?: string) => setDrawer({ open: true, group })
 
   return (
     <div className="mx-auto flex max-w-[1600px]">
-      {/* Medium (600–839): rail. Each destination opens the drawer at its group. */}
-      <nav aria-label="Docs sections" className={cn("sticky hidden w-20 shrink-0 flex-col items-center gap-3 py-3 text-label-md text-on-surface-variant md:flex lg:hidden", TOP)}>
-        <button type="button" onClick={() => openDrawer()} aria-label="Open docs menu" className="state-layer focus-ring inline-flex size-12 cursor-pointer items-center justify-center rounded-full">
-          <Icon name="menu" />
-        </button>
-        {DOCS_RAIL.map((r) => {
-          const on = r.section === section
-          const group = DOCS_GROUPS.find((g) => g.section === r.section)?.name
-          return (
-            <button key={r.section} type="button" onClick={() => openDrawer(group)} className={cn("group flex w-full cursor-pointer flex-col items-center gap-1 pt-2", on && "text-on-surface")}>
-              <span
-                className={cn(
-                  "state-layer grid h-8 w-14 place-items-center rounded-full transition-colors duration-300 ease-emphasized",
-                  on && "bg-secondary-container text-on-secondary-container",
-                )}
-              >
-                <Icon name={r.icon} filled={on} />
-              </span>
-              <span className={cn(on && "font-semibold")}>{r.label}</span>
-            </button>
-          )
-        })}
-      </nav>
-
-      {/* Expanded and up (840+): sticky sidebar. */}
-      <nav aria-label="Docs" className={cn("no-scrollbar sticky hidden w-64 shrink-0 overflow-y-auto px-3 pt-4 pb-10 lg:block", TOP)}>
-        <SearchField />
-        <DocsNavList current={current} dense />
-      </nav>
+      {/* Extra-large (1200+): the rail destination's drawer, docked. Narrower windows use the rail's flyout or the Docs menu. */}
+      <div className={cn("no-scrollbar sticky hidden w-64 shrink-0 overflow-y-auto px-3 pt-4 pb-10 xl:block", TOP)}>
+        <RailFlyoutContent dest={railDest} docked />
+      </div>
 
       <main className="min-w-0 flex-1 px-4 pt-6 pb-24 md:px-8 lg:px-12">
-        <div className="mb-4 flex min-w-0 items-center gap-2 lg:hidden">
+        <div className="mb-4 flex min-w-0 items-center gap-2 xl:hidden">
           <button
             type="button"
             onClick={() => openDrawer(page?.group.name)}
@@ -166,7 +142,7 @@ function DocsDrawer({ state, onClose, current }: { state: { open: boolean; group
       isDismissable
       isOpen={state.open}
       onOpenChange={(o) => !o && onClose()}
-      className="fixed inset-0 z-[100] bg-scrim/40 data-entering:animate-[m3-fade-in_200ms_var(--md-easing-standard)] data-exiting:animate-[m3-fade-out_150ms_var(--md-easing-standard)] lg:hidden"
+      className="fixed inset-0 z-[100] bg-scrim/40 data-entering:animate-[m3-fade-in_200ms_var(--md-easing-standard)] data-exiting:animate-[m3-fade-out_150ms_var(--md-easing-standard)] xl:hidden"
     >
       <Modal className="fixed inset-y-0 left-0 w-90 max-w-[85vw] data-entering:animate-[m3-sheet-in-left_400ms_var(--md-easing-emphasized-decelerate)] data-exiting:animate-[m3-sheet-out-left_200ms_var(--md-easing-emphasized-accelerate)]">
         <Dialog aria-label="Docs" className="h-full outline-none">
@@ -219,7 +195,7 @@ function Toc({ items }: { items: { id: string; label: string }[] }) {
           onClick={(e) => {
             e.preventDefault()
             const el = document.getElementById(t.id)
-            if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 88, behavior: "smooth" })
+            if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - getSiteTop() - 24, behavior: "smooth" })
             history.replaceState(null, "", `#${t.id}`)
             setActive(t.id)
           }}

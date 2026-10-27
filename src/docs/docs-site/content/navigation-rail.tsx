@@ -14,7 +14,7 @@ import type { ComponentDoc } from "@/docs/docs-site/types"
 const c = (s: string) => <code className="font-mono text-body-sm">{s}</code>
 
 const itemProps = [
-  { name: "icon", type: "string", default: "—", description: "Material Symbols name. Required; fills when active." },
+  { name: "icon", type: "string | ReactElement", default: "—", description: "Material Symbols name, which fills when active, or your own 24dp element (a logo, an avatar). Required." },
   { name: "label", type: "ReactNode", default: "—", description: "Destination label. Required. Below the icon when collapsed, beside it when expanded." },
   { name: "value", type: "string", default: "—", description: "Compared with the rail's value; pressing the item selects it." },
   { name: "badge", type: "number | string | boolean", default: "—", description: "Count, short text, or true for the dot. Expanded rails show counts at the end of the row." },

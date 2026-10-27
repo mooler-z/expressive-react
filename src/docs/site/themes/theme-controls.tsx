@@ -32,7 +32,7 @@ export function ThemeControls({ theme, apply, reset, mode, setMode, dark, css }:
 
   return (
     <aside
-      className="space-y-6 rounded-xl bg-surface-container-low p-5 lg:sticky lg:top-20"
+      className="space-y-6 rounded-xl bg-surface-container-low p-5 lg:sticky lg:top-6"
       data-spec="Builder controls|Every control writes to the shared theme store: seed → Material color utilities scheme → 49 role variables on :root and .dark. Persists in localStorage; URL params override."
     >
       <div>

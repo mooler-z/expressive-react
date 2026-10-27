@@ -7,15 +7,16 @@ import { NavigationBar, NavigationBarItem } from "@/components/ui/navigation-bar
 import { Shape } from "@/components/ui/shape"
 import { useTheme } from "@/components/ui/theme-provider"
 import type { SiteSection } from "@/docs/site/site-layout"
-import { SITE_BOTTOM_NAV, SITE_LINKS, SITE_NAV } from "@/docs/site/site-nav"
+import { SITE_BOTTOM_NAV } from "@/docs/site/site-nav"
 import { SiteSearch } from "@/docs/site/site-search"
 import { ThemeMenu } from "@/docs/site/theme-menu"
 import { cn } from "@/lib/utils"
 
 /*
- * Site header · design-reference/site/SiteHeader.dc.html
+ * Site header · design-reference/site/SiteHeader.dc.html, compact widths only (below 600dp).
+ * From 600dp the navigation rail (site-rail.tsx) takes over, like m3.material.io.
  * 64dp pinned bar: surface at rest → surface-container once content scrolls under it (300ms emphasized).
- * Logo · primary nav (md+) · search (pill at xl, icon below) · theme menu · dark toggle · GitHub (sm+).
+ * Logo · search · theme menu · dark toggle. It also hosts the ⌘K dialog for every width.
  */
 
 function useScrolled(threshold = 8) {
@@ -29,8 +30,7 @@ function useScrolled(threshold = 8) {
   return scrolled
 }
 
-/** `responsive` hides the wordmark at medium widths (600–839), where the header nav needs the room. */
-export function SiteLogo({ className, responsive }: { className?: string; responsive?: boolean }) {
+export function SiteLogo({ className }: { className?: string }) {
   return (
     <Link
       to="/"
@@ -38,14 +38,14 @@ export function SiteLogo({ className, responsive }: { className?: string; respon
       className={cn("state-layer focus-ring flex h-12 shrink-0 items-center gap-2 rounded-full pr-3 pl-2", className)}
     >
       <Shape shape="clover4" cycle={["clover4", "cookie7", "sunny"]} interval={3400} hoverShape="burst" className="size-8 text-primary" />
-      <span className={cn("text-title-md font-semibold tracking-tight", responsive && "md:max-lg:hidden")}>
+      <span className="text-title-md font-semibold tracking-tight">
         Expressive<span className="font-normal text-on-surface-variant"> React</span>
       </span>
     </Link>
   )
 }
 
-export function SiteHeader({ active }: { active: SiteSection }) {
+export function SiteHeader() {
   const scrolled = useScrolled()
   const { resolvedMode, setMode } = useTheme()
   const dark = resolvedMode === "dark"
@@ -56,47 +56,23 @@ export function SiteHeader({ active }: { active: SiteSection }) {
       data-scrolled={scrolled || undefined}
       data-spec="Top app bar|Surface at rest → surface-container once content scrolls under it. 300ms emphasized color crossfade. Pinned at 64dp."
       className={cn(
-        "sticky top-0 z-40 flex h-16 items-center gap-1 px-2 text-on-surface transition-colors duration-300 ease-emphasized md:px-4",
+        "sticky top-0 z-40 flex h-16 items-center gap-1 px-2 text-on-surface transition-colors duration-300 ease-emphasized md:hidden",
         scrolled ? "bg-surface-container" : "bg-surface",
       )}
     >
-      <SiteLogo responsive />
-      <nav aria-label="Primary" className="ml-1 hidden items-center gap-0.5 md:flex">
-        {SITE_NAV.map((n) => (
-          <Link
-            key={n.id}
-            to={n.href}
-            aria-current={n.id === active ? "page" : undefined}
-            className={cn(
-              "state-layer focus-ring inline-flex h-10 shrink-0 items-center rounded-full px-3 text-label-lg shape-morph active:rounded-md md:max-lg:px-2.5 xl:px-4",
-              n.id === active ? "bg-secondary-container text-on-secondary-container" : "text-on-surface-variant",
-            )}
-          >
-            {n.label}
-          </Link>
-        ))}
-      </nav>
+      <SiteLogo />
       <div className="ml-auto flex items-center gap-0.5">
         <SiteSearch />
         <ThemeMenu />
         <IconButton aria-label={dark ? "Switch to light mode" : "Switch to dark mode"} size="md" width="narrow" onPress={() => setMode(dark ? "light" : "dark")}>
           <Icon>{dark ? "light_mode" : "dark_mode"}</Icon>
         </IconButton>
-        <a
-          href={SITE_LINKS.github}
-          target="_blank"
-          rel="noreferrer"
-          className="state-layer focus-ring ml-1 hidden h-10 items-center gap-2 rounded-full border border-outline-variant px-4 text-label-lg text-on-surface-variant xl:inline-flex"
-        >
-          GitHub
-          <Icon size={18}>open_in_new</Icon>
-        </a>
       </div>
     </header>
   )
 }
 
-/** Compact-width primary navigation (below 600dp), replacing the header nav. */
+/** Compact-width primary navigation (below 600dp); the rail replaces it from 600dp. */
 export function SiteBottomNav({ active }: { active: SiteSection }) {
   const current = active === "components" || active === "charts" || active === "tokens" ? "docs" : active
   return (

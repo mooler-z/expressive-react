@@ -136,7 +136,7 @@ export function TokenBar({ active, visible, className }: { active: TokenSectionI
       inert={!visible}
       aria-hidden={!visible || undefined}
       className={cn(
-        "fixed inset-x-0 top-16 z-30 border-b border-outline-variant bg-surface/95 backdrop-blur transition-[translate,opacity] duration-(--md-spring-fast-spatial-duration) ease-fast-spatial",
+        "fixed inset-x-0 top-(--site-top) z-30 border-b border-outline-variant bg-surface/95 backdrop-blur transition-[translate,opacity] duration-(--md-spring-fast-spatial-duration) ease-fast-spatial md:start-24",
         visible ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-full opacity-0",
         className,
       )}

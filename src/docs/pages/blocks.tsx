@@ -6,7 +6,7 @@ import { BlockSection } from "@/docs/site/blocks-gallery/block-section"
 import { CategoryBar, CategoryCards, CategorySidebar } from "@/docs/site/blocks-gallery/category-cards"
 import { CATEGORIES, ENTRIES, REGISTRY_BLOCKS, UNMAPPED, type BlockCategory } from "@/docs/site/blocks-gallery/catalog"
 import { useFrameThemeSync } from "@/docs/site/blocks-gallery/frame-theme"
-import { SiteLayout } from "@/docs/site/site-layout"
+import { SiteLayout, getSiteTop } from "@/docs/site/site-layout"
 
 export const meta = { path: "/blocks" }
 
@@ -40,7 +40,7 @@ export default function BlocksPage() {
   React.useEffect(() => {
     const el = cardsRef.current
     if (!el) return
-    const io = new IntersectionObserver(([e]) => setCardsVisible(e.isIntersecting), { rootMargin: "-64px 0px 0px 0px" })
+    const io = new IntersectionObserver(([e]) => setCardsVisible(e.isIntersecting), { rootMargin: `-${getSiteTop()}px 0px 0px 0px` })
     io.observe(el)
     return () => io.disconnect()
   }, [])
@@ -48,8 +48,8 @@ export default function BlocksPage() {
   const pick = (next: BlockCategory) => {
     setParams(next === "templates" ? {} : { cat: next })
     // Switching from the sticky bar or sidebar: bring the new category's heading back into view,
-    // under the header (+ the bar below xl, where there's no sidebar).
-    const offset = window.matchMedia("(min-width: 1200px)").matches ? 88 : 136
+    // under the top app bar (compact) and the category bar (below xl, where there's no sidebar).
+    const offset = getSiteTop() + (window.matchMedia("(min-width: 1200px)").matches ? 24 : 72)
     const top = headingRef.current?.getBoundingClientRect().top ?? 0
     if (top < offset) window.scrollTo({ top: window.scrollY + top - offset })
   }
@@ -95,7 +95,7 @@ export default function BlocksPage() {
 
         {/* Extra-large and up (1200+): sticky category list beside the gallery. */}
         <div className="mt-10 xl:grid xl:grid-cols-[15rem_minmax(0,1fr)] xl:items-start xl:gap-8">
-          <CategorySidebar value={cat} onChange={pick} counts={COUNTS} className="sticky top-22 hidden xl:block" />
+          <CategorySidebar value={cat} onChange={pick} counts={COUNTS} className="sticky top-6 hidden xl:block" />
 
           <div className="min-w-0">
             <div ref={headingRef}>

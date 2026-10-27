@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Radio, RadioGroup } from "react-aria-components"
+import { Radio, RadioGroup, type Placement } from "react-aria-components"
 import { Link } from "react-router"
 
 import { buttonVariants } from "@/components/ui/button"
@@ -61,7 +61,8 @@ export function useSiteSeed() {
 
 const sectionLabel = "text-label-md tracking-wider text-on-surface-variant uppercase"
 
-export function ThemeMenu() {
+/** `rail`: the outlined 40dp button at the bottom of the navigation rail, opening beside it. */
+export function ThemeMenu({ placement = "bottom end", appearance = "header" }: { placement?: Placement; appearance?: "header" | "rail" }) {
   const { mode, setMode, setSeed, variant, setVariant, contrast, setContrast, setTheme } = useTheme()
   const seed = useSiteSeed()
   const customTimer = React.useRef<number | undefined>(undefined)
@@ -71,18 +72,28 @@ export function ThemeMenu() {
   return (
     <PopoverTrigger>
       <span className="relative inline-flex" data-spec="Theme control|Popover slides down on the M3 spring. Any pick recolors the whole site live: seed → Material color utilities scheme, 400ms crossfade on every surface.">
-        <IconButton aria-label="Theme settings" size="md" width="narrow">
-          <Icon>palette</Icon>
-        </IconButton>
+        {appearance === "rail" ? (
+          <IconButton aria-label="Theme settings" variant="outlined" size="sm">
+            <Icon>palette</Icon>
+          </IconButton>
+        ) : (
+          <IconButton aria-label="Theme settings" size="md" width="narrow">
+            <Icon>palette</Icon>
+          </IconButton>
+        )}
         <span
           aria-hidden
-          className="pointer-events-none absolute right-2.5 bottom-3 size-2.5 rounded-full ring-2 ring-surface"
+          className={cn(
+            "pointer-events-none absolute size-2.5 rounded-full ring-2",
+            appearance === "rail" ? "right-0 bottom-0 ring-surface-container" : "right-2.5 bottom-3 ring-surface",
+          )}
           style={{ background: seed }}
         />
       </span>
       <Popover
         aria-label="Theme"
-        placement="bottom end"
+        placement={placement}
+        offset={appearance === "rail" ? 36 : undefined}
         className="w-[360px] max-w-[calc(100vw-16px)] rounded-xl bg-surface-container-high p-4 shadow-3"
       >
         <div className="flex items-center gap-2">

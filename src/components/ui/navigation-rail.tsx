@@ -308,7 +308,8 @@ const itemVariants = tv({
 
 export interface NavigationRailItemProps {
   value?: string
-  icon: string
+  /** Material Symbols name (fills when active), or your own 24dp element such as a logo. */
+  icon: string | React.ReactElement
   label: React.ReactNode
   /** Count, short text, or `true` for the dot. */
   badge?: number | string | boolean
@@ -337,11 +338,14 @@ function NavigationRailItem({
   const s = itemVariants({ expanded: ctx.expanded })
   const count = typeof badge === "boolean" ? undefined : badge
 
-  const glyph = (
-    <Icon filled={isActive} className="transition-[--icon-fill] duration-(--md-spring-default-effects-duration)">
-      {icon}
-    </Icon>
-  )
+  const glyph =
+    typeof icon === "string" ? (
+      <Icon filled={isActive} className="transition-[--icon-fill] duration-(--md-spring-default-effects-duration)">
+        {icon}
+      </Icon>
+    ) : (
+      icon
+    )
   const content = ctx.expanded ? (
     <span className={s.indicator()}>
       <span aria-hidden className={s.pill()} />

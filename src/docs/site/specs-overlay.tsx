@@ -23,8 +23,25 @@ function collect(): Spec[] {
     })
 }
 
+// On/off lives outside the overlay so the navigation rail can host the toggle (600dp+).
+let specsOn = new URLSearchParams(window.location.search).get("specs") === "1"
+const specsListeners = new Set<() => void>()
+export function setSpecsOn(next: boolean) {
+  specsOn = next
+  specsListeners.forEach((l) => l())
+}
+export function useSpecsOn() {
+  return React.useSyncExternalStore(
+    (cb) => {
+      specsListeners.add(cb)
+      return () => void specsListeners.delete(cb)
+    },
+    () => specsOn,
+  )
+}
+
 export function SpecsOverlay() {
-  const [on, setOn] = React.useState(() => new URLSearchParams(window.location.search).get("specs") === "1")
+  const on = useSpecsOn()
   const [specs, setSpecs] = React.useState<Spec[]>([])
   const [hot, setHot] = React.useState<number | null>(null)
   const boxes = React.useRef<(HTMLDivElement | null)[]>([])
@@ -84,9 +101,9 @@ export function SpecsOverlay() {
       <button
         type="button"
         aria-pressed={on}
-        onClick={() => setOn((v) => !v)}
+        onClick={() => setSpecsOn(!on)}
         className={cn(
-          "state-layer focus-ring fixed bottom-20 left-4 z-[94] inline-flex h-10 cursor-pointer items-center gap-2 rounded-full pr-4 pl-3 text-label-lg shadow-3 shape-morph md:bottom-4",
+          "state-layer focus-ring fixed bottom-20 left-4 z-[94] inline-flex h-10 cursor-pointer items-center gap-2 rounded-full pr-4 pl-3 text-label-lg shadow-3 shape-morph md:hidden",
           "bg-tertiary-container text-on-tertiary-container active:rounded-md",
           on && "rounded-md bg-tertiary text-on-tertiary",
         )}
@@ -120,7 +137,7 @@ export function SpecsOverlay() {
             aria-label="Interaction and motion specs"
             className={cn(
               "fixed right-3 z-[95] flex w-[min(360px,calc(100vw-24px))] flex-col overflow-hidden bg-surface-container-high text-on-surface shadow-3",
-              "bottom-20 max-h-[55vh] rounded-[20px] md:top-[76px] md:bottom-3 md:max-h-none md:rounded-xl",
+              "bottom-20 max-h-[55vh] rounded-[20px] md:top-3 md:bottom-3 md:max-h-none md:rounded-xl",
             )}
           >
             <div className="flex items-center gap-2.5 pt-4.5 pr-4 pb-2.5 pl-5.5">
@@ -129,7 +146,7 @@ export function SpecsOverlay() {
               <button
                 type="button"
                 aria-label="Close specs"
-                onClick={() => setOn(false)}
+                onClick={() => setSpecsOn(false)}
                 className="state-layer focus-ring grid size-10 cursor-pointer place-items-center rounded-full text-on-surface-variant"
               >
                 <Icon size={22}>close</Icon>

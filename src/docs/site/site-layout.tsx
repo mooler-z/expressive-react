@@ -2,6 +2,7 @@ import * as React from "react"
 
 import { SiteFooter } from "@/docs/site/site-footer"
 import { SiteBottomNav, SiteHeader } from "@/docs/site/site-header"
+import { SiteRail } from "@/docs/site/site-rail"
 import { SpecsOverlay } from "@/docs/site/specs-overlay"
 import { cn } from "@/lib/utils"
 
@@ -20,17 +21,21 @@ export interface SiteLayoutProps {
 }
 
 /**
- * Shared chrome for the Expressive React site pages (/, /docs, /blocks, /themes, /tokens…):
- * sticky SiteHeader, page content, SiteFooter, the compact bottom navigation bar and the Specs overlay.
+ * Shared chrome for the Expressive React site pages (/, /docs, /blocks, /themes, /tokens…), after m3.material.io:
+ * - 600dp and up: a fixed 96dp navigation rail on the start edge (SiteRail) with flyout drawers; no top bar.
+ * - Compact: the 64dp top app bar (SiteHeader) and the bottom navigation bar.
  *
- * Content sits directly under the 64dp sticky header; at compact widths the wrapper reserves 64dp at the
- * bottom for the navigation bar. Anything a page pins with `sticky top-16` sits just under the header.
- * Annotate interactive moments with `data-spec="Label|Spec text"` and they show up in the Specs overlay.
+ * Pin things with `top-(--site-top)` (64px compact, 0 beside the rail) and offset fixed full-width bars with
+ * `md:start-24`. Annotate interactive moments with `data-spec="Label|Spec text"` for the Specs overlay.
  */
 export function SiteLayout({ active, children, hideFooter, hideSpecs, className }: SiteLayoutProps) {
   return (
-    <div data-slot="site" className={cn("flex min-h-dvh flex-col bg-surface pb-16 font-sans text-on-surface md:pb-0", className)}>
-      <SiteHeader active={active} />
+    <div
+      data-slot="site"
+      className={cn("flex min-h-dvh flex-col bg-surface pb-16 font-sans text-on-surface [--site-top:64px] md:ps-24 md:pb-0 md:[--site-top:0px]", className)}
+    >
+      <SiteRail active={active} specs={!hideSpecs} />
+      <SiteHeader />
       {/* Block (not flex) so pages' `mx-auto max-w-*` mains fill the width instead of shrinking to content */}
       <div className="min-w-0 flex-1">{children}</div>
       {!hideFooter && <SiteFooter />}
@@ -38,4 +43,10 @@ export function SiteLayout({ active, children, hideFooter, hideSpecs, className 
       {!hideSpecs && <SpecsOverlay />}
     </div>
   )
+}
+
+/** Height of the chrome pinned to the top of the viewport (compact top app bar, or 0 beside the rail), in px. */
+export function getSiteTop() {
+  const el = document.querySelector('[data-slot="site"]')
+  return el ? parseFloat(getComputedStyle(el).getPropertyValue("--site-top")) || 0 : 0
 }

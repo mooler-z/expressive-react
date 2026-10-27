@@ -10,7 +10,7 @@ import { springTiming, type SpringName } from "@/hooks/use-motion"
 import { usePressScale } from "@/hooks/use-press-scale"
 import { useTilt } from "@/hooks/use-tilt"
 import { useWindowSizeClass, type WindowSizeClass } from "@/hooks/use-window-size-class"
-import { SiteLayout } from "@/docs/site/site-layout"
+import { SiteLayout, getSiteTop } from "@/docs/site/site-layout"
 import { TokenBar, TokenCards, TokenSidebar, useActiveSection } from "@/docs/site/tokens/token-nav"
 import { cn } from "@/lib/utils"
 
@@ -48,7 +48,7 @@ export function TokensPage() {
   React.useEffect(() => {
     const el = cardsRef.current
     if (!el) return
-    const io = new IntersectionObserver(([e]) => setCardsVisible(e.isIntersecting), { rootMargin: "-64px 0px 0px 0px" })
+    const io = new IntersectionObserver(([e]) => setCardsVisible(e.isIntersecting), { rootMargin: `-${getSiteTop()}px 0px 0px 0px` })
     io.observe(el)
     return () => io.disconnect()
   }, [])
@@ -72,7 +72,7 @@ export function TokensPage() {
 
         {/* Extra-large and up (1200+): sticky section list beside the sheet. */}
         <div className="xl:grid xl:grid-cols-[15rem_minmax(0,1fr)] xl:items-start xl:gap-8">
-          <TokenSidebar active={active} className="sticky top-22 mt-10 hidden xl:block" />
+          <TokenSidebar active={active} className="sticky top-6 mt-10 hidden xl:block" />
           <div className="min-w-0">
             <ColorSection />
             <TypeSection />
@@ -149,7 +149,7 @@ const edge = (i: number, n: number, side: "x" | "y" = "x") =>
 
 function ColorSection() {
   return (
-    <section id="color" className="mt-10 scroll-mt-32 space-y-4 xl:scroll-mt-22">
+    <section id="color" className="mt-10 scroll-mt-32 space-y-4 md:scroll-mt-20 xl:scroll-mt-6">
       <SectionHeader
         title="Color roles"
         action={
@@ -242,7 +242,7 @@ function TypeSection() {
     TYPE.flatMap(([t]) => [`--text-${t}`, `--text-${t}--line-height`, `--text-${t}--letter-spacing`, `--text-${t}--font-weight`]),
   )
   return (
-    <section id="type" className="mt-16 scroll-mt-32 space-y-4 xl:scroll-mt-22">
+    <section id="type" className="mt-16 scroll-mt-32 space-y-4 md:scroll-mt-20 xl:scroll-mt-6">
       <SectionHeader title="Type scale · Roboto Flex">
         15 styles as <Code>text-display-lg … text-label-sm</Code>. Expressive's emphasized variants add <Code>font-medium</Code> or{" "}
         <Code>font-semibold</Code>; the site uses emphasized display and headline, regular body. Optical size is automatic.
@@ -297,7 +297,7 @@ const SHAPE_COLORS = [
 function ShapeSection() {
   const vars = useRootVars(RADII.map(([k]) => `--radius-${k}`))
   return (
-    <section id="shape" className="mt-16 scroll-mt-32 space-y-4 xl:scroll-mt-22">
+    <section id="shape" className="mt-16 scroll-mt-32 space-y-4 md:scroll-mt-20 xl:scroll-mt-6">
       <SectionHeader title="Shape">
         Ten corner tokens as <Code>rounded-*</Code>, plus the Expressive shape library: equal-point polygons so any shape morphs into any other.
       </SectionHeader>
@@ -364,7 +364,7 @@ const LEVELS = [
 
 function ElevationSection() {
   return (
-    <section id="elevation" className="mt-16 scroll-mt-32 space-y-4 xl:scroll-mt-22">
+    <section id="elevation" className="mt-16 scroll-mt-32 space-y-4 md:scroll-mt-20 xl:scroll-mt-6">
       <SectionHeader title="Elevation">
         Levels 0–5 as <Code>shadow-1 … shadow-5</Code>. Tonal containers carry most hierarchy; shadows are reserved for things that float.
       </SectionHeader>
@@ -410,7 +410,7 @@ const LANES: [label: string, timing: string, dot: string][] = [
 function SpringsSection() {
   const ms = useSpringDurations()
   return (
-    <section id="springs" className="mt-16 scroll-mt-32 space-y-4 xl:scroll-mt-22">
+    <section id="springs" className="mt-16 scroll-mt-32 space-y-4 md:scroll-mt-20 xl:scroll-mt-6">
       <SectionHeader title="Motion & springs">
         Two spring families from the M3 Expressive motion scheme. Spatial springs move things (position, size, shape); effects springs change things
         (color, opacity, icon fill) and never overshoot. In CSS they ship as <Code>linear()</Code> easings with a settle duration.
@@ -523,7 +523,7 @@ function MagneticTiltDemo() {
 
 function InteractionsSection() {
   return (
-    <section id="interactions" className="mt-16 scroll-mt-32 space-y-4 xl:scroll-mt-22">
+    <section id="interactions" className="mt-16 scroll-mt-32 space-y-4 md:scroll-mt-20 xl:scroll-mt-6">
       <SectionHeader title="Interactions">
         State layers, ripple, press and focus are shared by every interactive component. Hooks expose the extras.
       </SectionHeader>
@@ -580,7 +580,7 @@ const TOGGLE_ICONS = ["home", "favorite", "bookmark", "notifications", "star", "
 
 function SymbolsSection() {
   return (
-    <section id="symbols" className="mt-16 scroll-mt-32 space-y-4 xl:scroll-mt-22">
+    <section id="symbols" className="mt-16 scroll-mt-32 space-y-4 md:scroll-mt-20 xl:scroll-mt-6">
       <SectionHeader title="Icons · Material Symbols Rounded">
         Variable font axes FILL, wght, GRAD and opsz are CSS custom properties, so fill and weight animate inside any transition. Sizes 16 to 48 set
         optical size automatically.
@@ -638,7 +638,7 @@ function LayoutSection() {
   const current = useWindowSizeClass()
   const currentName = WSC.find((w) => w.id === current)?.name ?? current
   return (
-    <section id="layout" className="mt-16 scroll-mt-32 space-y-4 xl:scroll-mt-22">
+    <section id="layout" className="mt-16 scroll-mt-32 space-y-4 md:scroll-mt-20 xl:scroll-mt-6">
       <SectionHeader title="Layout & window size classes">
         Breakpoints are the five M3 window size classes. Spacing stays on the 4dp grid; margins 16dp compact, 24dp otherwise. Right now:{" "}
         <span className="font-medium text-on-surface">{currentName}</span>.

@@ -77,6 +77,11 @@ const GROUPS: Group[] = [
 
 const HREFS = new Map(GROUPS.flatMap((g) => g.items.map((i) => [i.id, i.href] as const)))
 
+/** Opens the site's ⌘K command palette. SiteSearch's CommandDialog owns the shortcut, so we press it. */
+export function openSiteSearch() {
+  window.dispatchEvent(new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true }))
+}
+
 export function SiteSearch() {
   const [open, setOpen] = React.useState(false)
   const navigate = useNavigate()
