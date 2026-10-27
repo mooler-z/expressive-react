@@ -1,6 +1,8 @@
 # Expressive React
 
-Material 3 Expressive components for React, built on React Aria Components and Tailwind CSS v4. Like shadcn/ui, it isn't an npm dependency: you copy the components into your project and own the code.
+**[Docs](https://expressive-react.moolerz.et)** · **[npm](https://www.npmjs.com/package/expressive-react)** · **[Blocks](https://expressive-react.moolerz.et/blocks)** · **[Theme builder](https://expressive-react.moolerz.et/themes)** · registry: `https://expressive-react.moolerz.et/r/{name}.json`
+
+Material 3 Expressive components for React, built on React Aria Components and Tailwind CSS v4. Use it two ways: copy the components into your project with the shadcn CLI and own the code, or install the `expressive-react` npm package and update it like any dependency.
 
 ## Install
 

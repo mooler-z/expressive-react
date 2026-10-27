@@ -1,14 +1,12 @@
 import * as React from "react"
-import type { Key } from "react-aria-components"
 import { Link, useSearchParams } from "react-router"
 
-import { ChipGroup, FilterChip } from "@/components/ui/chip"
 import { Icon } from "@/components/ui/icon"
 import { BlockSection } from "@/docs/site/blocks-gallery/block-section"
+import { CategoryBar, CategoryCards } from "@/docs/site/blocks-gallery/category-cards"
 import { CATEGORIES, ENTRIES, REGISTRY_BLOCKS, UNMAPPED, type BlockCategory } from "@/docs/site/blocks-gallery/catalog"
 import { useFrameThemeSync } from "@/docs/site/blocks-gallery/frame-theme"
 import { SiteLayout } from "@/docs/site/site-layout"
-import { cn } from "@/lib/utils"
 
 export const meta = { path: "/blocks" }
 
@@ -33,25 +31,25 @@ export default function BlocksPage() {
   const cat: BlockCategory = raw && IDS.includes(raw) ? raw : "templates"
   const category = CATEGORIES.find((c) => c.id === cat)!
   const entries = ENTRIES.filter((e) => e.category === cat)
-  const listRef = React.useRef<HTMLDivElement>(null)
-  const chipsRef = React.useRef<HTMLDivElement>(null)
+  const headingRef = React.useRef<HTMLDivElement>(null)
+  const cardsRef = React.useRef<HTMLDivElement>(null)
+  const [cardsVisible, setCardsVisible] = React.useState(true)
   useFrameThemeSync()
 
-  // Compact widths scroll the chip row: keep the selected category in view (without scrolling the page).
+  // The compact category bar takes over once the cards have scrolled under the header.
   React.useEffect(() => {
-    const row = chipsRef.current?.querySelector<HTMLElement>("[data-slot=chip-group]")
-    const chip = row?.querySelector<HTMLElement>("[data-selected]")
-    if (!row || !chip) return
-    const r = row.getBoundingClientRect()
-    const c = chip.getBoundingClientRect()
-    if (c.left < r.left || c.right > r.right) row.scrollTo({ left: row.scrollLeft + c.left - r.left - 16, behavior: "smooth" })
-  }, [cat])
+    const el = cardsRef.current
+    if (!el) return
+    const io = new IntersectionObserver(([e]) => setCardsVisible(e.isIntersecting), { rootMargin: "-64px 0px 0px 0px" })
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
 
   const pick = (next: BlockCategory) => {
     setParams(next === "templates" ? {} : { cat: next })
-    // Keep the filter bar in place: if we've scrolled past it, jump back to the top of the list.
-    const top = listRef.current?.getBoundingClientRect().top ?? 0
-    if (top < 0) window.scrollTo({ top: window.scrollY + top - 160 })
+    // Switching from the sticky bar: bring the new category's heading back under the header + bar.
+    const top = headingRef.current?.getBoundingClientRect().top ?? 0
+    if (top < 136) window.scrollTo({ top: window.scrollY + top - 136 })
   }
 
   return (
@@ -65,53 +63,39 @@ export default function BlocksPage() {
               copy the install command, or open the code.
             </p>
           </div>
-          <div className="flex flex-wrap gap-2 text-label-lg">
-            <span className="inline-flex h-8 items-center gap-2 rounded-sm bg-secondary-container px-3 text-on-secondary-container">
+          <ul className="flex flex-wrap gap-x-5 gap-y-1 text-body-md text-on-surface-variant">
+            <li className="inline-flex items-center gap-1.5">
               <Icon size={18}>view_quilt</Icon>
               {REGISTRY_BLOCKS.length} blocks
-            </span>
-            <span className="inline-flex h-8 items-center gap-2 rounded-sm border border-outline-variant px-3 text-on-surface-variant">Light · dark · RTL</span>
-            <span className="inline-flex h-8 items-center gap-2 rounded-sm border border-outline-variant px-3 text-on-surface-variant">
-              Compact → extra-large
-            </span>
-          </div>
+            </li>
+            <li className="inline-flex items-center gap-1.5">
+              <Icon size={18}>contrast</Icon>
+              Light, dark and RTL
+            </li>
+            <li className="inline-flex items-center gap-1.5">
+              <Icon size={18}>devices</Icon>
+              Compact to extra-large
+            </li>
+          </ul>
         </div>
 
-        <div
-          ref={chipsRef}
-          className="sticky top-16 z-30 -mx-4 mt-8 bg-surface/90 px-4 py-3 backdrop-blur md:-mx-8 md:px-8"
-          data-spec="Category filter chips|Single-select filter chips: selected chip fills secondary-container, grows an 18dp check and tightens start padding. 200ms standard color, 300ms emphasized radius."
-        >
-          <ChipGroup
-            aria-label="Block categories"
-            selectionMode="single"
-            disallowEmptySelection
-            selectedKeys={[cat]}
-            onSelectionChange={(keys: Set<Key>) => {
-              const next = [...keys][0] as BlockCategory | undefined
-              if (next) pick(next)
-            }}
-            className="no-scrollbar relative flex-nowrap overflow-x-auto"
-          >
-            {CATEGORIES.map((c) => (
-              <FilterChip key={c.id} id={c.id} className="shrink-0">
-                {c.label}
-                <span
-                  className={cn(
-                    "rounded-full px-1.5 text-label-sm tabular-nums",
-                    c.id === cat ? "bg-on-secondary-container/10" : "bg-surface-container-high",
-                  )}
-                >
-                  {COUNTS[c.id]}
-                </span>
-              </FilterChip>
-            ))}
-          </ChipGroup>
+        <div ref={cardsRef} className="mt-8">
+          <CategoryCards value={cat} onChange={pick} counts={COUNTS} />
+        </div>
+        <CategoryBar
+          value={cat}
+          onChange={pick}
+          counts={COUNTS}
+          visible={!cardsVisible}
+          onShowAll={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        />
+
+        <div ref={headingRef} className="mt-10">
+          <h2 className="text-headline-sm font-medium">{category.label}</h2>
+          <p className="mt-1 max-w-prose text-body-md text-pretty text-on-surface-variant">{category.description}</p>
         </div>
 
-        <p className="mt-6 max-w-prose text-body-md text-pretty text-on-surface-variant">{category.description}</p>
-
-        <div ref={listRef} key={cat} className="mt-6 space-y-10">
+        <div key={cat} className="mt-6 space-y-10">
           {entries.map((entry) => (
             <BlockSection key={entry.id} entry={entry} />
           ))}
