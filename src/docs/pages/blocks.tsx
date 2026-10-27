@@ -3,7 +3,7 @@ import { Link, useSearchParams } from "react-router"
 
 import { Icon } from "@/components/ui/icon"
 import { BlockSection } from "@/docs/site/blocks-gallery/block-section"
-import { CategoryBar, CategoryCards } from "@/docs/site/blocks-gallery/category-cards"
+import { CategoryBar, CategoryCards, CategorySidebar } from "@/docs/site/blocks-gallery/category-cards"
 import { CATEGORIES, ENTRIES, REGISTRY_BLOCKS, UNMAPPED, type BlockCategory } from "@/docs/site/blocks-gallery/catalog"
 import { useFrameThemeSync } from "@/docs/site/blocks-gallery/frame-theme"
 import { SiteLayout } from "@/docs/site/site-layout"
@@ -47,9 +47,11 @@ export default function BlocksPage() {
 
   const pick = (next: BlockCategory) => {
     setParams(next === "templates" ? {} : { cat: next })
-    // Switching from the sticky bar: bring the new category's heading back under the header + bar.
+    // Switching from the sticky bar or sidebar: bring the new category's heading back into view,
+    // under the header (+ the bar below xl, where there's no sidebar).
+    const offset = window.matchMedia("(min-width: 1200px)").matches ? 88 : 136
     const top = headingRef.current?.getBoundingClientRect().top ?? 0
-    if (top < 136) window.scrollTo({ top: window.scrollY + top - 136 })
+    if (top < offset) window.scrollTo({ top: window.scrollY + top - offset })
   }
 
   return (
@@ -88,42 +90,50 @@ export default function BlocksPage() {
           counts={COUNTS}
           visible={!cardsVisible}
           onShowAll={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="xl:hidden"
         />
 
-        <div ref={headingRef} className="mt-10">
-          <h2 className="text-headline-sm font-medium">{category.label}</h2>
-          <p className="mt-1 max-w-prose text-body-md text-pretty text-on-surface-variant">{category.description}</p>
-        </div>
+        {/* Extra-large and up (1200+): sticky category list beside the gallery. */}
+        <div className="mt-10 xl:grid xl:grid-cols-[15rem_minmax(0,1fr)] xl:items-start xl:gap-8">
+          <CategorySidebar value={cat} onChange={pick} counts={COUNTS} className="sticky top-22 hidden xl:block" />
 
-        <div key={cat} className="mt-6 space-y-10">
-          {entries.map((entry) => (
-            <BlockSection key={entry.id} entry={entry} />
-          ))}
-        </div>
-
-        {cat === "templates" && (
-          <aside className="mt-12 rounded-xl border border-outline-variant p-6">
-            <div className="flex items-center gap-2 text-title-md">
-              <Icon size={20}>history_edu</Icon>
-              The original kit
+          <div className="min-w-0">
+            <div ref={headingRef}>
+              <h2 className="text-headline-sm font-medium">{category.label}</h2>
+              <p className="mt-1 max-w-prose text-body-md text-pretty text-on-surface-variant">{category.description}</p>
             </div>
-            <p className="mt-1 max-w-prose text-body-md text-on-surface-variant">
-              Every component and block page from the M3 Expressive kit these were ported from, kept as reference.
-            </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {KIT_LINKS.map(([to, label]) => (
-                <Link
-                  key={to}
-                  to={to}
-                  className="state-layer focus-ring inline-flex h-8 items-center gap-1 rounded-sm border border-outline-variant px-3 text-label-lg text-on-surface-variant"
-                >
-                  {label}
-                  <Icon size={18}>arrow_outward</Icon>
-                </Link>
+
+            <div key={cat} className="mt-6 space-y-10">
+              {entries.map((entry) => (
+                <BlockSection key={entry.id} entry={entry} />
               ))}
             </div>
-          </aside>
-        )}
+
+            {cat === "templates" && (
+              <aside className="mt-12 rounded-xl border border-outline-variant p-6">
+                <div className="flex items-center gap-2 text-title-md">
+                  <Icon size={20}>history_edu</Icon>
+                  The original kit
+                </div>
+                <p className="mt-1 max-w-prose text-body-md text-on-surface-variant">
+                  Every component and block page from the M3 Expressive kit these were ported from, kept as reference.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {KIT_LINKS.map(([to, label]) => (
+                    <Link
+                      key={to}
+                      to={to}
+                      className="state-layer focus-ring inline-flex h-8 items-center gap-1 rounded-sm border border-outline-variant px-3 text-label-lg text-on-surface-variant"
+                    >
+                      {label}
+                      <Icon size={18}>arrow_outward</Icon>
+                    </Link>
+                  ))}
+                </div>
+              </aside>
+            )}
+          </div>
+        </div>
       </main>
     </SiteLayout>
   )

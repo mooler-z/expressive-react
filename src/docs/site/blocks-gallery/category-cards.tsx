@@ -104,10 +104,65 @@ export function CategoryCards({ value, onChange, counts, className }: CategoryPi
 }
 
 /**
+ * Sticky category list beside the gallery on wide windows (navigation-drawer items: full pill,
+ * secondary-container active indicator). Same single-select group as the cards, stacked.
+ */
+export function CategorySidebar({ value, onChange, counts, className }: CategoryPickerProps & { className?: string }) {
+  return (
+    <aside aria-labelledby="block-category-sidebar" className={className}>
+      <div id="block-category-sidebar" className="px-4 pb-2 text-title-sm text-on-surface-variant">
+        Categories
+      </div>
+      <ToggleButtonGroup
+        aria-labelledby="block-category-sidebar"
+        orientation="vertical"
+        selectionMode="single"
+        disallowEmptySelection
+        selectedKeys={[value]}
+        onSelectionChange={(keys: Set<Key>) => {
+          const next = [...keys][0] as BlockCategory | undefined
+          if (next) onChange(next)
+        }}
+        className="flex flex-col gap-0.5"
+      >
+        {CATEGORIES.map((c) => (
+          <ToggleButton
+            key={c.id}
+            id={c.id}
+            className={cn(
+              "state-layer focus-ring flex h-12 w-full cursor-pointer items-center gap-3 rounded-full px-4 text-start text-label-lg text-on-surface-variant select-none",
+              "transition-colors duration-(--md-spring-default-effects-duration) ease-default-effects",
+              "data-selected:bg-secondary-container data-selected:font-semibold data-selected:text-on-secondary-container",
+            )}
+          >
+            {({ isSelected }) => (
+              <>
+                <Icon size={20} filled={isSelected} className="shrink-0">
+                  {ICONS[c.id]}
+                </Icon>
+                <span className="min-w-0 flex-1 truncate">{c.label}</span>
+                <span className="text-label-md font-normal tabular-nums">{counts[c.id]}</span>
+              </>
+            )}
+          </ToggleButton>
+        ))}
+      </ToggleButtonGroup>
+    </aside>
+  )
+}
+
+/**
  * Compact switcher that slides in under the site header once the cards have scrolled away,
  * so the category can change from anywhere in a long gallery.
  */
-export function CategoryBar({ value, onChange, counts, visible, onShowAll }: CategoryPickerProps & { visible: boolean; onShowAll: () => void }) {
+export function CategoryBar({
+  value,
+  onChange,
+  counts,
+  visible,
+  onShowAll,
+  className,
+}: CategoryPickerProps & { visible: boolean; onShowAll: () => void; className?: string }) {
   return (
     <div
       inert={!visible}
@@ -115,6 +170,7 @@ export function CategoryBar({ value, onChange, counts, visible, onShowAll }: Cat
       className={cn(
         "fixed inset-x-0 top-16 z-30 border-b border-outline-variant bg-surface/95 backdrop-blur transition-[translate,opacity] duration-(--md-spring-fast-spatial-duration) ease-fast-spatial",
         visible ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-full opacity-0",
+        className,
       )}
     >
       <div className="mx-auto flex max-w-[1400px] items-center gap-3 px-4 py-2 md:px-8">

@@ -124,7 +124,12 @@ function SelectField({
     >
       {/* The ::after stretches the trigger's hit area over the whole field, icons included. */}
       <AriaButton className="h-6 min-w-0 flex-1 cursor-pointer text-left text-body-lg text-on-surface outline-none after:absolute after:inset-0 after:rounded-[inherit] field-disabled:cursor-default field-disabled:text-on-surface/38">
-        <SelectValue data-slot="select-value" className="block truncate data-placeholder:text-on-surface-variant" />
+        {/* SelectValue renders the selected SelectItem's content; SelectItemContent reads this to draw one line. */}
+        <InSelectValueContext.Provider value={{ hideIcon: icon != null }}>
+          <SelectValue data-slot="select-value" className="flex min-w-0 items-center gap-3 data-placeholder:text-on-surface-variant">
+            {({ isPlaceholder, defaultChildren }) => (isPlaceholder ? <span className="truncate">{defaultChildren}</span> : defaultChildren)}
+          </SelectValue>
+        </InSelectValueContext.Provider>
       </AriaButton>
     </FieldContainer>
   )
@@ -146,34 +151,65 @@ function SelectItem<T extends object>({ className, children, icon, description, 
       className={composeRenderProps(className, (className) => s.item({ className: cn("cursor-pointer", className) }))}
     >
       {({ isSelected }) => (
-        <>
-          {icon && (
-            <span className={s.leading()}>
-              <Icon>{icon}</Icon>
-            </span>
-          )}
-          <span className={s.label()}>
-            {description ? (
-              <>
-                <Text slot="label" className="block truncate">
-                  {children}
-                </Text>
-                <Text slot="description" className={s.description()}>
-                  {description}
-                </Text>
-              </>
-            ) : (
-              children
-            )}
-          </span>
-          {isSelected && (
-            <span className={s.trailing()}>
-              <Icon>check</Icon>
-            </span>
-          )}
-        </>
+        <SelectItemContent icon={icon} description={description} isSelected={isSelected}>
+          {children}
+        </SelectItemContent>
       )}
     </AriaListBoxItem>
+  )
+}
+
+/** Set inside the field's SelectValue, which renders the selected item's content a second time. */
+const InSelectValueContext = React.createContext<{ hideIcon: boolean } | null>(null)
+
+/**
+ * In the menu: leading icon, label (+ description) and the selected check.
+ * In the field: one truncated line, with the item's icon unless the Select has its own leading icon.
+ */
+function SelectItemContent({
+  icon,
+  description,
+  isSelected,
+  children,
+}: Pick<SelectItemProps<object>, "icon" | "description" | "children"> & { isSelected: boolean }) {
+  const inValue = React.useContext(InSelectValueContext)
+  const s = menuVariants()
+
+  if (inValue)
+    return (
+      <>
+        {icon && !inValue.hideIcon && <Icon className="shrink-0 text-on-surface-variant">{icon}</Icon>}
+        <span className="min-w-0 truncate">{children}</span>
+      </>
+    )
+
+  return (
+    <>
+      {icon && (
+        <span className={s.leading()}>
+          <Icon>{icon}</Icon>
+        </span>
+      )}
+      <span className={s.label()}>
+        {description ? (
+          <>
+            <Text slot="label" className="block truncate">
+              {children}
+            </Text>
+            <Text slot="description" className={s.description()}>
+              {description}
+            </Text>
+          </>
+        ) : (
+          children
+        )}
+      </span>
+      {isSelected && (
+        <span className={s.trailing()}>
+          <Icon>check</Icon>
+        </span>
+      )}
+    </>
   )
 }
 
