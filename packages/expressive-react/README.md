@@ -1,3 +1,8 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://expressive-react.moolerz.et/logo-dark.svg">
+  <img src="https://expressive-react.moolerz.et/logo.svg" alt="Expressive React logo" width="88" height="88">
+</picture>
+
 # expressive-react
 
 Material 3 Expressive components for React: shape-morphing buttons, springy motion and dynamic color. Built on [React Aria Components](https://react-spectrum.adobe.com/react-aria/) and [Tailwind CSS v4](https://tailwindcss.com).

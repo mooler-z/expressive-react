@@ -109,6 +109,8 @@ The design's code samples define the public API the docs show: `<Icon name="add"
 
 Use `ThemeScope` (theme-provider) for any subtree with its own seed or light/dark mode, such as preview frames.
 
+Logo: `<LogoMark>` (`src/docs/site/logo.tsx`), a regular {8/3} star ribbon in four tonal runs around the clover4 shape. `node scripts/logo.mjs` generates `src/docs/site/logo-paths.ts`, `public/logo.svg`, `public/logo-dark.svg` and `public/favicon.svg`, so change the script and rerun it rather than editing those files. `public/apple-touch-icon.png` is a 180px render of `logo.svg`.
+
 Site chrome offsets: pin things with `top-(--site-top)` (64px under the compact top app bar, 0 beside the rail), give fixed full-width bars `md:start-24` so they clear the 96dp rail, and use `getSiteTop()` from `site-layout.tsx` for scroll math. Never hard-code `top-16`. Rail destinations and their flyout links live in `RAIL` (`site-rail.tsx`), built from `DOCS_GROUPS` and the blocks catalog.
 
 ## Kit mirror: `/kit` and the templates

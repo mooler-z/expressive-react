@@ -2,7 +2,7 @@ import * as React from "react"
 import { Link } from "react-router"
 
 import { Icon } from "@/components/ui/icon"
-import { Shape } from "@/components/ui/shape"
+import { LogoMark } from "@/docs/site/logo"
 import { cn } from "@/lib/utils"
 
 /*
@@ -143,7 +143,7 @@ export function ReviewBoard() {
     <LoadQueueContext.Provider value={queue}>
       <div className="min-h-screen bg-surface-container font-sans text-on-surface">
         <header className="sticky top-0 z-40 flex min-h-16 flex-wrap items-center gap-2 bg-surface-container px-4 py-2 md:px-6">
-          <Shape shape="clover4" className="size-8 shrink-0 text-primary" />
+          <LogoMark className="size-8" />
           <div className="mr-4 min-w-0">
             <h1 className="text-title-md font-semibold tracking-tight">Expressive React · review board</h1>
             <div className="text-body-sm text-on-surface-variant">

@@ -11,9 +11,9 @@ import {
   NavigationDrawerItem,
 } from "@/components/ui/navigation-drawer"
 import { NavigationRail, NavigationRailFab, NavigationRailHeader, NavigationRailItem, NavigationRailSpacer } from "@/components/ui/navigation-rail"
-import { Shape } from "@/components/ui/shape"
 import { useTheme } from "@/components/ui/theme-provider"
 import { CATEGORIES, ENTRIES } from "@/docs/site/blocks-gallery/catalog"
+import { LogoMark } from "@/docs/site/logo"
 import type { SiteSection } from "@/docs/site/site-layout"
 import { DOCS_GROUPS, SITE_LINKS, docsHref } from "@/docs/site/site-nav"
 import { openSiteSearch } from "@/docs/site/site-search"
@@ -227,7 +227,7 @@ export function SiteRail({ active, specs = true }: { active: SiteSection; specs?
               value={d.id}
               href={d.href}
               label={d.label}
-              icon={d.icon === "logo" ? <Shape shape="clover4" hoverShape="sunny" className="size-6 text-primary" /> : d.icon}
+              icon={d.icon === "logo" ? <LogoMark className="size-6" /> : d.icon}
             />
             {open === d.id && (
               <div

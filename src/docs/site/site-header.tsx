@@ -4,8 +4,8 @@ import { Link } from "react-router"
 import { Icon } from "@/components/ui/icon"
 import { IconButton } from "@/components/ui/icon-button"
 import { NavigationBar, NavigationBarItem } from "@/components/ui/navigation-bar"
-import { Shape } from "@/components/ui/shape"
 import { useTheme } from "@/components/ui/theme-provider"
+import { LogoMark } from "@/docs/site/logo"
 import type { SiteSection } from "@/docs/site/site-layout"
 import { SITE_BOTTOM_NAV } from "@/docs/site/site-nav"
 import { SiteSearch } from "@/docs/site/site-search"
@@ -35,9 +35,9 @@ export function SiteLogo({ className }: { className?: string }) {
     <Link
       to="/"
       aria-label="Expressive React home"
-      className={cn("state-layer focus-ring flex h-12 shrink-0 items-center gap-2 rounded-full pr-3 pl-2", className)}
+      className={cn("group state-layer focus-ring flex h-12 shrink-0 items-center gap-2 rounded-full pr-3 pl-2", className)}
     >
-      <Shape shape="clover4" cycle={["clover4", "cookie7", "sunny"]} interval={3400} hoverShape="burst" className="size-8 text-primary" />
+      <LogoMark className="size-8" />
       <span className="text-title-md font-semibold tracking-tight">
         Expressive<span className="font-normal text-on-surface-variant"> React</span>
       </span>

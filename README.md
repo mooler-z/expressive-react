@@ -1,3 +1,8 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="public/logo-dark.svg">
+  <img src="public/logo.svg" alt="Expressive React logo" width="88" height="88">
+</picture>
+
 # Expressive React
 
 **[Docs](https://expressive-react.moolerz.et)** · **[npm](https://www.npmjs.com/package/expressive-react)** · **[Blocks](https://expressive-react.moolerz.et/blocks)** · **[Theme builder](https://expressive-react.moolerz.et/themes)** · registry: `https://expressive-react.moolerz.et/r/{name}.json`

@@ -1,6 +1,6 @@
 import { Link } from "react-router"
 
-import { Shape } from "@/components/ui/shape"
+import { LogoMark } from "@/docs/site/logo"
 import { SITE_LINKS } from "@/docs/site/site-nav"
 
 /* Site footer · bottom of design-reference/site/Landing.dc.html */
@@ -46,8 +46,8 @@ export function SiteFooter() {
     <footer data-slot="site-footer" className="border-t border-outline-variant/60 bg-surface-container-low">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 md:grid-cols-[1.4fr_1fr_1fr_1fr] md:px-8">
         <div>
-          <Link to="/" className="inline-flex items-center gap-2 rounded-full focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-secondary">
-            <Shape shape="clover4" className="size-8 text-primary" />
+          <Link to="/" className="group inline-flex items-center gap-2 rounded-full focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-secondary">
+            <LogoMark className="size-8" />
             <span className="text-title-md font-semibold tracking-tight">
               Expressive<span className="font-normal text-on-surface-variant"> React</span>
             </span>
