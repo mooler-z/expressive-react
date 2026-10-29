@@ -34,7 +34,7 @@ export const installCommand = (id: string) => `npx shadcn add @expressive/${id}`
 
 /** Lazily loaded raw source of every shippable file, keyed by repo path ("src/components/ui/button.tsx"). */
 const sources = {
-  ...import.meta.glob<string>("/src/components/ui/*.tsx", { query: "?raw", import: "default" }),
+  ...import.meta.glob<string>("/src/components/ui/*.{ts,tsx}", { query: "?raw", import: "default" }),
   ...import.meta.glob<string>("/src/hooks/*.ts", { query: "?raw", import: "default" }),
   ...import.meta.glob<string>("/src/lib/*.ts", { query: "?raw", import: "default" }),
 }

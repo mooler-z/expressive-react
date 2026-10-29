@@ -64,8 +64,10 @@ export default {
         { name: "defaultSeed", type: "string | null", default: "null", description: "Seed hex for dynamic color. null keeps the baseline tokens from expressive.css." },
         { name: "defaultVariant", type: variantType, default: '"tonalSpot"', description: "How the seed spreads across roles." },
         { name: "defaultContrast", type: "number", default: "0", description: "-1 (reduced) to 1 (high). 0.5 is medium." },
+        { name: "defaultPreset", type: "string | null", default: "null", description: <>Start from a <TextLink to="/docs/theme-presets">theme preset</TextLink>: color, surfaces, type, shape and elevation.</> },
+        { name: "presets", type: "readonly ThemePreset[]", default: "THEME_PRESETS", description: "Presets that ids resolve against." },
         { name: "initialTheme", type: "Partial<ThemeState>", default: "—", description: "Overrides stored values on load (e.g. from URL params) without saving them." },
-        { name: "storageKey", type: "string | null", default: '"expressive-theme"', description: "localStorage key for {mode, seed, variant, contrast}. null disables persistence." },
+        { name: "storageKey", type: "string | null", default: '"expressive-theme"', description: "localStorage key for {mode, seed, variant, contrast, preset}. null disables persistence." },
       ],
     },
     {
@@ -77,6 +79,8 @@ export default {
         { name: "seed · setSeed", type: "string | null", default: "—", description: "Current seed." },
         { name: "variant · setVariant", type: "SchemeVariant", default: "—", description: "Current scheme variant." },
         { name: "contrast · setContrast", type: "number", default: "—", description: "Current contrast level." },
+        { name: "preset · setPreset", type: "ThemePreset | null", default: "—", description: "Active preset; setPreset(id) applies one, setPreset(null) returns to the defaults." },
+        { name: "presets", type: "readonly ThemePreset[]", default: "—", description: "The provider's preset list, for pickers." },
         { name: "setTheme", type: "(patch: Partial<ThemeState>) => void", default: "—", description: "Change several values in one update (one recolor)." },
       ],
     },
@@ -88,6 +92,7 @@ export default {
         { name: "seed", type: "string | null", default: "page seed", description: "Seed for this subtree." },
         { name: "variant", type: "SchemeVariant", default: "page variant", description: "Scheme variant for this subtree." },
         { name: "contrast", type: "number", default: "page contrast", description: "Contrast for this subtree." },
+        { name: "preset", type: "string | ThemePreset | null", default: "page preset", description: "Preset for this subtree; null drops the page's." },
       ],
     },
     {
@@ -125,7 +130,7 @@ export default {
     ],
     cards: [
       { title: "Generation", items: ["Material color utilities 0.4", "Color spec 2025", "47 color roles per mode"] },
-      { title: "Output", items: ["--md-* custom properties", "html:root and html.dark selectors", "Persisted mode, seed, variant, contrast"] },
+      { title: "Output", items: ["--md-* custom properties", "html:root and html.dark selectors", "Persisted mode, seed, variant, contrast, preset"] },
     ],
     source: "@material/material-color-utilities (DynamicScheme, MaterialDynamicColors, spec version 2025).",
   },

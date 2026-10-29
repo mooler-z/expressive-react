@@ -94,7 +94,7 @@ export const DOCS_GROUPS: DocsGroup[] = [
   },
   { section: "components", name: "Data", items: [["table", "Table"], ["data-table", "Data table"], ["chart", "Charts"], ["trace", "Trace"]] },
   { section: "components", name: "Chat", items: [["message", "Message"], ["message-scroller", "Message scroller"], ["attachment", "Attachment"], ["questionnaire", "Questionnaire"]] },
-  { section: "components", name: "Utilities", items: [["shape", "Shape", true], ["ripple", "Ripple"], ["reveal", "Reveal"], ["theme-provider", "Theme provider"]] },
+  { section: "components", name: "Utilities", items: [["shape", "Shape", true], ["ripple", "Ripple"], ["reveal", "Reveal"], ["theme-provider", "Theme provider"], ["theme-presets", "Theme presets", true]] },
   {
     section: "hooks",
     name: "Hooks",
@@ -118,7 +118,7 @@ export function docsHref(id: string) {
 export const SITE_LINKS = {
   github: "https://github.com/mooler-z/expressive-react",
   m3: "https://m3.material.io/",
-  version: "v1.0.0",
+  version: "v1.1.0",
 }
 
 /** Where a registry block opens from search and other site links. */

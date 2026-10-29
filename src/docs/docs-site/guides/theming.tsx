@@ -53,7 +53,7 @@ export default function Theming() {
       </p>
       <CodePanel code={usage} />
 
-      <H2>Three ways to change the palette</H2>
+      <H2>Four ways to change the palette</H2>
       <Bullets>
         <li>
           <Strong>Edit the variables.</Strong> Paste a scheme into <InlineCode>:root</InlineCode> and <InlineCode>.dark</InlineCode>. The{" "}
@@ -62,6 +62,11 @@ export default function Theming() {
         <li>
           <Strong>Generate at runtime.</Strong> Give <InlineCode>ThemeProvider</InlineCode> a seed and every role is computed from it. See{" "}
           <TextLink to="/docs/dynamic-color">Dynamic color</TextLink>.
+        </li>
+        <li>
+          <Strong>Pick a preset.</Strong> <InlineCode>&lt;ThemeProvider defaultPreset="campus"&gt;</InlineCode> applies one of 20{" "}
+          <TextLink to="/themes/presets">theme presets</TextLink>: color plus tuned surfaces, a typeface, a corner scale and an elevation style. See{" "}
+          <TextLink to="/docs/theme-presets">Theme presets</TextLink>.
         </li>
         <li>
           <Strong>Scope a subtree.</Strong> <InlineCode>&lt;ThemeScope seed="#0B57D0" mode="dark"&gt;</InlineCode> re-themes one region, such as a preview or a
@@ -76,7 +81,7 @@ export default function Theming() {
         rows={[
           ["Type", "text-display-lg … text-label-sm", "15 styles; size, line height, tracking and weight in one class"],
           ["Shape", "rounded-xs · sm · md · lg · lg-plus · xl · xl-plus · 2xl · full", "4 · 8 · 12 · 16 · 20 · 28 · 32 · 48dp · full"],
-          ["Elevation", "shadow-1 … shadow-5", "M3 levels 1–5"],
+          ["Elevation", "shadow-1 … shadow-5", "M3 levels 1–5, from --md-elevation-1 … 5 so presets can restyle them"],
           ["Motion", "ease-fast-spatial, ease-default-effects, shape-morph …", "M3 Expressive springs as linear() curves"],
           ["Breakpoints", "sm · md · lg · xl · 2xl", "480 · 600 · 840 · 1200 · 1600 (M3 window size classes)"],
         ]}

@@ -1,3 +1,4 @@
+import { TextLink } from "@/docs/docs-site/primitives"
 import { SiteLayout } from "@/docs/site/site-layout"
 import { ThemeControls } from "@/docs/site/themes/theme-controls"
 import { providerSnippet, themeCss, useBuilderTheme, useSchemes } from "@/docs/site/themes/theme-data"
@@ -9,7 +10,7 @@ export const meta = { path: "/themes" }
 /** Theme builder · design-reference/site/Themes.dc.html */
 export default function ThemesPage() {
   const { theme, apply, reset, mode, setMode, resolvedMode } = useBuilderTheme()
-  const schemes = useSchemes(theme.seed, theme.variant, theme.contrast)
+  const schemes = useSchemes(theme.seed, theme.variant, theme.contrast, theme.preset)
   const css = schemes ? themeCss(theme, schemes) : null
 
   return (
@@ -19,7 +20,7 @@ export default function ThemesPage() {
           <h1 className="text-display-sm font-semibold tracking-tight">Theme builder</h1>
           <p className="mt-3 text-body-lg text-pretty text-on-surface-variant">
             Pick a seed, a scheme variant and a contrast level. The whole site recolors as you go; copy the CSS when it
-            feels right.
+            feels right. Or start from one of the <TextLink to="/themes/presets">theme presets</TextLink>.
           </p>
         </div>
 

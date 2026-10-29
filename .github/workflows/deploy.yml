@@ -33,6 +33,9 @@ jobs:
       # registry check (files/deps match imports) → registry.json → public/r → tsc → vite build
       - run: pnpm build
 
+      # theme presets: WCAG AA contrast in light and dark, preset helpers
+      - run: pnpm test
+
       - name: Sanity-check the build
         run: |
           test -f dist/index.html

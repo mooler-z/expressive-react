@@ -64,7 +64,16 @@ export const RAIL: RailDestination[] = [
       { label: "Review board", href: "/review" },
     ],
   },
-  { id: "themes", label: "Themes", icon: "palette", href: "/themes" },
+  {
+    id: "themes",
+    label: "Themes",
+    icon: "palette",
+    href: "/themes",
+    links: [
+      { label: "Theme builder", href: "/themes" },
+      { label: "Presets", href: "/themes/presets" },
+    ],
+  },
   {
     id: "components",
     label: "Components",

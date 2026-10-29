@@ -83,6 +83,13 @@
   --md-spring-slow-effects: linear(0.0, 0.02, 0.07, 0.136, 0.211, 0.289, 0.368, 0.442, 0.51, 0.573, 0.629, 0.68, 0.724, 0.764, 0.798, 0.828, 0.854, 0.876, 0.895, 0.912, 0.925, 0.937, 0.947, 0.956, 0.963, 0.969, 0.974, 0.978, 0.982, 0.985, 0.987, 0.989, 0.991, 0.993, 0.994, 0.995, 0.996, 0.997, 0.997, 0.998, 1.0);
   --md-spring-slow-effects-duration: 301ms;
 
+  /* Elevation levels 1–5 · shadow-1 … shadow-5 read these, so a theme preset or ThemeScope can restyle them */
+  --md-elevation-1: 0 1px 2px rgb(0 0 0 / 0.3), 0 1px 3px 1px rgb(0 0 0 / 0.15);
+  --md-elevation-2: 0 1px 2px rgb(0 0 0 / 0.3), 0 2px 6px 2px rgb(0 0 0 / 0.15);
+  --md-elevation-3: 0 1px 3px rgb(0 0 0 / 0.3), 0 4px 8px 3px rgb(0 0 0 / 0.15);
+  --md-elevation-4: 0 2px 3px rgb(0 0 0 / 0.3), 0 6px 10px 4px rgb(0 0 0 / 0.15);
+  --md-elevation-5: 0 4px 4px rgb(0 0 0 / 0.3), 0 8px 12px 6px rgb(0 0 0 / 0.15);
+
   --md-easing-bounce: linear(0, 0.009, 0.035 2.1%, 0.141, 0.281 6.7%, 0.723 12.9%, 0.938 16.7%, 1.017, 1.077, 1.121, 1.149 24.3%, 1.159, 1.163, 1.161, 1.154 29.9%, 1.129 32.8%, 1.051 39.6%, 1.017 43.1%, 0.991, 0.977 51%, 0.974 53.8%, 0.975 57.1%, 0.997 69.8%, 1.003 76.9%, 1);
 }
 
@@ -184,6 +191,13 @@
   --color-inverse-primary: var(--md-inverse-primary);
   --color-scrim: var(--md-scrim);
   --color-shadow: var(--md-shadow);
+
+  /* Elevation levels 1–5 (values in :root) */
+  --shadow-1: var(--md-elevation-1);
+  --shadow-2: var(--md-elevation-2);
+  --shadow-3: var(--md-elevation-3);
+  --shadow-4: var(--md-elevation-4);
+  --shadow-5: var(--md-elevation-5);
 }
 
 /* ---------- Type · shape · elevation · motion · breakpoints ---------- */
@@ -259,13 +273,6 @@
   --radius-xl: 28px;
   --radius-xl-plus: 32px;
   --radius-2xl: 48px;
-
-  /* Elevation levels 1–5 */
-  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.3), 0 1px 3px 1px rgb(0 0 0 / 0.15);
-  --shadow-2: 0 1px 2px rgb(0 0 0 / 0.3), 0 2px 6px 2px rgb(0 0 0 / 0.15);
-  --shadow-3: 0 1px 3px rgb(0 0 0 / 0.3), 0 4px 8px 3px rgb(0 0 0 / 0.15);
-  --shadow-4: 0 2px 3px rgb(0 0 0 / 0.3), 0 6px 10px 4px rgb(0 0 0 / 0.15);
-  --shadow-5: 0 4px 4px rgb(0 0 0 / 0.3), 0 8px 12px 6px rgb(0 0 0 / 0.15);
 
   --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
   --ease-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);

@@ -1,6 +1,7 @@
 import * as React from "react"
 
 import { schemeColors, useTheme, type SchemeVariant } from "@/components/ui/theme-provider"
+import { presetStyleTokens, presetTokens, type ThemePreset } from "@/components/ui/theme-presets"
 import { SITE_SEEDS, SITE_VARIANTS, useSiteSeed } from "@/docs/site/theme-menu"
 
 /** Seeds offered by the builder: the site's shared list (design-reference/site/m3/site.js SEEDS). */
@@ -36,6 +37,8 @@ export interface BuilderTheme {
   seed: string
   variant: SchemeVariant
   contrast: number
+  /** The site's active preset (its type, shape and elevation apply; its tuned colors only while seed/variant/contrast match). */
+  preset: ThemePreset | null
   /** True when this is exactly the shipped baseline (the provider uses expressive.css as-is). */
   isBaseline: boolean
 }
@@ -54,12 +57,13 @@ export function useBuilderTheme() {
     seed,
     variant: t.variant,
     contrast: t.contrast,
-    isBaseline: seed === BASELINE_SEED && t.variant === "tonalSpot" && t.contrast === 0,
+    preset: t.preset,
+    isBaseline: !t.preset && seed === BASELINE_SEED && t.variant === "tonalSpot" && t.contrast === 0,
   }
 
   const { setTheme } = t
   const apply = React.useCallback(
-    (patch: Partial<Omit<BuilderTheme, "isBaseline">>) => {
+    (patch: Partial<Pick<BuilderTheme, "seed" | "variant" | "contrast">>) => {
       const next: Parameters<typeof setTheme>[0] = { ...patch }
       if (patch.seed !== undefined) next.seed = normalize(patch.seed) === BASELINE_SEED ? null : normalize(patch.seed)
       setTheme(next)
@@ -67,24 +71,27 @@ export function useBuilderTheme() {
     [setTheme],
   )
 
-  const reset = React.useCallback(() => setTheme({ seed: null, variant: "tonalSpot", contrast: 0 }), [setTheme])
+  const reset = React.useCallback(() => setTheme({ preset: null, seed: null, variant: "tonalSpot", contrast: 0 }), [setTheme])
 
   return { theme, apply, reset, mode: t.mode, setMode: t.setMode, resolvedMode: t.resolvedMode }
 }
 
-/** Light and dark `--md-*` maps for a theme, regenerated whenever it changes. */
-export function useSchemes(seed: string, variant: SchemeVariant, contrast: number) {
+/** Light and dark `--md-*` color maps for a theme (with the preset's tuned roles when it applies), regenerated whenever it changes. */
+export function useSchemes(seed: string, variant: SchemeVariant, contrast: number, preset: ThemePreset | null = null) {
   const [schemes, setSchemes] = React.useState<{ light: Scheme; dark: Scheme } | null>(null)
   React.useEffect(() => {
     let cancelled = false
-    Promise.all([schemeColors(seed, variant, contrast, false), schemeColors(seed, variant, contrast, true)]).then(
+    const colorsOnly = (vars: Scheme) => Object.fromEntries(Object.entries(vars).filter(([k]) => k.startsWith("--md-") && !k.startsWith("--md-elevation")))
+    const one = (dark: boolean) =>
+      preset ? presetTokens(preset, dark, { seed, variant, contrast }).then(colorsOnly) : schemeColors(seed, variant, contrast, dark)
+    Promise.all([one(false), one(true)]).then(
       ([light, dark]) => !cancelled && setSchemes({ light, dark }),
       () => {},
     )
     return () => {
       cancelled = true
     }
-  }, [seed, variant, contrast])
+  }, [seed, variant, contrast, preset])
   return schemes
 }
 
@@ -120,13 +127,23 @@ export function themeCss(theme: BuilderTheme, schemes: { light: Scheme; dark: Sc
       ...Object.entries(schemes[scheme]).map(([k, v]) => `  ${k}: ${v.toLowerCase()};`),
       "}",
     ].join("\n")
+  const style = theme.preset
+    ? [
+        "",
+        `/* ${theme.preset.name} preset: type, shape and elevation${theme.preset.font?.href ? ` · fonts: ${theme.preset.font.href}` : ""} */`,
+        ":root {",
+        ...Object.entries(presetStyleTokens(theme.preset)).map(([k, v]) => `  ${k}: ${v};`),
+        "}",
+      ]
+    : []
   return [
-    `/* Expressive React theme · seed ${theme.seed} · ${theme.variant} · contrast ${theme.contrast} */`,
+    `/* Expressive React theme · ${theme.preset ? `${theme.preset.name} preset · ` : ""}seed ${theme.seed} · ${theme.variant} · contrast ${theme.contrast} */`,
     `/* Paste after @import "./styles/expressive.css"; it overrides the baseline color roles. */`,
     "",
     block(":root", "light"),
     "",
     block(".dark", "dark"),
+    ...style,
     "",
   ].join("\n")
 }
@@ -134,7 +151,11 @@ export function themeCss(theme: BuilderTheme, schemes: { light: Scheme; dark: Sc
 /** Runtime alternative: let ThemeProvider generate the same scheme in the browser. */
 export function providerSnippet(theme: BuilderTheme) {
   if (theme.isBaseline) return "<ThemeProvider>\n  <App />\n</ThemeProvider>\n"
-  const props = [`defaultSeed="${theme.seed}"`]
+  const p = theme.preset
+  if (p && theme.seed === p.seed.toUpperCase() && theme.variant === p.variant && theme.contrast === (p.contrast ?? 0))
+    return `<ThemeProvider defaultPreset="${p.id}">\n  <App />\n</ThemeProvider>\n`
+  const props = p ? [`defaultPreset="${p.id}"`] : []
+  props.push(`defaultSeed="${theme.seed}"`)
   if (theme.variant !== "tonalSpot") props.push(`defaultVariant="${theme.variant}"`)
   if (theme.contrast) props.push(`defaultContrast={${theme.contrast}}`)
   return `<ThemeProvider ${props.join(" ")}>\n  <App />\n</ThemeProvider>\n`
@@ -143,8 +164,10 @@ export function providerSnippet(theme: BuilderTheme) {
 /** Shareable link: the site applies seed/variant/contrast from the URL. */
 export function shareUrl(theme: BuilderTheme) {
   const q = new URLSearchParams({ seed: theme.seed.replace("#", "") })
-  if (theme.variant !== "tonalSpot") q.set("variant", theme.variant)
-  if (theme.contrast) q.set("contrast", String(theme.contrast))
+  if (theme.preset) q.set("preset", theme.preset.id)
+  // With a preset, unset values would fall back to the preset's own, so spell them out
+  if (theme.preset || theme.variant !== "tonalSpot") q.set("variant", theme.variant)
+  if (theme.preset || theme.contrast) q.set("contrast", String(theme.contrast))
   return `${window.location.origin}/themes?${q}`
 }
 

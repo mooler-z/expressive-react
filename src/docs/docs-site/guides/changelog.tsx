@@ -10,8 +10,30 @@ export default function Changelog() {
   return (
     <Prose>
       <div className="flex flex-wrap items-baseline gap-3">
-        <H2 id="v1-0-0">v1.0.0</H2>
+        <H2 id="v1-1-0">v1.1.0</H2>
         <span className="rounded-full bg-primary-container px-3 py-0.5 text-label-lg text-on-primary-container">Latest</span>
+        <span className="text-body-md">October 2026</span>
+      </div>
+      <p>Theme presets: whole looks, not just a seed.</p>
+      <Bullets>
+        <li>
+          <Strong>20 presets</Strong> in the new <InlineCode>theme-presets</InlineCode> item, from Quiet and Graphite to Paper, Meskel and Campus. Each sets color,
+          hand-tuned canvas, card and hairline tones, a typeface, a corner scale and an elevation style, and passes WCAG AA in light and dark. Browse them in the{" "}
+          <TextLink to="/themes/presets">preset gallery</TextLink>.
+        </li>
+        <li>
+          <InlineCode>ThemeProvider</InlineCode> takes <InlineCode>defaultPreset</InlineCode> and <InlineCode>presets</InlineCode>; <InlineCode>useTheme()</InlineCode>{" "}
+          adds <InlineCode>preset</InlineCode>, <InlineCode>setPreset</InlineCode> and <InlineCode>presets</InlineCode>; <InlineCode>ThemeScope</InlineCode> takes{" "}
+          <InlineCode>preset</InlineCode>. <InlineCode>presetCss()</InlineCode> renders one for SSR. Fonts load only while a preset that needs them is active.
+        </li>
+        <li>
+          <Strong>Elevation is now themeable</Strong>: <InlineCode>shadow-1 … shadow-5</InlineCode> read <InlineCode>--md-elevation-1 … 5</InlineCode>. Values are
+          unchanged; if you copied expressive.css, take the new version with <InlineCode>add --diff</InlineCode>.
+        </li>
+      </Bullets>
+
+      <div className="flex flex-wrap items-baseline gap-3">
+        <H2 id="v1-0-0">v1.0.0</H2>
         <span className="text-body-md">October 2026</span>
       </div>
       <p>The first public release: the whole Material 3 Expressive kit as a shadcn registry.</p>

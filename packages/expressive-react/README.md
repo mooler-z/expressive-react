@@ -72,6 +72,19 @@ Components are client components (`"use client"`), so they work in Next.js App R
 
 Color roles are CSS variables (`--md-primary`, `--md-surface-container-high`, …) mapped to Tailwind colors (`bg-primary`, `text-on-surface-variant`). Pass a `defaultSeed` to generate a full light and dark scheme with Google's 2025 color spec, or override the variables after the import. The [theme builder](https://expressive-react.moolerz.et/themes) exports ready-made CSS.
 
+Or start from one of 20 [theme presets](https://expressive-react.moolerz.et/themes/presets): color plus tuned surfaces, a typeface, a corner scale and an elevation style, each WCAG AA in light and dark.
+
+```tsx
+import { ThemeProvider, useTheme } from "expressive-react/theme-provider"
+import { THEME_PRESETS, presetCss } from "expressive-react/theme-presets"
+
+<ThemeProvider defaultPreset="campus">
+  <App />
+</ThemeProvider>
+
+useTheme().setPreset("midnight")
+```
+
 ## License
 
 MIT

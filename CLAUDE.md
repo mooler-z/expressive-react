@@ -163,6 +163,7 @@ pnpm registry:build  # registry.json → public/r/*.json (gitignored, served at 
 pnpm build           # registry + typecheck + docs build (dist/ includes /r)
 pnpm package:build   # npm package → packages/expressive-react/dist
 pnpm package:pack    # build + npm pack (inspect the tarball)
+pnpm test            # node:test suites in tests/ (theme presets: WCAG AA in light and dark)
 ```
 
 ## Gotchas
@@ -175,7 +176,7 @@ pnpm package:pack    # build + npm pack (inspect the tarball)
 
 ## Status
 
-Everything in `design-reference/` is ported: all 71 Components-page sections, and all 14 pages (Landing ×4, Admin with 21 sub-pages, Dashboard kit, Layouts, 5 Blocks pages). The registry has 180 items: 73 ui, 7 hooks, 97 blocks, plus init, theme and utils.
+Everything in `design-reference/` is ported: all 71 Components-page sections, and all 14 pages (Landing ×4, Admin with 21 sub-pages, Dashboard kit, Layouts, 5 Blocks pages). The registry has 181 items: 74 ui, 7 hooks, 97 blocks, plus init, theme and utils.
 
 Quality gates. Run these after any change:
 - `pnpm registry:build` first runs `scripts/check-registry.mjs`. It fails if an item's `files`, `registryDependencies` or npm `dependencies` don't match what its code actually imports. `node scripts/check-registry.mjs --fix` syncs them from the imports, so never hand-maintain dependency lists.

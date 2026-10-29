@@ -98,14 +98,55 @@ import { ThemeProvider } from "expressive-react/theme-provider"
 
 ## Theming
 
-Color roles are CSS variables (`--md-primary`, `--md-surface-container-high`, …) mapped to Tailwind colors (`bg-primary`, `text-on-surface-variant`, `bg-on-surface/10`). There are two ways to change them:
+Color roles are CSS variables (`--md-primary`, `--md-surface-container-high`, …) mapped to Tailwind colors (`bg-primary`, `text-on-surface-variant`, `bg-on-surface/10`). There are three ways to change them:
 
 - **Statically:** edit the values in `expressive.css`.
 - **Dynamically:** pass `defaultSeed`, or call `useTheme().setSeed("#0B57D0")`. A full light and dark scheme is generated with the M3 2025 color spec. Available variants: `tonalSpot`, `vibrant`, `expressive`, `fidelity`, `content`, `neutral`, `monochrome`, `rainbow` and `fruitSalad`.
+- **With a preset:** `defaultPreset="campus"` sets color, surfaces, type, shape and elevation in one go (below).
+
+### Theme presets
+
+20 complete looks, each with hand-tuned canvas, card and hairline tones for light and dark, a typeface, a corner scale and an elevation style. Every preset passes WCAG AA (4.5:1 text, 3:1 outlines) in both modes; `pnpm test` checks it. Browse them in the [preset gallery](https://expressive-react.moolerz.et/themes/presets).
+
+```tsx
+<ThemeProvider defaultPreset="campus">
+  <App />
+</ThemeProvider>
+
+const { preset, setPreset, presets } = useTheme()
+setPreset("midnight") // or null for the defaults
+
+<ThemeScope preset="paper" mode="dark">…</ThemeScope>
+```
+
+| Preset | Character | Seed · variant |
+| --- | --- | --- |
+| Quiet (`quiet`) | Calm neutral grays, one indigo accent and hairline edges. For tools that should get out of the way. | `#5B5BD6` · rainbow |
+| Paper (`paper`) | Cream pages, ink-dark type in a reading serif and a brick-red accent. Editorial and unhurried. | `#A23B24` · content |
+| Navy (`navy`) | Deep navy on cool gray, set in IBM Plex. Steady, buttoned-up enterprise. | `#1F3A8A` · fidelity |
+| Forest (`forest`) | Pine greens with a lake-blue counterpoint on softly green-tinted surfaces. | `#2E6B3F` · content |
+| Terracotta (`terracotta`) | Fired-clay orange on warm plaster with a cool teal counterpoint. Rounded and friendly. | `#C4572F` · fidelity |
+| Sunset (`sunset`) | Vivid coral running into magenta on glowing peach surfaces. Loud in the best way. | `#F25C3A` · vibrant |
+| Ocean (`ocean`) | Saturated cyan and deep-water blues on airy, sea-tinted surfaces. | `#0891B2` · vibrant |
+| Lavender (`lavender`) | Soft violet on a lavender canvas with white cards. Gentle, airy and round. | `#8C7AE6` · vibrant |
+| Ink (`ink`) | Black, white and nothing else, at medium contrast. Sharp corners, hairline edges, Archivo. | `#000000` · monochrome · contrast 0.5 |
+| Mint (`mint`) | Fresh mint greens and white cards on a cool, clean canvas. | `#2BB673` · tonalSpot |
+| Rosé (`rose`) | Dusty rose and mauve on blush-tinted surfaces. Quietly elegant. | `#B4536A` · tonalSpot |
+| Dune (`dune`) | Sand and sun-baked ochre with olive in the shade. Warm and grounded. | `#A8692A` · tonalSpot |
+| Midnight (`midnight`) | Dark-first: periwinkle on blue-black, Space Grotesk and crisp edges. Light mode keeps the cool tint. | `#7C8CFF` · vibrant |
+| Sakura (`sakura`) | Cherry-blossom pink with a fresh leaf-green accent on blush white. Soft and round. | `#E8789E` · content |
+| Meskel (`meskel`) | Ethiopian-inspired: highland green and Meskel-daisy gold, with red kept for errors. Renders Ge'ez script. | `#078930` · fidelity |
+| Graphite (`graphite`) | A pro dashboard: graphite neutrals, an amber signal color, sharp corners and dense Geist type. | `#E0A100` · rainbow |
+| Candy (`candy`) | Bubblegum pink and aqua with big round corners and Fredoka. Unapologetically playful. | `#FF4FA3` · vibrant |
+| Frost (`frost`) | Nordic: muted steel blue on icy gray, and a slate dark mode instead of black. | `#5E81AC` · tonalSpot |
+| Espresso (`espresso`) | Roasted browns on a crema canvas; a cozy dark roast at night. | `#6F4E37` · tonalSpot |
+| Campus (`campus`) | A crisp school theme: royal blue and school-bus yellow, white cards on a light-blue canvas, Lexend for easy reading. | `#1D4ED8` · fidelity |
+
+A preset is a plain object (`ThemePreset`): pass your own to `ThemeScope`, or list it in `ThemeProvider`'s `presets` prop. Font stylesheets load only while a preset that needs them is active. `presetCss(preset)` (from `theme-presets`, no `"use client"`) renders one as CSS for SSR or a static file.
 
 ## What's included
 
-**73 components:** accordion · alert · alert-dialog · app-bar · aspect-ratio · attachment · avatar · badge · breadcrumb · button · button-group · calendar · card · carousel · chart · checkbox · chip · code-block · combobox · command · context-menu · data-table · date-field · date-picker · dialog · direction · divider · empty-state · fab · field · icon · icon-button · input-group · input-otp · kbd · list · loading-indicator · marker · menu · menubar · message · message-scroller · navigation-bar · navigation-drawer · navigation-menu · navigation-rail · pagination · popover · progress · questionnaire · radio · resizable · reveal · ripple · scroll-area · search · select · shape · sheet · sidebar · skeleton · slider · snackbar · switch · table · tabs · text-field · theme-provider · time-picker · toast · toolbar · tooltip · trace
+**74 components:** accordion · alert · alert-dialog · app-bar · aspect-ratio · attachment · avatar · badge · breadcrumb · button · button-group · calendar · card · carousel · chart · checkbox · chip · code-block · combobox · command · context-menu · data-table · date-field · date-picker · dialog · direction · divider · empty-state · fab · field · icon · icon-button · input-group · input-otp · kbd · list · loading-indicator · marker · menu · menubar · message · message-scroller · navigation-bar · navigation-drawer · navigation-menu · navigation-rail · pagination · popover · progress · questionnaire · radio · resizable · reveal · ripple · scroll-area · search · select · shape · sheet · sidebar · skeleton · slider · snackbar · switch · table · tabs · text-field · theme-presets · theme-provider · time-picker · toast · toolbar · tooltip · trace
 
 **Hooks:** use-drag-scroll · use-magnetic · use-media-query · use-motion · use-press-scale · use-tilt · use-window-size-class
 

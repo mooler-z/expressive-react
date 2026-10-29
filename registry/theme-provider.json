@@ -2,14 +2,14 @@
   "name": "theme-provider",
   "type": "registry:ui",
   "title": "Theme provider",
-  "description": "Light/dark/system mode and dynamic color from a seed (M3 2025 color spec).",
-  "dependencies": [
-    "@material/material-color-utilities"
-  ],
+  "description": "Light/dark/system mode, dynamic color from a seed (M3 2025 color spec) and theme presets.",
   "files": [
     {
       "path": "src/components/ui/theme-provider.tsx",
       "type": "registry:ui"
     }
+  ],
+  "registryDependencies": [
+    "@expressive/theme-presets"
   ]
 }

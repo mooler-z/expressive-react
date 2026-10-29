@@ -1,5 +1,6 @@
 import * as React from "react"
 import { ToggleButton as AriaToggleButton, ToggleButtonGroup } from "react-aria-components"
+import { Link } from "react-router"
 
 import { Button } from "@/components/ui/button"
 import { ConnectedButton, ConnectedButtonGroup } from "@/components/ui/button-group"
@@ -35,6 +36,21 @@ export function ThemeControls({ theme, apply, reset, mode, setMode, dark, css }:
       className="space-y-6 rounded-xl bg-surface-container-low p-5 lg:sticky lg:top-6"
       data-spec="Builder controls|Every control writes to the shared theme store: seed → Material color utilities scheme → 49 role variables on :root and .dark. Persists in localStorage; URL params override."
     >
+      {theme.preset && (
+        <div className="flex items-center gap-3 rounded-lg bg-secondary-container p-3 text-on-secondary-container">
+          <Icon name="style" size={20} />
+          <p className="min-w-0 flex-1 text-body-md">
+            <span className="font-medium">{theme.preset.name} preset</span>
+            {theme.seed === theme.preset.seed.toUpperCase() && theme.variant === theme.preset.variant && theme.contrast === (theme.preset.contrast ?? 0)
+              ? " is active."
+              : ": its typeface and shapes stay; your color changes replace its tuned surfaces."}
+          </p>
+          <Link to="/themes/presets" className="focus-ring shrink-0 rounded-xs text-label-lg underline-offset-4 hover:underline">
+            Presets
+          </Link>
+        </div>
+      )}
+
       <div>
         <div className="flex items-baseline justify-between">
           <span className={label}>Seed color</span>

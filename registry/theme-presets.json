@@ -1,0 +1,15 @@
+{
+  "name": "theme-presets",
+  "type": "registry:ui",
+  "title": "Theme presets",
+  "description": "20 complete looks (color, surfaces, typeface, shape, elevation) for ThemeProvider and ThemeScope, plus presetCss() for SSR.",
+  "files": [
+    {
+      "path": "src/components/ui/theme-presets.ts",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "@material/material-color-utilities"
+  ]
+}

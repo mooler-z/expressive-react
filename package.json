@@ -9,6 +9,7 @@
     "build": "pnpm registry:build && tsc -b && vite build",
     "preview": "vite preview",
     "typecheck": "tsc -b",
+    "test": "node --test tests/*.test.mjs",
     "registry:build": "node scripts/check-registry.mjs && node scripts/build-registry.mjs && shadcn build --output public/r",
     "package:build": "node packages/expressive-react/scripts/build.mjs",
     "package:pack": "cd packages/expressive-react && node scripts/build.mjs && npm pack --ignore-scripts"
