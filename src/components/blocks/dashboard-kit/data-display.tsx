@@ -237,7 +237,7 @@ function LogViewer() {
           </button>
         ))}
       </div>
-      <pre className="relative max-h-56 overflow-auto rounded-lg bg-inverse-surface p-3 font-mono text-body-sm leading-6 text-inverse-on-surface [scrollbar-width:thin]">
+      <pre className="relative max-h-56 overflow-auto rounded-lg bg-inverse-surface p-3 font-mono text-body-sm leading-6 text-inverse-on-surface">
         {LOG.filter(([, lv]) => levels[lv]).map(([t, lv, msg]) => (
           <span key={t} className="block">
             <span className="opacity-60">{t}</span> <span className={LEVEL_CLS[lv]}>{lv.padEnd(5, " ")}</span> {msg}

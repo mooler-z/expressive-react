@@ -1,0 +1,20 @@
+{
+  "name": "link-button",
+  "type": "registry:ui",
+  "title": "Link button",
+  "description": "A React Aria Link styled exactly like Button (buttonVariants): every style, size, shape and color, with ripple and client-side routing.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/ripple"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/link-button.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

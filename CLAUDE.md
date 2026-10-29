@@ -172,11 +172,14 @@ pnpm test            # node:test suites in tests/ (theme presets: WCAG AA in lig
 - Tailwind v4 orders same-kind variants alphabetically, so `data-selected:` beats `data-pressed:`. Write selected-state radii as `data-selected:not-data-pressed:rounded-…` so the press morph still wins.
 - Round radii are set to exactly half the height (`rounded-[20px]` for 40px), not `rounded-full`. That way the corner morph animates from the first frame.
 - `expressive.css` overrides Tailwind's `sm…2xl` breakpoints with M3 window size classes (480/600/840/1200/1600) and replaces the `rounded-xs…2xl` scale with M3 values.
+- **Scrollbars are global** (`expressive.css` base layer: `::-webkit-scrollbar` pill thumb, Firefox fallback behind `@supports not selector(::-webkit-scrollbar)`). Never put `scrollbar-width` / `scrollbar-color` (e.g. `[scrollbar-width:thin]`) on a container: Chromium then ignores the `::-webkit-scrollbar` rules for it. Use `no-scrollbar` to hide one.
 - Live site and registry: https://expressive-react.moolerz.et (registry at `/r/{name}.json`); repo: https://github.com/mooler-z/expressive-react. Pushing to `main` deploys (see `.github/workflows/deploy.yml`).
 
 ## Status
 
-Everything in `design-reference/` is ported: all 71 Components-page sections, and all 14 pages (Landing ×4, Admin with 21 sub-pages, Dashboard kit, Layouts, 5 Blocks pages). The registry has 181 items: 74 ui, 7 hooks, 97 blocks, plus init, theme and utils.
+Everything in `design-reference/` is ported: all 71 Components-page sections, and all 14 pages (Landing ×4, Admin with 21 sub-pages, Dashboard kit, Layouts, 5 Blocks pages). The registry has 183 items: 76 ui, 7 hooks, 97 blocks, plus init, theme and utils.
+
+Theme presets (`src/components/ui/theme-presets.ts`): 42 — the 20 originals, Henon and Pulse (the Henon Pulse app's looks) and 20 built from coolors.co trending palettes. Every preset must pass `pnpm test` (WCAG AA in light and dark); adjust tones, never skip the test. Docs credit the Coolors palettes on `/docs/theme-presets` and `/themes/presets`.
 
 Quality gates. Run these after any change:
 - `pnpm registry:build` first runs `scripts/check-registry.mjs`. It fails if an item's `files`, `registryDependencies` or npm `dependencies` don't match what its code actually imports. `node scripts/check-registry.mjs --fix` syncs them from the imports, so never hand-maintain dependency lists.

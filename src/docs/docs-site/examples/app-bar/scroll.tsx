@@ -4,7 +4,7 @@ import { IconButton } from "@/components/ui/icon-button"
 
 export default function AppBarScroll() {
   return (
-    <div className="relative h-80 w-full max-w-md overflow-y-auto rounded-xl border border-outline-variant bg-surface [scrollbar-width:thin]">
+    <div className="relative h-80 w-full max-w-md overflow-y-auto rounded-xl border border-outline-variant bg-surface">
       <TopAppBar
         variant="large"
         title="Photos"

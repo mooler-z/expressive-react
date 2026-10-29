@@ -72,7 +72,7 @@ Components are client components (`"use client"`), so they work in Next.js App R
 
 Color roles are CSS variables (`--md-primary`, `--md-surface-container-high`, …) mapped to Tailwind colors (`bg-primary`, `text-on-surface-variant`). Pass a `defaultSeed` to generate a full light and dark scheme with Google's 2025 color spec, or override the variables after the import. The [theme builder](https://expressive-react.moolerz.et/themes) exports ready-made CSS.
 
-Or start from one of 20 [theme presets](https://expressive-react.moolerz.et/themes/presets): color plus tuned surfaces, a typeface, a corner scale and an elevation style, each WCAG AA in light and dark.
+Or start from one of 42 [theme presets](https://expressive-react.moolerz.et/themes/presets): color plus tuned surfaces, a typeface, a corner scale and an elevation style, each WCAG AA in light and dark. They include Henon and Pulse (the Henon Pulse app's looks) and 20 palette inspired by coolors.co trending palettes. `AppearancePicker` (`expressive-react/appearance-picker`) lets users choose a look and light / system / dark.
 
 ```tsx
 import { ThemeProvider, useTheme } from "expressive-react/theme-provider"
@@ -84,6 +84,10 @@ import { THEME_PRESETS, presetCss } from "expressive-react/theme-presets"
 
 useTheme().setPreset("midnight")
 ```
+
+The stylesheet also styles every scrollbar the M3 Expressive way (pill thumb, no track, primary while dragged); add `no-scrollbar` to hide one. Don't set `scrollbar-width` or `scrollbar-color` on your containers: Chromium then ignores the styled scrollbar.
+
+For links that should look like buttons ("View all", "← Back"), use `LinkButton` from `expressive-react/link-button`: same props as `Button`, rendered as a React Aria `Link`.
 
 ## License
 

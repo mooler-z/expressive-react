@@ -104,9 +104,13 @@ Color roles are CSS variables (`--md-primary`, `--md-surface-container-high`, �
 - **Dynamically:** pass `defaultSeed`, or call `useTheme().setSeed("#0B57D0")`. A full light and dark scheme is generated with the M3 2025 color spec. Available variants: `tonalSpot`, `vibrant`, `expressive`, `fidelity`, `content`, `neutral`, `monochrome`, `rainbow` and `fruitSalad`.
 - **With a preset:** `defaultPreset="campus"` sets color, surfaces, type, shape and elevation in one go (below).
 
+### Scrollbars
+
+`expressive.css` gives every scrollable area M3 Expressive scrollbars: no track, a pill thumb in `on-surface-variant` that firms up on hover, grows under the pointer and turns primary while dragged. `no-scrollbar` hides one. Firefox gets a thin bar in the same colors through `scrollbar-width`/`scrollbar-color`, gated behind `@supports not selector(::-webkit-scrollbar)` because Chromium ignores the `::-webkit-scrollbar` rules on any element that sets either property. Don't add `[scrollbar-width:thin]` to your own containers.
+
 ### Theme presets
 
-20 complete looks, each with hand-tuned canvas, card and hairline tones for light and dark, a typeface, a corner scale and an elevation style. Every preset passes WCAG AA (4.5:1 text, 3:1 outlines) in both modes; `pnpm test` checks it. Browse them in the [preset gallery](https://expressive-react.moolerz.et/themes/presets).
+42 complete looks, each with hand-tuned canvas, card and hairline tones for light and dark, a typeface, a corner scale and an elevation style. Every preset passes WCAG AA (4.5:1 text, 3:1 outlines) in both modes; `pnpm test` checks it. Browse them in the [preset gallery](https://expressive-react.moolerz.et/themes/presets).
 
 ```tsx
 <ThemeProvider defaultPreset="campus">
@@ -141,12 +145,38 @@ setPreset("midnight") // or null for the defaults
 | Frost (`frost`) | Nordic: muted steel blue on icy gray, and a slate dark mode instead of black. | `#5E81AC` · tonalSpot |
 | Espresso (`espresso`) | Roasted browns on a crema canvas; a cozy dark roast at night. | `#6F4E37` · tonalSpot |
 | Campus (`campus`) | A crisp school theme: royal blue and school-bus yellow, white cards on a light-blue canvas, Lexend for easy reading. | `#1D4ED8` · fidelity |
+| Henon (`henon`) | The Henon school app: light-blue canvas, white cards with hairline borders, navy ink, Inter and small corners. | `#0074FF` · fidelity |
+| Pulse (`pulse`) | Plain Material 3 Expressive in a bright cobalt: generated tonal surfaces, Roboto Flex and the full M3 corner scale. | `#1D4AFF` · fidelity |
+| Olive Garden (`olive-garden`) | Olive and deep moss with caramel and burnt-orange accents on a cream canvas. Earthy and warm. Coolors: *Olive Garden Feast*. | `#606C38` · fidelity |
+| Fiery Ocean (`fiery-ocean`) | Crimson on a cream canvas with navy and steel-blue counterpoints; at night the canvas turns deep-ocean navy. Coolors: *Fiery Ocean*. | `#C1121F` · fidelity |
+| Pastel Dreamland (`pastel-dreamland`) | Lilac, candy pink and baby blue on an airy lilac-white canvas, with Quicksand and big soft corners. Coolors: *Pastel Dreamland Adventure*. | `#CDB4DB` · fidelity |
+| Sunny Beach (`sunny-beach`) | Sea-green teal with saffron and burnt-sienna accents on warm sand; the dark mode is deep slate-teal. Coolors: *Sunny Beach Day*. | `#2A9D8F` · fidelity |
+| Purple Raindrops (`purple-raindrops`) | Electric violet running from magenta to cyan, on cool violet-tinted surfaces and a deep indigo night. Coolors: *Purple Raindrops*. | `#7209B7` · fidelity |
+| Black & Gold (`black-gold`) | Black-navy and gold on ivory, set in art-deco Josefin Sans with sharp corners; at night, gold on true black. Coolors: *Black & Gold Elegance*. | `#14213D` · fidelity |
+| Neutral Earth (`neutral-earth`) | Slate charcoal and latte on a greige canvas, with umber in the shadows. Calm, natural and grown-up. Coolors: *Neutral Earth Tones*. | `#22333B` · fidelity |
+| Enchanted Forest (`enchanted-forest`) | Misty sage and pine-teal over a sage-white canvas; the night mode is a soft slate instead of black. Coolors: *Enchanted Forest Night*. | `#51796F` · fidelity |
+| Soft Lavender (`soft-lavender`) | Dusk: slate indigo with mauve and rosy beige, on a warm blush canvas. Quiet and romantic. Coolors: *Soft Lavender*. | `#4A4E69` · fidelity |
+| Summer Fun (`summer-fun`) | Tangerine and amber on a sky-blue canvas with ocean-blue accents; a deep navy night. Bright and energetic. Coolors: *Refreshing Summer Fun*. | `#FC8500` · fidelity |
+| Monochrome Harmony (`monochrome-harmony`) | Charcoal on pale celery paper with one sunflower highlight for selection and emphasis. Crisp and editorial. Coolors: *Monochrome Harmony*. | `#242423` · monochrome |
+| Moonlit Forest (`moonlit-forest`) | Aubergine and dusty rose on a pale celery canvas, with sage in the undergrowth. Set in Lora. Coolors: *Mystic Moonlit Forest*. | `#51344D` · fidelity |
+| Dark Sunset (`dark-sunset`) | Slate teal with mustard and maroon on a butter-yellow canvas; at night everything sinks into maroon-black. Coolors: *Dark Sunset*. | `#335C67` · fidelity |
+| Watermelon Sorbet (`watermelon-sorbet`) | Watermelon pink with a mint-rind green and lemon sorbet, on a cool mint-white canvas; deep teal at night. Coolors: *Watermelon Sorbet*. | `#EF466F` · fidelity |
+| Cherry Crush (`cherry-crush`) | All cherries: crimson to black-cherry reds on a blush canvas, and a wine-dark night. Bold and romantic. Coolors: *Cherry Crush*. | `#A41D30` · fidelity |
+| Luminous Glow (`luminous-glow`) | Dark-first neon: lime-to-aqua glow on near-black, Chakra Petch and sharp edges. Light mode keeps the lime. Coolors: *Luminous Glow*. | `#C2F260` · fidelity |
+| Vintage Charm (`vintage-charm`) | Bottle green and burnt orange on parchment, set in Fraunces; ink-blue at night. Like an old botanical print. Coolors: *Vintage Charm*. | `#183A37` · fidelity |
+| Daybreak (`daybreak`) | Indigo and periwinkle giving way to a sunrise of amber and orange, on a warm white canvas. Coolors: *Colorful Daybreak*. | `#3E348B` · fidelity |
+| Rustic Charm (`rustic-charm`) | Charcoal and stone on warm off-white with a single flame-orange accent. A workshop look, in Barlow. Coolors: *Rustic Charm*. | `#3F3D39` · fidelity |
+| Color Blast (`color-blast`) | Cerulean with raspberry and marigold. Confident, saturated and a little loud, in Montserrat. Coolors: *Vibrant Color Blast*. | `#016BA6` · fidelity |
+
+Henon and Pulse are the two looks of the Henon Pulse app. The last 20 rows are palette inspired by [coolors.co trending palettes](https://coolors.co/palettes/trending): seeds, accents, canvases and swatches are the palettes' own colors.
+
+Let users choose with `AppearancePicker` (looks plus light / system / dark). `ThemeProvider` mirrors the active preset on `<html data-preset>` for preset-specific CSS.
 
 A preset is a plain object (`ThemePreset`): pass your own to `ThemeScope`, or list it in `ThemeProvider`'s `presets` prop. Font stylesheets load only while a preset that needs them is active. `presetCss(preset)` (from `theme-presets`, no `"use client"`) renders one as CSS for SSR or a static file.
 
 ## What's included
 
-**74 components:** accordion · alert · alert-dialog · app-bar · aspect-ratio · attachment · avatar · badge · breadcrumb · button · button-group · calendar · card · carousel · chart · checkbox · chip · code-block · combobox · command · context-menu · data-table · date-field · date-picker · dialog · direction · divider · empty-state · fab · field · icon · icon-button · input-group · input-otp · kbd · list · loading-indicator · marker · menu · menubar · message · message-scroller · navigation-bar · navigation-drawer · navigation-menu · navigation-rail · pagination · popover · progress · questionnaire · radio · resizable · reveal · ripple · scroll-area · search · select · shape · sheet · sidebar · skeleton · slider · snackbar · switch · table · tabs · text-field · theme-presets · theme-provider · time-picker · toast · toolbar · tooltip · trace
+**76 components:** accordion · alert · alert-dialog · app-bar · appearance-picker · aspect-ratio · attachment · avatar · badge · breadcrumb · button · button-group · calendar · card · carousel · chart · checkbox · chip · code-block · combobox · command · context-menu · data-table · date-field · date-picker · dialog · direction · divider · empty-state · fab · field · icon · icon-button · input-group · input-otp · kbd · link-button · list · loading-indicator · marker · menu · menubar · message · message-scroller · navigation-bar · navigation-drawer · navigation-menu · navigation-rail · pagination · popover · progress · questionnaire · radio · resizable · reveal · ripple · scroll-area · search · select · shape · sheet · sidebar · skeleton · slider · snackbar · switch · table · tabs · text-field · theme-presets · theme-provider · time-picker · toast · toolbar · tooltip · trace
 
 **Hooks:** use-drag-scroll · use-magnetic · use-media-query · use-motion · use-press-scale · use-tilt · use-window-size-class
 

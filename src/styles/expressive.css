@@ -617,3 +617,51 @@ html:active-view-transition-type(md-toast)::view-transition-new(root) {
     color: var(--md-on-primary-container);
   }
 }
+
+/* ---------- Scrollbars · M3 Expressive ----------
+   Every scrollable area: no track, a rounded pill thumb in the theme's ink that stays quiet until you need it.
+   It firms up while the pointer is over the scroll area, grows when the pointer is on it and turns primary
+   while dragged. Colors come from --md-* roles, so light/dark, seeds, presets and ThemeScope all apply.
+   `no-scrollbar` (a utility, so it wins over this base layer) still hides it.
+   Chromium ignores ::-webkit-scrollbar on any element that sets scrollbar-width or scrollbar-color, so the
+   standard properties are only a fallback for browsers without the pseudo-elements (Firefox), and shipped
+   components don't set them. */
+@layer base {
+  ::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+  }
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+  ::-webkit-scrollbar-thumb {
+    min-width: 40px;
+    min-height: 40px;
+    border: 4px solid transparent;
+    border-radius: 999px;
+    background-clip: content-box;
+    background-color: color-mix(in srgb, var(--md-on-surface-variant) 22%, transparent);
+  }
+  :hover::-webkit-scrollbar-thumb {
+    background-color: color-mix(in srgb, var(--md-on-surface-variant) 42%, transparent);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    border-width: 2.5px;
+    background-color: color-mix(in srgb, var(--md-on-surface-variant) 62%, transparent);
+  }
+  ::-webkit-scrollbar-thumb:active {
+    border-width: 2.5px;
+    background-color: var(--md-primary);
+  }
+
+  @supports not selector(::-webkit-scrollbar) {
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: color-mix(in srgb, var(--md-on-surface-variant) 42%, transparent) transparent;
+    }
+  }
+}

@@ -24,6 +24,13 @@ export default function ThemePresetsPage() {
             {presets.length} complete looks: color from a seed, hand-tuned canvas, card and hairline tones, a typeface, a corner scale and an elevation style.
             Every one passes WCAG AA in light and dark. Apply one to this site, or pass its id to <code className="font-mono">ThemeProvider</code>.
           </p>
+          <p className="mt-2 text-body-md text-on-surface-variant">
+            Henon and Pulse are the looks of the Henon Pulse app. Olive Garden through Color Blast: palette inspired by{" "}
+            <a className="text-primary underline underline-offset-3" href="https://coolors.co/palettes/trending">
+              coolors.co trending palettes
+            </a>
+            .
+          </p>
         </div>
 
         <div className="mt-6 flex flex-wrap items-center gap-3">

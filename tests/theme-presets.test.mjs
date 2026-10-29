@@ -59,10 +59,10 @@ const UI_PAIRS = [
 ]
 
 describe("THEME_PRESETS", () => {
-  test("ships 20 presets with unique ids and complete metadata", () => {
+  test("ships 42 presets with unique ids and complete metadata", () => {
     const { THEME_PRESETS, COLOR_ROLES } = mod
-    assert.equal(THEME_PRESETS.length, 20)
-    assert.equal(new Set(THEME_PRESETS.map((p) => p.id)).size, 20)
+    assert.equal(THEME_PRESETS.length, 42)
+    assert.equal(new Set(THEME_PRESETS.map((p) => p.id)).size, 42)
     for (const p of THEME_PRESETS) {
       assert.match(p.id, /^[a-z][a-z0-9-]*$/, p.id)
       assert.ok(p.name && p.description, `${p.id}: name and description`)
@@ -70,6 +70,7 @@ describe("THEME_PRESETS", () => {
       assert.equal(p.swatches?.light.length, 4, `${p.id}: light swatches`)
       assert.equal(p.swatches?.dark.length, 4, `${p.id}: dark swatches`)
       if (p.font?.href) assert.match(p.font.href, /^https:\/\/fonts\.googleapis\.com\/css2\?/, `${p.id}: font href`)
+      if (Array.isArray(p.elevation)) assert.equal(p.elevation.length, 5, `${p.id}: five elevation levels`)
       for (const mode of ["light", "dark"])
         for (const [role, hex] of Object.entries(p.colors?.[mode] ?? {})) {
           assert.ok(COLOR_ROLES.includes(role), `${p.id}: unknown role ${role}`)

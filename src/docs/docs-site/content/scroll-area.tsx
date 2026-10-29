@@ -12,7 +12,7 @@ const c = (s: string) => <code className="font-mono text-body-sm">{s}</code>
 
 export default {
   description:
-    "Scroll areas keep native scrolling and add thin themed scrollbars, edge fades on the sides that have more content, prev/next buttons and mouse drag-to-scroll.",
+    "Scroll areas keep native scrolling with the theme's M3 scrollbars (see Scrollbars) and add edge fades on the sides that have more content, prev/next buttons and mouse drag-to-scroll.",
   preview: { component: Demo, source: demoSrc },
   usage: `import { ScrollArea } from "@/components/ui/scroll-area"
 

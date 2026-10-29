@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils"
 
 /*
  * Scroll area
- * Native scrolling with thin themed scrollbars (outline thumb, transparent track), optional edge
+ * Native scrolling with the theme's M3 scrollbars (expressive.css base layer), optional edge
  * fades that appear only on the sides with more content, optional prev/next buttons and mouse
  * drag-to-scroll. No custom scrollbar emulation: keyboard, wheel, touch and a11y stay native.
  */
@@ -27,9 +27,6 @@ export interface ScrollAreaProps extends React.HTMLAttributes<HTMLDivElement> {
   viewportClassName?: string
   viewportRef?: React.Ref<HTMLDivElement>
 }
-
-const SCROLLBAR =
-  "[scrollbar-width:thin] [scrollbar-color:var(--md-outline)_transparent] [&::-webkit-scrollbar]:size-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-outline [&::-webkit-scrollbar-track]:bg-transparent"
 
 function ScrollArea({
   className,
@@ -106,7 +103,7 @@ function ScrollArea({
           orientation === "vertical" && "overflow-y-auto overscroll-y-contain",
           horizontal && "overflow-x-auto overscroll-x-contain",
           orientation === "both" && "overflow-auto",
-          hideScrollbar ? "no-scrollbar" : SCROLLBAR,
+          hideScrollbar && "no-scrollbar",
           dragScroll && "cursor-grab data-dragging:cursor-grabbing data-dragging:select-none",
           viewportClassName,
         )}

@@ -6,6 +6,8 @@ import Demo from "@/docs/docs-site/examples/theme-presets/demo"
 import demoSrc from "@/docs/docs-site/examples/theme-presets/demo?raw"
 import PresetCss from "@/docs/docs-site/examples/theme-presets/preset-css"
 import presetCssSrc from "@/docs/docs-site/examples/theme-presets/preset-css?raw"
+import StatCards from "@/docs/docs-site/examples/theme-presets/stat-cards"
+import statCardsSrc from "@/docs/docs-site/examples/theme-presets/stat-cards?raw"
 import { THEME_PRESETS } from "@/components/ui/theme-presets"
 import { InlineCode, TextLink } from "@/docs/docs-site/primitives"
 import type { ComponentDoc } from "@/docs/docs-site/types"
@@ -13,12 +15,23 @@ import type { ComponentDoc } from "@/docs/docs-site/types"
 const c = (s: string) => <code className="font-mono text-body-sm">{s}</code>
 const variantType = "SchemeVariant"
 
+/** Preset id → the coolors.co trending palette it was built from. */
+const COOLORS: [id: string, palette: string][] = [
+  ["olive-garden", "Olive Garden Feast"], ["fiery-ocean", "Fiery Ocean"], ["pastel-dreamland", "Pastel Dreamland Adventure"], ["sunny-beach", "Sunny Beach Day"],
+  ["purple-raindrops", "Purple Raindrops"], ["black-gold", "Black & Gold Elegance"], ["neutral-earth", "Neutral Earth Tones"], ["enchanted-forest", "Enchanted Forest Night"],
+  ["soft-lavender", "Soft Lavender"], ["summer-fun", "Refreshing Summer Fun"], ["monochrome-harmony", "Monochrome Harmony"], ["moonlit-forest", "Mystic Moonlit Forest"],
+  ["dark-sunset", "Dark Sunset"], ["watermelon-sorbet", "Watermelon Sorbet"], ["cherry-crush", "Cherry Crush"], ["luminous-glow", "Luminous Glow"],
+  ["vintage-charm", "Vintage Charm"], ["daybreak", "Colorful Daybreak"], ["rustic-charm", "Rustic Charm"], ["color-blast", "Vibrant Color Blast"],
+]
+const presetOf = (id: string) => THEME_PRESETS.find((p) => p.id === id)!
+
 export default {
   description: (
     <>
-      Twenty complete looks for the whole app. A preset is more than a seed: it carries hand-tuned canvas, card and hairline tones for light and dark, a
-      typeface, a corner scale and an elevation style. Every shipped preset passes WCAG AA in both modes. Browse them in the{" "}
-      <TextLink to="/themes/presets">preset gallery</TextLink>.
+      {THEME_PRESETS.length} complete looks for the whole app. A preset is more than a seed: it carries hand-tuned canvas, card and hairline tones for light and
+      dark, a typeface, a corner scale and an elevation style. Every shipped preset passes WCAG AA in both modes. Browse them in the{" "}
+      <TextLink to="/themes/presets">preset gallery</TextLink>, or let users pick one with the <TextLink to="/docs/appearance-picker">Appearance picker</TextLink>.
+      Twenty are built from <a className="text-primary underline underline-offset-3" href="https://coolors.co/palettes/trending">coolors.co trending palettes</a>.
     </>
   ),
   preview: { component: Demo, source: demoSrc },
@@ -52,6 +65,20 @@ export default {
       ),
       component: Custom,
       source: customSrc,
+    },
+    {
+      id: "henon-stat-cards",
+      title: "Recipe: Henon's gradient stat cards",
+      description: (
+        <>
+          The Henon preset covers color, type, corners and hairline elevation. The Henon app's gradient stat cards are app styling, not tokens, so they aren't
+          part of it; reproduce them with Tailwind gradients as here. To apply them only while the preset is active, key your CSS on{" "}
+          <InlineCode>html[data-preset="henon"]</InlineCode>: ThemeProvider mirrors the active preset id there, and ThemeScope sets{" "}
+          <InlineCode>data-preset</InlineCode> on its own element.
+        </>
+      ),
+      component: StatCards,
+      source: statCardsSrc,
     },
     {
       id: "preset-css",
@@ -98,6 +125,7 @@ export default {
         { name: "defaultPreset", type: "string | null", default: "null", description: "Preset id to start with. Explicit defaultSeed / defaultVariant / defaultContrast override its colors." },
         { name: "presets", type: "readonly ThemePreset[]", default: "THEME_PRESETS", description: "What ids resolve against. Pass a stable array (module scope or useMemo)." },
         { name: "preset · setPreset", type: "ThemePreset | null · (id: string | null) => void", default: "—", description: "Active preset. setPreset also takes its seed, variant and contrast; null restores the provider defaults." },
+        { name: "<html data-preset>", type: "string", default: "—", description: "The provider writes the active preset id there (removed with no preset), for preset-specific CSS." },
         {
           name: "setSeed · setVariant · setContrast",
           type: "—",
@@ -148,13 +176,25 @@ export default {
           ["subtle", "4 · 6 · 8 · 10 · 12 · 16 · 20 · 28"],
           ["sharp", "2 · 4 · 6 · 8 · 10 · 12 · 14 · 20"],
           ["rounded", "8 · 12 · 16 · 20 · 24 · 32 · 36 · 56"],
+          ["henon (custom)", "4 · 6 · 8 · 10 · 12 · 12 · 14 · 16"],
         ],
+      },
+      {
+        title: "Palette inspired by coolors.co trending palettes",
+        columns: ["Preset", "Coolors palette", "Seed · variant"],
+        rows: COOLORS.map(([id, palette]) => [presetOf(id).name, palette, `${presetOf(id).seed} · ${presetOf(id).variant}`]),
       },
     ],
     cards: [
       { title: "Elevation styles", items: ["standard: M3 key + ambient", "soft: wide, faint, diffuse", "crisp: hairline + tight drop", "flat: hairlines; levels 3–5 keep a faint drop"] },
       { title: "Output", items: ["--md-* color roles", "--font-sans · --font-mono", "--radius-* · --md-elevation-1…5"] },
     ],
-    source: "Surface tones per preset were picked on each preset's neutral hue in HCT; the rest comes from Material color utilities (2025 spec).",
+    source: (
+      <>
+        Surface tones per preset were picked on each preset's neutral hue in HCT; the rest comes from Material color utilities (2025 spec). Palette inspired by{" "}
+        <a className="text-primary underline underline-offset-3" href="https://coolors.co/palettes/trending">coolors.co trending palettes</a>: seeds, accents,
+        canvases and swatches are the palettes' own colors.
+      </>
+    ),
   },
 } satisfies ComponentDoc

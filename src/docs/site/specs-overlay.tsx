@@ -152,7 +152,7 @@ export function SpecsOverlay() {
                 <Icon size={22}>close</Icon>
               </button>
             </div>
-            <ol className="flex-1 overflow-auto px-2 pt-1 pb-4 [scrollbar-width:thin]">
+            <ol className="flex-1 overflow-auto px-2 pt-1 pb-4">
               {specs.length === 0 && (
                 <li className="px-3 py-6 text-center text-body-md text-on-surface-variant">Nothing on this page is annotated yet.</li>
               )}

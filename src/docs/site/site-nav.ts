@@ -37,7 +37,7 @@ export const DOCS_GROUPS: DocsGroup[] = [
     items: [
       ["intro", "Introduction"], ["install", "Installation"], ["registry", "components.json & registry"], ["theming", "Theming"],
       ["dark-mode", "Dark mode"], ["dynamic-color", "Dynamic color"], ["typography", "Typography"], ["icons", "Icons"],
-      ["motion", "Motion"], ["rtl", "RTL"], ["cli", "CLI"], ["changelog", "Changelog"],
+      ["motion", "Motion"], ["scrollbars", "Scrollbars"], ["rtl", "RTL"], ["cli", "CLI"], ["changelog", "Changelog"],
     ],
   },
   {
@@ -49,7 +49,7 @@ export const DOCS_GROUPS: DocsGroup[] = [
       ["springs", "Motion & springs"], ["interactions", "Interactions"], ["symbols", "Icons"], ["layout", "Layout & window size classes"],
     ],
   },
-  { section: "components", name: "Actions", items: [["button", "Button"], ["icon-button", "Icon button"], ["fab", "FAB · Extended · Menu", true], ["button-group", "Button group · Split", true]] },
+  { section: "components", name: "Actions", items: [["button", "Button"], ["link-button", "Link button"], ["icon-button", "Icon button"], ["fab", "FAB · Extended · Menu", true], ["button-group", "Button group · Split", true]] },
   {
     section: "components",
     name: "Communication",
@@ -94,7 +94,7 @@ export const DOCS_GROUPS: DocsGroup[] = [
   },
   { section: "components", name: "Data", items: [["table", "Table"], ["data-table", "Data table"], ["chart", "Charts"], ["trace", "Trace"]] },
   { section: "components", name: "Chat", items: [["message", "Message"], ["message-scroller", "Message scroller"], ["attachment", "Attachment"], ["questionnaire", "Questionnaire"]] },
-  { section: "components", name: "Utilities", items: [["shape", "Shape", true], ["ripple", "Ripple"], ["reveal", "Reveal"], ["theme-provider", "Theme provider"], ["theme-presets", "Theme presets", true]] },
+  { section: "components", name: "Utilities", items: [["shape", "Shape", true], ["ripple", "Ripple"], ["reveal", "Reveal"], ["theme-provider", "Theme provider"], ["theme-presets", "Theme presets", true], ["appearance-picker", "Appearance picker"]] },
   {
     section: "hooks",
     name: "Hooks",
@@ -118,7 +118,7 @@ export function docsHref(id: string) {
 export const SITE_LINKS = {
   github: "https://github.com/mooler-z/expressive-react",
   m3: "https://m3.material.io/",
-  version: "v1.1.0",
+  version: "v1.2.0",
 }
 
 /** Where a registry block opens from search and other site links. */

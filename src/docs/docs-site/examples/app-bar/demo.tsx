@@ -5,7 +5,7 @@ import { snackbar } from "@/components/ui/snackbar"
 
 export default function AppBarDemo() {
   return (
-    <div className="relative h-72 w-full max-w-md overflow-y-auto rounded-xl border border-outline-variant bg-surface [scrollbar-width:thin]">
+    <div className="relative h-72 w-full max-w-md overflow-y-auto rounded-xl border border-outline-variant bg-surface">
       <TopAppBar
         variant="medium"
         title="Inbox"

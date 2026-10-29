@@ -205,6 +205,13 @@ function ThemeProvider({
     document.documentElement.classList.toggle("dark", resolvedMode === "dark")
   }, [resolvedMode, fade])
 
+  // <html data-preset="…">, like ThemeScope's data-preset, so app CSS can add preset-specific touches.
+  React.useEffect(() => {
+    const root = document.documentElement
+    if (preset) root.dataset.preset = preset.id
+    else delete root.dataset.preset
+  }, [preset])
+
   // Dynamic color (and the preset's type, shape and elevation). A non-default variant or contrast applies to the baseline seed too.
   const colored = React.useRef(false)
   React.useEffect(() => {

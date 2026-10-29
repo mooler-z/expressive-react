@@ -64,7 +64,7 @@ export default function Theming() {
           <TextLink to="/docs/dynamic-color">Dynamic color</TextLink>.
         </li>
         <li>
-          <Strong>Pick a preset.</Strong> <InlineCode>&lt;ThemeProvider defaultPreset="campus"&gt;</InlineCode> applies one of 20{" "}
+          <Strong>Pick a preset.</Strong> <InlineCode>&lt;ThemeProvider defaultPreset="campus"&gt;</InlineCode> applies one of 42{" "}
           <TextLink to="/themes/presets">theme presets</TextLink>: color plus tuned surfaces, a typeface, a corner scale and an elevation style. See{" "}
           <TextLink to="/docs/theme-presets">Theme presets</TextLink>.
         </li>

@@ -219,6 +219,31 @@
       ]
     },
     {
+      "name": "appearance-picker",
+      "type": "registry:ui",
+      "title": "Appearance picker",
+      "description": "End-user theme menu: a grid of looks (theme presets with their swatches) plus light / system / dark, as a popover or an inline panel.",
+      "dependencies": [
+        "react-aria-components"
+      ],
+      "registryDependencies": [
+        "@expressive/button-group",
+        "@expressive/icon",
+        "@expressive/icon-button",
+        "@expressive/popover",
+        "@expressive/ripple",
+        "@expressive/theme-presets",
+        "@expressive/theme-provider",
+        "@expressive/utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/appearance-picker.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "aspect-ratio",
       "type": "registry:ui",
       "title": "Aspect ratio",
@@ -835,6 +860,26 @@
       "files": [
         {
           "path": "src/components/ui/kbd.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "link-button",
+      "type": "registry:ui",
+      "title": "Link button",
+      "description": "A React Aria Link styled exactly like Button (buttonVariants): every style, size, shape and color, with ripple and client-side routing.",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants"
+      ],
+      "registryDependencies": [
+        "@expressive/button",
+        "@expressive/ripple"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/link-button.tsx",
           "type": "registry:ui"
         }
       ]
@@ -1478,7 +1523,7 @@
       "name": "theme-presets",
       "type": "registry:ui",
       "title": "Theme presets",
-      "description": "20 complete looks (color, surfaces, typeface, shape, elevation) for ThemeProvider and ThemeScope, plus presetCss() for SSR.",
+      "description": "42 complete looks (color, surfaces, typeface, shape, elevation) for ThemeProvider and ThemeScope, including Henon, Pulse and 20 built from coolors.co trending palettes, plus presetCss() for SSR.",
       "files": [
         {
           "path": "src/components/ui/theme-presets.ts",

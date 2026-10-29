@@ -10,8 +10,36 @@ export default function Changelog() {
   return (
     <Prose>
       <div className="flex flex-wrap items-baseline gap-3">
-        <H2 id="v1-1-0">v1.1.0</H2>
+        <H2 id="v1-2-0">v1.2.0</H2>
         <span className="rounded-full bg-primary-container px-3 py-0.5 text-label-lg text-on-primary-container">Latest</span>
+        <span className="text-body-md">October 2026</span>
+      </div>
+      <p>22 more presets, M3 scrollbars everywhere, and two components from the Henon Pulse app.</p>
+      <Bullets>
+        <li>
+          <Strong>42 theme presets.</Strong> Henon and Pulse, the two looks of the Henon Pulse app, plus 20 built from coolors.co trending palettes: Olive Garden,
+          Fiery Ocean, Pastel Dreamland, Sunny Beach, Purple Raindrops, Black & Gold, Neutral Earth, Enchanted Forest, Soft Lavender, Summer Fun, Monochrome
+          Harmony, Moonlit Forest, Dark Sunset, Watermelon Sorbet, Cherry Crush, Luminous Glow, Vintage Charm, Daybreak, Rustic Charm and Color Blast. All pass
+          WCAG AA in light and dark. <InlineCode>ThemeProvider</InlineCode> now mirrors the active preset on <InlineCode>&lt;html data-preset&gt;</InlineCode>.
+        </li>
+        <li>
+          <Strong>Scrollbars.</Strong> <InlineCode>expressive.css</InlineCode> styles every scrollable area: no track, a pill thumb that firms up on hover, grows
+          under the pointer and turns primary while dragged, with a gated Firefox fallback. <InlineCode>ScrollArea</InlineCode>, <InlineCode>Sidebar</InlineCode>{" "}
+          and <InlineCode>MessageScroller</InlineCode> no longer set <InlineCode>scrollbar-width</InlineCode>, which switched the styling off in Chromium. See{" "}
+          <TextLink to="/docs/scrollbars">Scrollbars</TextLink>.
+        </li>
+        <li>
+          <Strong>LinkButton</Strong>: a React Aria link styled exactly like <InlineCode>Button</InlineCode>, for navigation that reads as an action. See{" "}
+          <TextLink to="/docs/link-button">Link button</TextLink>.
+        </li>
+        <li>
+          <Strong>AppearancePicker</Strong> and <InlineCode>AppearancePanel</InlineCode>: the end-user theme menu, with looks and light / system / dark. See{" "}
+          <TextLink to="/docs/appearance-picker">Appearance picker</TextLink>.
+        </li>
+      </Bullets>
+
+      <div className="flex flex-wrap items-baseline gap-3">
+        <H2 id="v1-1-0">v1.1.0</H2>
         <span className="text-body-md">October 2026</span>
       </div>
       <p>Theme presets: whole looks, not just a seed.</p>

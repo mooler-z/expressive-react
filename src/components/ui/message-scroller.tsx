@@ -231,7 +231,7 @@ function MessageScroller({
           if (touchY.current != null && y != null && y - touchY.current > 24 && atTop()) void loadMore()
         }}
         onKeyDown={(e) => ["PageUp", "Home", "ArrowUp"].includes(e.key) && atTop() && void loadMore()}
-        className="relative focus-ring h-full overflow-y-auto overscroll-contain [scrollbar-color:var(--md-outline-variant)_transparent] [scrollbar-width:thin]"
+        className="relative focus-ring h-full overflow-y-auto overscroll-contain"
       >
         {/* Short threads sit at the bottom, next to the composer, like any chat. */}
         <div ref={contentRef} className={cn("flex min-h-full flex-col justify-end space-y-3 px-4 pb-4", contentClassName)}>

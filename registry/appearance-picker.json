@@ -1,0 +1,25 @@
+{
+  "name": "appearance-picker",
+  "type": "registry:ui",
+  "title": "Appearance picker",
+  "description": "End-user theme menu: a grid of looks (theme presets with their swatches) plus light / system / dark, as a popover or an inline panel.",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/button-group",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/popover",
+    "@expressive/ripple",
+    "@expressive/theme-presets",
+    "@expressive/theme-provider",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/appearance-picker.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

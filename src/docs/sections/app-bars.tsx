@@ -57,7 +57,7 @@ export default function AppBarsSection() {
             actions={<Action icon="more_vert" label="More options" />}
           />
         </div>
-        <div className="relative h-64 overflow-y-auto rounded-md bg-surface [scrollbar-width:thin]">
+        <div className="relative h-64 overflow-y-auto rounded-md bg-surface">
           <TopAppBar
             variant="large"
             title="Large flexible"

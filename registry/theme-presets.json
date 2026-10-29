@@ -2,7 +2,7 @@
   "name": "theme-presets",
   "type": "registry:ui",
   "title": "Theme presets",
-  "description": "20 complete looks (color, surfaces, typeface, shape, elevation) for ThemeProvider and ThemeScope, plus presetCss() for SSR.",
+  "description": "42 complete looks (color, surfaces, typeface, shape, elevation) for ThemeProvider and ThemeScope, including Henon, Pulse and 20 built from coolors.co trending palettes, plus presetCss() for SSR.",
   "files": [
     {
       "path": "src/components/ui/theme-presets.ts",
