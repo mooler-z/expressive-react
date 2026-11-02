@@ -47,11 +47,20 @@ jobs:
           node scripts/build.mjs
           npm pack --dry-run --ignore-scripts
 
+      # Skips a version that's already on npm (published by hand, or a re-run), so the tag still gets its release
       - name: Publish to npm
         working-directory: packages/expressive-react
-        run: npm publish --provenance --access public --ignore-scripts
+        run: |
+          version=$(node -p "require('./package.json').version")
+          if curl -sf -o /dev/null "https://registry.npmjs.org/expressive-react/$version"; then
+            echo "::notice::expressive-react@$version is already on npm, skipping publish"
+          else
+            npm publish --provenance --access public --ignore-scripts
+          fi
 
       - name: GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "${GITHUB_REF_NAME}" --generate-notes --title "expressive-react ${GITHUB_REF_NAME}"
+        run: |
+          gh release view "${GITHUB_REF_NAME}" >/dev/null 2>&1 ||
+            gh release create "${GITHUB_REF_NAME}" --generate-notes --title "expressive-react ${GITHUB_REF_NAME}"

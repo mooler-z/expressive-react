@@ -150,7 +150,9 @@ The build fails on export-name collisions in the barrel and on any `@/` import o
 **Releases:**
 1. Bump `"version"` in `packages/expressive-react/package.json` and commit.
 2. Tag and push: `git tag vX.Y.Z && git push --tags`.
-3. `.github/workflows/release.yml` checks the tag against the version, builds and publishes with provenance through npm trusted publishing, then creates the GitHub release.
+3. `.github/workflows/release.yml` checks the tag against the version, builds and publishes with provenance through npm trusted publishing, then creates the GitHub release. It skips the publish when the version is already on npm, so re-runs are safe.
+
+The trusted publisher is configured on npm: GitHub Actions, `mooler-z/expressive-react`, `release.yml`, environment `npm`. 1.2.0 was the first publish, done by hand. For any manual npm command (login, publish, `npm trust`), use `npx -y npm@12 … --registry https://registry.npmjs.org/`. The user's global `~/.npmrc` points at a mirror, and the account's second factor is a security key, which only npm 11.15+ confirms in the browser. Older npm asks for a typed code, and using a recovery code there put the account on a temporary hold.
 
 CI (`deploy.yml`) also builds and packs the package on every push.
 
