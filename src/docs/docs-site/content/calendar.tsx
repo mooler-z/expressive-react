@@ -8,6 +8,8 @@ import Unavailable from "@/docs/docs-site/examples/calendar/unavailable"
 import unavailableSrc from "@/docs/docs-site/examples/calendar/unavailable?raw"
 import YearView from "@/docs/docs-site/examples/calendar/year-view"
 import yearViewSrc from "@/docs/docs-site/examples/calendar/year-view?raw"
+import Ethiopian from "@/docs/docs-site/examples/calendar/ethiopian"
+import ethiopianSrc from "@/docs/docs-site/examples/calendar/ethiopian?raw"
 import { InlineCode, TextLink } from "@/docs/docs-site/primitives"
 import type { ComponentDoc } from "@/docs/docs-site/types"
 
@@ -73,6 +75,20 @@ const [date, setDate] = useState(todayDate())
       ),
       component: Events,
       source: eventsSrc,
+    },
+    {
+      id: "ethiopian",
+      title: "Ethiopian calendar",
+      description: (
+        <>
+          The calendar system comes from the locale. Wrap the calendar in <InlineCode>I18nProvider</InlineCode> with{" "}
+          <InlineCode>am-ET-u-ca-ethiopic</InlineCode> for Amharic, or <InlineCode>en-GB-u-ca-ethiopic</InlineCode> for an English UI: 13 months, with
+          Pagume's 5 or 6 days, and Ethiopian years in the year grid. <InlineCode>value</InlineCode> and <InlineCode>onChange</InlineCode> stay in the
+          calendar you pass in, so an app can store Gregorian ISO dates and still show Ethiopian ones. Both calendars here share one value.
+        </>
+      ),
+      component: Ethiopian,
+      source: ethiopianSrc,
     },
   ],
   api: [

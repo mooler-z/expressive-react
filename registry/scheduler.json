@@ -1,0 +1,26 @@
+{
+  "name": "scheduler",
+  "type": "registry:ui",
+  "title": "Scheduler",
+  "description": "Event calendar with month, week, day and agenda views, plus a weekly timetable. Works in any calendar system the locale picks (Gregorian, Ethiopian…).",
+  "dependencies": [
+    "@internationalized/date",
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/button-group",
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/popover",
+    "@expressive/ripple",
+    "@expressive/use-motion",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/scheduler.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

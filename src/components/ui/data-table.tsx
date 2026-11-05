@@ -6,6 +6,10 @@ import {
   Collection,
   Column as AriaColumn,
   ColumnResizer,
+  Group,
+  Input,
+  Label,
+  NumberField,
   ResizableTableContainer,
   Row as AriaRow,
   Table as AriaTable,
@@ -39,6 +43,8 @@ import { cn, composeTailwindRenderProps } from "@/lib/utils"
  * optional column resizing, row-action menus and a pagination footer.
  * Rows: outline-variant dividers, on-surface 4% hover, primary 5% selected. Headers: label-large.
  * Dense: 12dp cell padding, body-small.
+ * Expandable rows: a DataTableExpandButton in the row, then a DataTableDetailRow right after it: one
+ * surface-container cell spanning the columns, focusable but never selectable (useExpandedRows wires both).
  *
  * <DataTableCard>
  *   <DataTableToolbar><DataTableSearch … /></DataTableToolbar>
@@ -303,6 +309,117 @@ function DataTableCell({ className, align, numeric, muted, ...props }: DataTable
   )
 }
 
+/* ---------- Expandable rows ---------- */
+
+export interface DataTableExpandButtonProps {
+  isExpanded: boolean
+  onExpandedChange: (isExpanded: boolean) => void
+  /** Accessible name; include the row name, e.g. "Bills for Abebe Kebede". */
+  label?: string
+  className?: string
+}
+
+/** Chevron icon button for a row's detail panel. Pressing it never toggles row selection. */
+function DataTableExpandButton({ isExpanded, onExpandedChange, label = "Details", className }: DataTableExpandButtonProps) {
+  return (
+    <IconButton
+      data-slot="data-table-expand"
+      aria-label={label}
+      aria-expanded={isExpanded}
+      onPress={() => onExpandedChange(!isExpanded)}
+      className={cn("-my-2", className)}
+    >
+      <Icon
+        className={cn(
+          "transition-[rotate] duration-(--md-spring-fast-spatial-duration) ease-fast-spatial motion-reduce:transition-none",
+          isExpanded && "rotate-180",
+        )}
+      >
+        expand_more
+      </Icon>
+    </IconButton>
+  )
+}
+
+export interface DataTableDetailRowProps extends Omit<AriaRowProps<object>, "children" | "columns" | "className"> {
+  /** Number of columns the panel spans: every DataTableColumn you declared (the selection column is handled for you). */
+  colSpan: number
+  /** Classes for the panel cell. */
+  className?: string
+  children?: React.ReactNode
+}
+
+/**
+ * The detail panel under an expanded row: render it right after its DataTableRow (a Fragment around both).
+ * Give it the id from `useExpandedRows().detailKey(rowId)` so selection skips it.
+ */
+function DataTableDetailRow({ colSpan, className, children, ...props }: DataTableDetailRowProps) {
+  const { selectionBehavior, selectionMode } = useTableOptions()
+  const density = React.useContext(DensityContext)
+  return (
+    <AriaRow
+      data-slot="data-table-detail-row"
+      textValue="Details"
+      {...props}
+      className={cn(
+        "bg-surface-container outline-none",
+        "data-focus-visible:outline-2 data-focus-visible:-outline-offset-2 data-focus-visible:outline-secondary",
+      )}
+    >
+      {selectionBehavior === "toggle" && selectionMode !== "none" && <AriaCell className="p-0 outline-none" />}
+      <AriaCell
+        colSpan={colSpan}
+        className={cn(
+          "outline-none",
+          density === "dense" ? "px-3 py-2" : "px-4 py-3",
+          "data-focus-visible:outline-2 data-focus-visible:-outline-offset-2 data-focus-visible:outline-secondary",
+          className,
+        )}
+      >
+        {children}
+      </AriaCell>
+    </AriaRow>
+  )
+}
+
+export interface UseExpandedRowsOptions {
+  defaultExpandedKeys?: Iterable<Key>
+  /** Keep at most one row open: opening a row closes the previous one. */
+  single?: boolean
+}
+
+/**
+ * Expanded-row state for DataTableExpandButton + DataTableDetailRow.
+ * Spread `tableProps` on <DataTable>: it lists the open detail rows in `disabledKeys` with
+ * `disabledBehavior="selection"`, so they stay focusable but are never selected (merge if you pass your own disabledKeys).
+ */
+function useExpandedRows({ defaultExpandedKeys, single = false }: UseExpandedRowsOptions = {}) {
+  const [expandedKeys, setExpandedKeys] = React.useState<Set<Key>>(() => new Set(defaultExpandedKeys))
+  const setExpanded = React.useCallback(
+    (key: Key, open: boolean) =>
+      setExpandedKeys((prev) => {
+        if (prev.has(key) === open) return prev
+        const next = single ? new Set<Key>() : new Set(prev)
+        if (open) next.add(key)
+        else next.delete(key)
+        return next
+      }),
+    [single],
+  )
+  const detailKey = React.useCallback((key: Key) => `${String(key)}::detail`, [])
+  return {
+    expandedKeys,
+    setExpandedKeys,
+    setExpanded,
+    isExpanded: (key: Key) => expandedKeys.has(key),
+    toggle: (key: Key) => setExpanded(key, !expandedKeys.has(key)),
+    detailKey,
+    /** Props for a row's DataTableExpandButton. */
+    expandButtonProps: (key: Key) => ({ isExpanded: expandedKeys.has(key), onExpandedChange: (open: boolean) => setExpanded(key, open) }),
+    tableProps: { disabledKeys: [...expandedKeys].map(detailKey), disabledBehavior: "selection" as const },
+  }
+}
+
 /* ---------- Row actions ---------- */
 
 export interface DataTableRowActionsProps<T> extends MenuProps<T> {
@@ -337,6 +454,8 @@ export interface DataTablePaginationProps {
   pageSizeOptions?: number[]
   /** Leading content, e.g. "3 of 48 selected". */
   start?: React.ReactNode
+  /** Adds a "Go to page" number field after the paging buttons (commits on Enter or blur). */
+  showJump?: boolean
   className?: string
 }
 
@@ -348,6 +467,7 @@ function DataTablePagination({
   onPageSizeChange,
   pageSizeOptions = [10, 25, 50],
   start,
+  showJump = false,
   className,
 }: DataTablePaginationProps) {
   const pageCount = Math.max(1, Math.ceil(total / pageSize))
@@ -400,6 +520,21 @@ function DataTablePagination({
           <Icon>last_page</Icon>
         </IconButton>
       </span>
+      {showJump && (
+        <NumberField
+          key={page}
+          defaultValue={page}
+          minValue={1}
+          maxValue={pageCount}
+          onChange={(v) => !Number.isNaN(v) && v !== page && onPageChange(v)}
+          className="flex items-center gap-2"
+        >
+          <Label>Go to page</Label>
+          <Group>
+            <Input className="h-9 w-14 rounded-xs border border-outline-variant bg-transparent text-center text-body-sm text-on-surface tabular-nums outline-none focus:border-primary focus:ring-1 focus:ring-primary focus:ring-inset" />
+          </Group>
+        </NumberField>
+      )}
     </div>
   )
 }
@@ -487,7 +622,9 @@ export {
   DataTableCard,
   DataTableCell,
   DataTableColumn,
+  DataTableDetailRow,
   DataTableEmpty,
+  DataTableExpandButton,
   DataTableHeader,
   DataTablePagination,
   DataTableProgress,
@@ -496,4 +633,5 @@ export {
   DataTableSearch,
   DataTableToolbar,
   useDataTable,
+  useExpandedRows,
 }

@@ -10,6 +10,10 @@ import Selection from "@/docs/docs-site/examples/data-table/selection"
 import selectionSrc from "@/docs/docs-site/examples/data-table/selection?raw"
 import Sorting from "@/docs/docs-site/examples/data-table/sorting"
 import sortingSrc from "@/docs/docs-site/examples/data-table/sorting?raw"
+import Expandable from "@/docs/docs-site/examples/data-table/expandable"
+import expandableSrc from "@/docs/docs-site/examples/data-table/expandable?raw"
+import Server from "@/docs/docs-site/examples/data-table/server"
+import serverSrc from "@/docs/docs-site/examples/data-table/server?raw"
 import { InlineCode } from "@/docs/docs-site/primitives"
 import type { ComponentDoc } from "@/docs/docs-site/types"
 
@@ -80,6 +84,32 @@ const dt = useDataTable(rows, { pageSize: 10 })
       component: Empty,
       source: emptySrc,
     },
+    {
+      id: "expandable",
+      title: "Expandable rows",
+      description: (
+        <>
+          A <InlineCode>DataTableExpandButton</InlineCode> in the row opens a <InlineCode>DataTableDetailRow</InlineCode> rendered right after it: one
+          surface-container cell spanning <InlineCode>colSpan</InlineCode> columns. <InlineCode>useExpandedRows</InlineCode> holds the open rows; its{" "}
+          <InlineCode>tableProps</InlineCode> keep detail rows focusable but out of selection, and <InlineCode>single</InlineCode> allows one open row
+          at a time. Render the body from a <InlineCode>map</InlineCode> with a <InlineCode>Fragment</InlineCode> per row.
+        </>
+      ),
+      component: Expandable,
+      source: expandableSrc,
+    },
+    {
+      id: "server",
+      title: "Server-side pagination",
+      description: (
+        <>
+          Drive <InlineCode>DataTablePagination</InlineCode> from your API's page and total, and show <InlineCode>DataTableProgress</InlineCode> while a
+          page loads. <InlineCode>showJump</InlineCode> adds a Go to page field, which commits on Enter or blur.
+        </>
+      ),
+      component: Server,
+      source: serverSrc,
+    },
   ],
   api: [
     {
@@ -122,6 +152,38 @@ const dt = useDataTable(rows, { pageSize: 10 })
       props: [{ name: "label", type: "string", default: '"Row actions"', description: "Accessible name for the button; include the row name." }],
     },
     {
+      name: "DataTableExpandButton",
+      description: "Chevron icon button that toggles a row's detail panel; sets aria-expanded.",
+      props: [
+        { name: "isExpanded", type: "boolean", default: "—", description: "Required. Rotates the chevron." },
+        { name: "onExpandedChange", type: "(isExpanded: boolean) => void", default: "—", description: "Required." },
+        { name: "label", type: "string", default: '"Details"', description: "Accessible name; include the row name." },
+      ],
+    },
+    {
+      name: "DataTableDetailRow",
+      description: "Everything React Aria's Row accepts (id, textValue…), plus:",
+      props: [
+        { name: "colSpan", type: "number", default: "—", description: "Required. The number of DataTableColumns you declared; the selection column is added for you." },
+        { name: "className", type: "string", default: "—", description: "Classes for the panel cell." },
+        { name: "children", type: "ReactNode", default: "—", description: "The panel content." },
+      ],
+    },
+    {
+      name: "useExpandedRows(options?)",
+      props: [
+        { name: "options.defaultExpandedKeys", type: "Iterable<Key>", default: "—", description: "Rows open on mount." },
+        { name: "options.single", type: "boolean", default: "false", description: "Opening a row closes the previous one." },
+        {
+          name: "returns",
+          type: "object",
+          default: "—",
+          description:
+            "expandedKeys, setExpandedKeys, isExpanded(key), setExpanded(key, open), toggle(key), detailKey(key) for the detail row's id, expandButtonProps(key) for DataTableExpandButton, and tableProps to spread on DataTable.",
+        },
+      ],
+    },
+    {
       name: "DataTablePagination",
       description: "Footer with a rows-per-page select, the range and first/previous/next/last buttons.",
       props: [
@@ -131,6 +193,7 @@ const dt = useDataTable(rows, { pageSize: 10 })
         { name: "onPageSizeChange", type: "(size: number) => void", default: "—", description: "Shows the rows-per-page select when set." },
         { name: "pageSizeOptions", type: "number[]", default: "[10, 25, 50]", description: "Choices in the select." },
         { name: "start", type: "ReactNode", default: "—", description: "Leading content, e.g. \"3 of 48 selected\"." },
+        { name: "showJump", type: "boolean", default: "false", description: "Adds a Go to page number field (commits on Enter or blur)." },
       ],
     },
     {

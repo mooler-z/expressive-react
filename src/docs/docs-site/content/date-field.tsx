@@ -8,6 +8,8 @@ import States from "@/docs/docs-site/examples/date-field/states"
 import statesSrc from "@/docs/docs-site/examples/date-field/states?raw"
 import Variants from "@/docs/docs-site/examples/date-field/variants"
 import variantsSrc from "@/docs/docs-site/examples/date-field/variants?raw"
+import Ethiopian from "@/docs/docs-site/examples/date-field/ethiopian"
+import ethiopianSrc from "@/docs/docs-site/examples/date-field/ethiopian?raw"
 import { InlineCode, TextLink } from "@/docs/docs-site/primitives"
 import type { ComponentDoc } from "@/docs/docs-site/types"
 
@@ -69,6 +71,19 @@ import { DateField, TimeField } from "@/components/ui/date-field"
       description: "Read-only segments stay focusable but can't change. Disabled fades to 38% and leaves the tab order.",
       component: States,
       source: statesSrc,
+    },
+    {
+      id: "ethiopian",
+      title: "Ethiopian calendar",
+      description: (
+        <>
+          Typed entry in the Ethiopian calendar: wrap the field in <InlineCode>I18nProvider</InlineCode> with{" "}
+          <InlineCode>am-ET-u-ca-ethiopic</InlineCode> or <InlineCode>en-GB-u-ca-ethiopic</InlineCode>. Both fields edit one Gregorian value, converted
+          for display.
+        </>
+      ),
+      component: Ethiopian,
+      source: ethiopianSrc,
     },
   ],
   api: [

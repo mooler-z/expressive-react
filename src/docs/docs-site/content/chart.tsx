@@ -10,6 +10,10 @@ import Line from "@/docs/docs-site/examples/chart/line"
 import lineSrc from "@/docs/docs-site/examples/chart/line?raw"
 import SparklineGauge from "@/docs/docs-site/examples/chart/sparkline-gauge"
 import sparklineGaugeSrc from "@/docs/docs-site/examples/chart/sparkline-gauge?raw"
+import RadialBar from "@/docs/docs-site/examples/chart/radial-bar"
+import radialBarSrc from "@/docs/docs-site/examples/chart/radial-bar?raw"
+import Treemap from "@/docs/docs-site/examples/chart/treemap"
+import treemapSrc from "@/docs/docs-site/examples/chart/treemap?raw"
 import { InlineCode, TextLink } from "@/docs/docs-site/primitives"
 import type { ComponentDoc } from "@/docs/docs-site/types"
 
@@ -63,6 +67,31 @@ const config = { requests: { label: "Requests", color: "primary" } } satisfies C
       ),
       component: Donut,
       source: donutSrc,
+    },
+    {
+      id: "radial-bar",
+      title: "Radial bars",
+      description: (
+        <>
+          Concentric progress rings with Recharts' <InlineCode>RadialBarChart</InlineCode>. A <InlineCode>PolarAngleAxis</InlineCode> with{" "}
+          <InlineCode>domain={"{[0, 100]}"}</InlineCode> makes each ring a percentage; <InlineCode>background</InlineCode> draws the track in
+          surface-container-highest. Give each row a <InlineCode>name</InlineCode> that matches a config key for the legend and tooltip.
+        </>
+      ),
+      component: RadialBar,
+      source: radialBarSrc,
+    },
+    {
+      id: "treemap",
+      title: "Treemap",
+      description: (
+        <>
+          Part-to-whole across many categories. Draw the tiles with a <InlineCode>content</InlineCode> component: container roles for the fill and
+          their on-colors for the text keep every tile readable in light and dark. Tiles too small for a label show it in the tooltip only.
+        </>
+      ),
+      component: Treemap,
+      source: treemapSrc,
     },
     {
       id: "sparkline-gauge",

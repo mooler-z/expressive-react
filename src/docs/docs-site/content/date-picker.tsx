@@ -10,6 +10,8 @@ import Range from "@/docs/docs-site/examples/date-picker/range"
 import rangeSrc from "@/docs/docs-site/examples/date-picker/range?raw"
 import Validation from "@/docs/docs-site/examples/date-picker/validation"
 import validationSrc from "@/docs/docs-site/examples/date-picker/validation?raw"
+import Ethiopian from "@/docs/docs-site/examples/date-picker/ethiopian"
+import ethiopianSrc from "@/docs/docs-site/examples/date-picker/ethiopian?raw"
 import { InlineCode, TextLink } from "@/docs/docs-site/primitives"
 import type { ComponentDoc } from "@/docs/docs-site/types"
 
@@ -84,6 +86,19 @@ export default {
       ),
       component: Panel,
       source: panelSrc,
+    },
+    {
+      id: "ethiopian",
+      title: "Ethiopian calendar",
+      description: (
+        <>
+          Under an <InlineCode>I18nProvider</InlineCode> with an <InlineCode>-u-ca-ethiopic</InlineCode> locale, the field segments, the headline and
+          the calendar all switch to the Ethiopian calendar. <InlineCode>am-ET</InlineCode> and <InlineCode>en-GB</InlineCode> order the segments
+          day / month / year; English adds the era (AM).
+        </>
+      ),
+      component: Ethiopian,
+      source: ethiopianSrc,
     },
   ],
   api: [

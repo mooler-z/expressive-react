@@ -58,14 +58,14 @@ export const DOCS_GROUPS: DocsGroup[] = [
   {
     section: "components",
     name: "Containment",
-    items: [["card", "Card"], ["carousel", "Carousel"], ["dialog", "Dialog"], ["alert-dialog", "Alert dialog"], ["divider", "Divider"], ["list", "List"], ["sheet", "Bottom & side sheets"], ["accordion", "Accordion"]],
+    items: [["card", "Card"], ["carousel", "Carousel"], ["dialog", "Dialog"], ["alert-dialog", "Alert dialog"], ["image-viewer", "Image viewer"], ["divider", "Divider"], ["list", "List"], ["sheet", "Bottom & side sheets"], ["accordion", "Accordion"]],
   },
   {
     section: "components",
     name: "Navigation",
     items: [
       ["app-bar", "App bar"], ["navigation-bar", "Navigation bar"], ["navigation-rail", "Navigation rail"], ["navigation-drawer", "Navigation drawer"],
-      ["tabs", "Tabs"], ["search", "Search"], ["toolbar", "Toolbar", true], ["breadcrumb", "Breadcrumb"], ["pagination", "Pagination"],
+      ["tabs", "Tabs"], ["search", "Search"], ["toolbar", "Toolbar", true], ["breadcrumb", "Breadcrumb"], ["pagination", "Pagination"], ["stepper", "Stepper"],
       ["sidebar", "Sidebar"], ["navigation-menu", "Navigation menu"], ["menubar", "Menubar"],
     ],
   },
@@ -92,7 +92,7 @@ export const DOCS_GROUPS: DocsGroup[] = [
       ["direction", "Direction (RTL)"], ["alert", "Alert & banner"],
     ],
   },
-  { section: "components", name: "Data", items: [["table", "Table"], ["data-table", "Data table"], ["chart", "Charts"], ["trace", "Trace"]] },
+  { section: "components", name: "Data", items: [["table", "Table"], ["data-table", "Data table"], ["scheduler", "Scheduler"], ["chart", "Charts"], ["trace", "Trace"]] },
   { section: "components", name: "Chat", items: [["message", "Message"], ["message-scroller", "Message scroller"], ["attachment", "Attachment"], ["questionnaire", "Questionnaire"]] },
   { section: "components", name: "Utilities", items: [["shape", "Shape", true], ["ripple", "Ripple"], ["reveal", "Reveal"], ["theme-provider", "Theme provider"], ["theme-presets", "Theme presets", true], ["appearance-picker", "Appearance picker"]] },
   {

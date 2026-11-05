@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { getLocalTimeZone, isSameMonth, today, type CalendarDate } from "@internationalized/date"
+import { GregorianCalendar, getLocalTimeZone, isSameMonth, toCalendar, today, type CalendarDate } from "@internationalized/date"
 import {
   Calendar as AriaCalendar,
   CalendarCell,
@@ -30,6 +30,11 @@ import { cn } from "@/lib/utils"
  *   range        SecondaryContainer band (40dp tall) between primary endpoints
  *   year grid    72×36 pills · selected primary / on-primary · body-large
  *   header       "August 2026 ▾" opens the year grid; chevrons page months
+ *
+ * Calendar systems follow the locale, as in React Aria: <I18nProvider locale="am-ET-u-ca-ethiopic"> shows the
+ * Ethiopian calendar (13 months, Pagume 5–6 days). React Aria converts `value` and `focusedValue` into that
+ * system, but not `minValue` / `maxValue` or dates passed to `setFocusedDate`, so convert those with
+ * `toCalendar(date, state.focusedDate.calendar)` before comparing years or focusing.
  *
  * <Calendar aria-label="Due date" value={date} onChange={setDate} />
  * <RangeCalendar aria-label="Trip" value={range} onChange={setRange} />
@@ -96,9 +101,10 @@ function CalendarHeader({ view, onViewChange }: { view: View; onViewChange: (v: 
 function CalendarYearGrid({ onPick }: { onPick: () => void }) {
   const state = useAnyCalendarState()
   const focused = state.focusedDate
-  const current = today(state.timeZone).year
-  const min = state.minValue?.year ?? focused.year - 100
-  const max = state.maxValue?.year ?? focused.year + 100
+  // Years in the grid's calendar system (Ethiopic years run 7–8 behind Gregorian ones).
+  const current = toCalendar(today(state.timeZone), focused.calendar).year
+  const min = state.minValue ? toCalendar(state.minValue, focused.calendar).year : focused.year - 100
+  const max = state.maxValue ? toCalendar(state.maxValue, focused.calendar).year : focused.year + 100
   const years = React.useMemo(() => {
     const out: number[] = []
     for (let y = Math.max(min, focused.year - 100); y <= Math.min(max, focused.year + 100); y++) out.push(y)
@@ -299,7 +305,7 @@ function EventCalendarToolbar({ children }: { children?: React.ReactNode }) {
         variant="outlined"
         size="xs"
         isDisabled={isCurrentMonth}
-        onPress={() => state.setFocusedDate(today(state.timeZone))}
+        onPress={() => state.setFocusedDate(toCalendar(today(state.timeZone), state.focusedDate.calendar))}
       >
         Today
       </Button>
@@ -317,12 +323,17 @@ export interface EventCalendarProps<T extends DateValue> extends Omit<AriaCalend
   className?: string
 }
 
+const gregorian = new GregorianCalendar()
+
+/** Calendar-system-independent day key: the grid may be Ethiopic while events are Gregorian (or the reverse). */
+const dayKey = (date: CalendarDate) => toCalendar(date, gregorian).toString()
+
 /** Month view with event chips on container roles; today on primary. Selecting a day fires `onChange`. */
 function EventCalendar<T extends DateValue>({ events = [], maxEvents = 2, toolbar, className, ...props }: EventCalendarProps<T>) {
   const byDay = React.useMemo(() => {
     const map = new Map<string, CalendarEvent[]>()
     for (const e of events) {
-      const k = e.date.toString()
+      const k = dayKey(e.date)
       map.set(k, [...(map.get(k) ?? []), e])
     }
     return map
@@ -345,7 +356,7 @@ function EventCalendar<T extends DateValue>({ events = [], maxEvents = 2, toolba
           </CalendarGridHeader>
           <CalendarGridBody>
             {(date) => {
-              const dayEvents = byDay.get(date.toString()) ?? []
+              const dayEvents = byDay.get(dayKey(date)) ?? []
               return (
                 <CalendarCell
                   date={date}

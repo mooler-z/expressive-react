@@ -103,7 +103,7 @@ export function SpecsOverlay() {
         aria-pressed={on}
         onClick={() => setSpecsOn(!on)}
         className={cn(
-          "state-layer focus-ring fixed bottom-20 left-4 z-[94] inline-flex h-10 cursor-pointer items-center gap-2 rounded-full pr-4 pl-3 text-label-lg shadow-3 shape-morph md:hidden",
+          "state-layer focus-ring fixed bottom-20 left-4 z-40 inline-flex h-10 cursor-pointer items-center gap-2 rounded-full pr-4 pl-3 text-label-lg shadow-3 shape-morph md:hidden",
           "bg-tertiary-container text-on-tertiary-container active:rounded-md",
           on && "rounded-md bg-tertiary text-on-tertiary",
         )}

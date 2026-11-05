@@ -1,0 +1,22 @@
+{
+  "name": "stepper",
+  "type": "registry:ui",
+  "title": "Stepper",
+  "description": "Multi-step flow: numbered steps with complete, error and optional states, a validation gate, Back / Next / Finish actions, and a compact form for narrow containers.",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "@expressive/button",
+    "@expressive/icon",
+    "@expressive/ripple",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/stepper.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

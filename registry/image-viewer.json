@@ -1,0 +1,25 @@
+{
+  "name": "image-viewer",
+  "type": "registry:ui",
+  "title": "Image viewer",
+  "description": "Full-screen image viewer with zoom, pinch, pan, rotate, prev/next, thumbnails, captions and download, plus ViewableImage (a pressable <img>) and ImageGallery (a thumbnail grid).",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "@expressive/icon",
+    "@expressive/icon-button",
+    "@expressive/loading-indicator",
+    "@expressive/ripple",
+    "@expressive/theme-provider",
+    "@expressive/tooltip",
+    "@expressive/use-media-query",
+    "@expressive/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/image-viewer.tsx",
+      "type": "registry:ui"
+    }
+  ]
+}

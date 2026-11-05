@@ -665,3 +665,34 @@ html:active-view-transition-type(md-toast)::view-transition-new(root) {
     }
   }
 }
+
+/* ---------- image-viewer ----------
+   Backdrop fades in on DefaultEffects. The image pops in (0.92 → 1) or slides in from the side it came from
+   (--image-viewer-from) on the FastSpatial spring, fading on FastEffects. Reduced motion keeps only the fades.
+   Individual `scale` / `translate` properties, so they compose with the zoom/rotate `transform`. */
+@keyframes md-image-viewer-fade { from { opacity: 0; } }
+@keyframes md-image-viewer-pop { from { scale: 0.92; } }
+@keyframes md-image-viewer-slide { from { translate: var(--image-viewer-from, 0) 0; } }
+@utility image-viewer-backdrop-enter {
+  animation: md-image-viewer-fade var(--md-spring-default-effects-duration) var(--md-spring-default-effects);
+}
+@utility image-viewer-enter {
+  animation:
+    md-image-viewer-pop var(--md-spring-fast-spatial-duration) var(--md-spring-fast-spatial),
+    md-image-viewer-fade var(--md-spring-fast-effects-duration) var(--md-spring-fast-effects);
+  @media (prefers-reduced-motion: reduce) {
+    animation: md-image-viewer-fade var(--md-spring-fast-effects-duration) var(--md-spring-fast-effects);
+  }
+}
+@utility image-viewer-slide {
+  animation:
+    md-image-viewer-slide var(--md-spring-fast-spatial-duration) var(--md-spring-fast-spatial),
+    md-image-viewer-fade var(--md-spring-fast-effects-duration) var(--md-spring-fast-effects);
+  @media (prefers-reduced-motion: reduce) {
+    animation: md-image-viewer-fade var(--md-spring-fast-effects-duration) var(--md-spring-fast-effects);
+  }
+}
+/* Loading indicator waits 300ms before fading in, so cached images never flash it. */
+@utility image-viewer-loading {
+  animation: md-image-viewer-fade var(--md-spring-default-effects-duration) var(--md-spring-default-effects) 300ms backwards;
+}
